@@ -1,8 +1,7 @@
 /**
+ * main: - Entry point
  *
- * main - Entry point
- *
- * Description: Application to print the size of various types on the computer it is compiled and run on.
+ * Description: Application to print the size of various types on the computer
  *
  * Return: 0 (success) else (failed)
  */
