@@ -15,9 +15,9 @@ long int longInteger = 100000;
 long long int longLongInt = 1000000000000;
 float floatNum = 3.44;
 
-printf("Size of a char: %zu byte(s)\n", sizeof(character));
-printf("Size of an int: %zu byte(s)\n", sizeof(integer));
-printf("Size of a long int: %zu byte(s)\n", sizeof(longInteger));
-printf("Size of a long long int: %zu byte(s)\n", sizeof(longLongInt));
-printf("Size of a float: %zu byte(s)\n", sizeof(floatNum));
+printf("Size of a char: %lu byte(s)\n", sizeof(character));
+printf("Size of an int: %lu byte(s)\n", sizeof(integer));
+printf("Size of a long int: %lu byte(s)\n", sizeof(longInteger));
+printf("Size of a long long int: %lu byte(s)\n", sizeof(longLongInt));
+printf("Size of a float: %lu byte(s)\n", sizeof(floatNum));
 }
