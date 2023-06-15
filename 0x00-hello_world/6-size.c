@@ -15,7 +15,7 @@ long long int longLongInt = 1000000000000;
 float floatNum = 3.44;
 
 printf("Size of a char: %d byte(s)\n", sizeof(character));
-printf("Size of a int: %d byte(s)\n", sizeof(integer));
+printf("Size of an int: %d byte(s)\n", sizeof(integer));
 printf("Size of a long int: %d byte(s)\n", sizeof(longInteger));
 printf("Size of a long long int: %d byte(s)\n", sizeof(longLongInt));
 printf("Size of a float: %d byte(s)\n", sizeof(floatNum));
