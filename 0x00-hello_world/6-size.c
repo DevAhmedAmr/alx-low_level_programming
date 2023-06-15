@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main: - Entry point
+ * main - Entry point
  *
  * Description: Application to print the size of various types on the computer
  *
