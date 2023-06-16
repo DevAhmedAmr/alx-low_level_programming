@@ -12,7 +12,7 @@
 
 int main(void)
 {
-for (size_t i = 97; i < 123; i++){
+for (int i = 97; i < 123; i++){
 putchar(i);
 }
 putchar('\n');
