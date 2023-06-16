@@ -17,7 +17,7 @@ int i = 97;
 for (; i < 123; i++)
 putchar(i);
 i = 65;
-for (; i < 98; i++)
+for (; i < 90; i++)
 putchar(i);
 putchar('\n');
 return (0);
