@@ -15,6 +15,6 @@ int main(void)
 for (size_t i = 97; i < 123; i++){
 putchar(i);
 }
-putchar(10);
+putchar('\n');
 return (0);
 }
