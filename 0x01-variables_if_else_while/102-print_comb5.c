@@ -13,9 +13,11 @@
 
 int main(void)
 {
-for (int i = 0; i <= 99; i++)
+int i = 0;
+for (; i <= 99; i++)
 {
-for (int j = 0; j <= 99; j++)
+int j = 0;
+for (; j <= 99; j++)
 {
 if (i != j)
 {
