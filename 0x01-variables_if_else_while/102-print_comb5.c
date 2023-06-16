@@ -31,10 +31,6 @@ if (i != 99 || j != 98)
 putchar(',');
 putchar(' ');
 }
-else
-{
-putchar('\n');
-}
 }
 }
 }
