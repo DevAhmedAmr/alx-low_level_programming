@@ -8,7 +8,7 @@
  * Return: 1 if c is a lowercase else reutrn 0
  *
  */
-int int _isalpha(int c)
+int _isalpha(int c)
 {
 	int i;
 
