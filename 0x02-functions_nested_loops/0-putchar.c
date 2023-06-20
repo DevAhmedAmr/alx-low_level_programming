@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * main - Entry point
  *
@@ -6,8 +7,18 @@
  *
  * Return: 0 succsess , else failed
  */
+
 int main(void)
 {
-	printPutChar();
+	char string[] = "_putchar";
+	int i = 0;
+
+	for (; i < sizeof(string); i++)
+	{
+		_putchar(string[i]);
+	}
+	_putchar('\n');
+
 	return (0);
 }
+
