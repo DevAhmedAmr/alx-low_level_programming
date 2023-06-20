@@ -1,14 +1,14 @@
 #include"main.h"
 /**
- * _islower - function that checks if the input of
- * type char is a lower case
+ * _isalpha - function that checks if the input of
+ * type char is a char
  *
  * @c: is a paramter of type char
  *
  * Return: 1 if c is a lowercase else reutrn 0
  *
  */
-int _islower(int c)
+int int _isalpha(int c)
 {
 	int i;
 
