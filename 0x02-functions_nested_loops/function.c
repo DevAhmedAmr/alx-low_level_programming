@@ -1,3 +1,4 @@
+#include <stdio.h>
 int printPutChar(void)
 {
         printf("_putchar\n");

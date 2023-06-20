@@ -1,3 +1,4 @@
+#include "header.h"
 /**
  * main - Entry point
  *
@@ -7,6 +8,6 @@
  */
 int main(void)
 {
-	printf("_putchar\n");
+	printPutChar();
 	return (0);
 }
