@@ -9,23 +9,25 @@
  */
 void times_table(void)
 {
-	for (size_t i = 0; i <= 9; i++)
+	int i;
+
+	for (i = 0; i <= 9; i++)
 	{
-		for (size_t j = 0; j <= 9; j++)
+		int j;
+		for (j = 0; j <= 9; j++)
 		{
 			int result = i * j;
 
-			if (result <= 9)
-			{
+			if (result <= 9){
 				if (j > 1)
 				{
 					_putchar(' ');
 				}
-
 				_putchar(result + '0');
-
 				if (j != 9)
+				{
 					_putchar(',');
+				}
 				if (j < 9)
 				{
 					_putchar(' ');
@@ -41,6 +43,7 @@ void times_table(void)
 				}
 				_putchar(' ');
 			}
-			_putchar('\n');
 		}
+		_putchar('\n');
 	}
+}
