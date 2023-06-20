@@ -11,9 +11,9 @@
 int main(void)
 {
 	char string[] = "_putchar";
-	long int i = 0;
+	size_t i;
 
-	for (; i < sizeof(string); i++)
+	for (i = 0; i < sizeof(string); i++)
 	{
 		_putchar(string[i]);
 	}
