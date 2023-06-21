@@ -32,8 +32,9 @@ void print_to_98(int n)
 			if (i != 98)
 			{
 				putchar(',');
+				putchar(' ');
 			}
-			putchar(' ');
 		}
 	}
+	printf("\n");
 }
