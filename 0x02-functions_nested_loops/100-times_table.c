@@ -23,8 +23,11 @@ void print_times_table(int n)
 
 				_putchar(',');
 				_putchar(' ');
-				if (result <=9 || result <= 99)
+				if (result <= 9 )
 					_putchar(' ');
+				if (result <= 99)
+					_putchar(' ');
+
 				if (result >= 100)
 				{
 					_putchar((result /100) + '0');
