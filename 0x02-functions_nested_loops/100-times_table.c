@@ -17,15 +17,15 @@ void print_times_table(int n)
 			int j = 0;
 
 			for (; j <= n; j++)
-            {
+			{
 		    int result = i * j;
 
-		    if (result <= 9&&j!=0)
+		    if (result <= 9 && j != 0)
 		    {
 			    _putchar(' ');
 		    }
 
-		    if (result <= 99 && j!=0)
+		    if (result <= 99 && j !=0 )
 		    {
 			    _putchar(' ');
 		    }
@@ -43,7 +43,7 @@ void print_times_table(int n)
 			    _putchar(',');
 			    _putchar(' ');
 		    }
-	    }
+			}
 			_putchar('\n');
 		}
 	}
