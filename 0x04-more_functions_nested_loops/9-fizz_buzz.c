@@ -28,7 +28,7 @@ int main(void)
 		}
 		else if (i % 5 == 0)
 		{
-			printf("%s ", "buzz");
+			printf("%s ", "Buzz");
 		}
 		else
 		{
