@@ -1,9 +1,9 @@
 #include"main.h"
 /**
- * print_last_digit_table - function that prints the last digit of a number.
+ * print_times_table - function that prints times table, starting with 0.
  * @i: int value
  *
- * Return: the value of the last digit
+ * Return: 0 = succseded
  *
  */
 void print_times_table(int n)
