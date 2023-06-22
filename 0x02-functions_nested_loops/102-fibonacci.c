@@ -17,10 +17,14 @@ int main(void)
 		secondNum = nextNumber;
 
 		printf("%lu", secondNum);
-		if (i != 49)
+		if (i != 47)
 		{
 			putchar(',');
 			putchar(' ');
+		}
+		else
+		{
+			putchar('\n');
 		}
 	}
 	return (0);
