@@ -2,38 +2,32 @@
 /**
  * main - Entry point
  *
- * Description: program that prints the first 50 Fibonacci numbers,
- * starting with 1 and 2
+ * Description: program that prints the sum of even number,
+ * in fabini scq starting with 1 and 2
  *
  * Return: 0
  */
+#include <stdio.h>
+
 int main(void)
 {
-        unsigned long firstNum = 1;
+	unsigned int firstNumber = 0;
 
-        unsigned long  secondNum = 2;
+	unsigned int secondNumber = 1;
 
-        int i;
+	unsigned int totalSum = 0;
 
-        printf("%lu, %lu, ", firstNum, secondNum);
-        for (i = 0; i < 48; i++)
-        {
-                unsigned long nextNumber = firstNum + secondNum;
+	for (int i = 2; i < 50; i++)
+	{
+		unsigned int num3 = firstNumber + secondNumber;
 
-                firstNum = secondNum;
-
-                secondNum = nextNumber;
-
-                printf("%lu", secondNum);
-                if (i != 47)
-                {
-                        putchar(',');
-                        putchar(' ');
-                }
-                else
-                {
-                        putchar('\n');
-                }
-        }
-        return (0);
+		firstNumber = secondNumber;
+		secondNumber = num3;
+		if (num3 < 4000000 && num3 % 2 == 0)
+		{
+			totalSum += num3;
+		}
+	}
+	printf("%u\n", totalSum);
+	return (0);
 }
