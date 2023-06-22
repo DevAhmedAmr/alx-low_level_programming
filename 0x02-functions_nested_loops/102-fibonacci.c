@@ -1,13 +1,13 @@
 #include <stdio.h>
 int main(void)
 {
-	unsigned long firstNum = 0;
+	unsigned long firstNum = 1;
 
-	unsigned long  secondNum = 1;
+	unsigned long  secondNum = 2;
 
 	int i;
 
-	printf("%lu, %lu,  ", firstNum, secondNum);
+	printf("%lu, %lu, ", firstNum, secondNum);
 	for ( i = 0; i < 50; i++)
 	{
 		unsigned long nextNumber = firstNum + secondNum;
