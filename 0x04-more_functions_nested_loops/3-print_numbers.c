@@ -1,6 +1,8 @@
 #include"main.h"
 /**
- * print_numbers - function that prints the last digit of a number.
+ * print_numbers - function that prints  numbers.
+ *
+ * Description: function prints 0 to 9
  *
  * Return: 0
  *
