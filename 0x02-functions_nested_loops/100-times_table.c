@@ -1,7 +1,7 @@
 #include"main.h"
 /**
  * print_times_table - function that prints times table, starting with 0.
- * @i: int value
+ * @n: int value
  *
  * Return: 0 = succseded
  *
