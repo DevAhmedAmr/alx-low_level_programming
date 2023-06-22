@@ -8,7 +8,7 @@ int main(void)
 	int i;
 
 	printf("%lu, %lu, ", firstNum, secondNum);
-	for ( i = 0; i < 50; i++)
+	for ( i = 0; i < 48; i++)
 	{
 		unsigned long nextNumber = firstNum + secondNum;
 
