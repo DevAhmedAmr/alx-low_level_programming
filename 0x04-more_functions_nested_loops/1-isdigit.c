@@ -10,7 +10,7 @@ int _isdigit(int c)
 
 	for (i=0; i<=9; i++)
 	{
-	       	if (i == 9)
+	       	if (c == i)
 		return 1;
 	}
 	return 1;
