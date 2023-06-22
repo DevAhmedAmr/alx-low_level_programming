@@ -17,7 +17,9 @@ int main(void)
 
 	unsigned int totalSum = 0;
 
-	for (int i = 2; i < 50; i++)
+	int i;
+
+	for (i = 2; i < 50; i++)
 	{
 		unsigned int num3 = firstNumber + secondNumber;
 
