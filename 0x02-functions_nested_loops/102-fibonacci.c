@@ -1,12 +1,14 @@
 #include <stdio.h>
-void main(void)
+int main(void)
 {
 	unsigned long firstNum = 0;
 
 	unsigned long  secondNum = 1;
 
+	int i;
+
 	printf("%lu, %lu,  ", firstNum, secondNum);
-	for (size_t i = 0; i < 50; i++)
+	for ( i = 0; i < 50; i++)
 	{
 		unsigned long nextNumber = firstNum + secondNum;
 
@@ -21,4 +23,5 @@ void main(void)
 			putchar(' ');
 		}
 	}
+	return (0);
 }
