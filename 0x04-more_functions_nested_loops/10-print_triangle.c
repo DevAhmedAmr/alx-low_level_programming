@@ -1,3 +1,4 @@
+#include<stdio.h>
 /**
  * print_triangle - Write a function that prints a triangle,
  *  followed by a new line.
@@ -14,15 +15,15 @@ void print_triangle(int size)
 
         for (j = i; j < size; j++)
         {
-            putchar(' ');
+            _putchar(' ');
         }
         int k;
 
         for (k = 1; k <= i; k++)
         {
-            putchar('#');
+		_putchar('#');
         }
 
-        putchar('\n');
+        _putchar('\n');
     }
 }
