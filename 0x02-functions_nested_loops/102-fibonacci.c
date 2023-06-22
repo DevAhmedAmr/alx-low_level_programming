@@ -16,7 +16,7 @@ int main(void)
 
 		secondNum = nextNumber;
 
-		printf("%lu  ", secondNum);
+		printf("%lu", secondNum);
 		if (i != 49)
 		{
 			putchar(',');
