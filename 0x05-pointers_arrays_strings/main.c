@@ -1,8 +1,8 @@
-#include"main.h"
-void main()
-{
-    char s[] = "1234";
-    rev_string(s);
+#include <stdio.h>
 
-    printf("%s dd", s);
+int main(void)
+{
+    char s[] = "Hello, world!";
+    print_rev(s);
+    return 0;
 }
