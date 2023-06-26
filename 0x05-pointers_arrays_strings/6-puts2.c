@@ -41,5 +41,7 @@ void puts2(char *str)
 
 		else
 			print = 1;
+		
 	}
+	_putchar('\n');
 }
