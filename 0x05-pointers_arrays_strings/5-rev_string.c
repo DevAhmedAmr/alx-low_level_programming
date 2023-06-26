@@ -23,7 +23,7 @@ int _strlen(char *s)
  * Return: length of a string
  */
 
-void print_rev(char *s)
+void rev_string(char *s)
 {
 	int i;
 
