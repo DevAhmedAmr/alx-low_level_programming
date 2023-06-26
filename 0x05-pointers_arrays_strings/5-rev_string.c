@@ -16,7 +16,7 @@ int _strlen(char *s)
 }
 
 /**
- * print_rev - a function that returns the length of a string.
+ * rev_string - a function that returns the length of a string.
  *
  * @s: type str
  *
@@ -25,16 +25,17 @@ int _strlen(char *s)
 
 void rev_string(char *s)
 {
-	int i;
+	int i = 0;
 
 	int temp;
 
 	int len = _strlen(s);
 
-	for (i = 0; i < len / 2; i++)
+	while (i < len)
 	{
-		 temp = s[i];
-		 s[i] = s[len - 1 - i];
-		 s[len - 1 - i] = temp;
+		temp = s[i];
+		s[i] = s[len - 1 - i];
+		s[len - 1 - i] = temp;
+		i++;
 	}
 }
