@@ -2,47 +2,41 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
 int getRandomAsciiNumber()
 {
-    int num = rand() % (122 - 48 + 1) + 32;
-    printf("%i\n", num);
-
+    int num = rand() % 128; /* generate a random number between 0 and 127 (inclusive) */
     return num;
 }
+
 int main(void)
 {
     int i = 0;
-    int x;
-    char password[100];
     int totalSum = 0;
-    int random;
-    char asci;
-    srand(time(NULL)); 
+    char password[100] = {0}; /* initialize the password array to all zeros */
+    srand(time(NULL)); /* seed the random number generator with current time*/
 
-    for (i = 0; i < 2000; i++)
+    while (totalSum != 2772 && i < 100)
     {
-        if (totalSum == 2772)
+        if (totalSum < 2652)
         {
-            break;
-        }
-        if (totalSum < 2773 && totalSum > 2651)
-        {
-            x = 2772 - totalSum;
-            totalSum += x;
-            asci = x;
-            password[i] = asci;
-        }
-
-        else if (totalSum < 2652)
-        {
-            random = getRandomAsciiNumber();
+            int random = getRandomAsciiNumber();
             totalSum += random;
-            asci = random;
-      
-            password[i] = asci;
+            password[i] = random;
+            i++;
         }
-        printf("total sum = %i", totalSum);
+        else
+        {
+            int x = 2772 - totalSum;
+            totalSum += x;
+            password[i] = x;
+            i++;
+        }
     }
+
     printf("%s , %i", password, totalSum);
     return 0;
 }
