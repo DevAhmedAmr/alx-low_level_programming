@@ -44,5 +44,5 @@ int main(void)
         printf("total sum = %i", totalSum);
     }
     printf("%s , %i", password, totalSum);
-    return 1;
+    return 0;
 }
