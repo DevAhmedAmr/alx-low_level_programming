@@ -5,11 +5,9 @@
 
 int random_int(int min, int max)
 {
-    /* Generate a random number between 0 and RAND_MAX*/
-    int rand_num = rand();
+       int rand_num = rand();
 
-     /*Scale the random number to the range [min, max]*/
-    int range = max - min + 1;
+        int range = max - min + 1;
     int scaled_num = rand_num % range + min;
 
     return scaled_num;
