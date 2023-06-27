@@ -1,4 +1,11 @@
 #include<stdio.h>
+/**
+ * print_array - function that print arr elemnts
+ *
+ * @a: array
+ * @n: number of elemnts
+ * return: void
+ */
 void print_array(int *a, int n)
 {
 	int i;
