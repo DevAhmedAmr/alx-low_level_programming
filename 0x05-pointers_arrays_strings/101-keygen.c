@@ -4,12 +4,13 @@
 #include <time.h>
 int main(void)
 {
+	int i;
     char passwd[PASSWORD_LENGTH + 1];
     const char charcters[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     const int len = sizeof(charcters) - 1;
     srand(time(NULL));
    
-    for (int i = 0; i < PASSWORD_LENGTH; i++)
+    for (i = 0; i < PASSWORD_LENGTH; i++)
     {
         passwd[i] = charcters[rand() % len];
     }
