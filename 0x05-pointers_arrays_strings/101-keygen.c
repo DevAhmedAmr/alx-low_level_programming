@@ -20,7 +20,7 @@ int main(void)
 	{
 		randomNumber = rand() % 62;
 		passwd[i] = allchars[randomNumber];
-		totalSum += passwd[i];
+		totalSum += allchars[randomNumber];
 		i++;
 	}
 	randomNumber = 2772 - totalSum;
