@@ -20,7 +20,7 @@ int _strlen(char *s)
  * @dest: parameter of a string wanted to be copied to
  * @src: string wanted to be copy from
  *
- * return: dest
+ * return: dest value .
  *
  */
 char *_strcpy(char *dest, char *src)
