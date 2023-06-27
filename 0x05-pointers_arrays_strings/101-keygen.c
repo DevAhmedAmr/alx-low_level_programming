@@ -5,10 +5,10 @@
 
 int random_int(int min, int max)
 {
-    // Generate a random number between 0 and RAND_MAX
+    /* Generate a random number between 0 and RAND_MAX*/
     int rand_num = rand();
 
-    // Scale the random number to the range [min, max]
+     /*Scale the random number to the range [min, max]*/
     int range = max - min + 1;
     int scaled_num = rand_num % range + min;
 
@@ -23,8 +23,7 @@ int main()
     int range = random_int(50, 100);
     int i;
 
-    // Seed the random number generator with the current time
-    srand(time(NULL));
+        srand(time(NULL));
 
     for (i = 0; i < range; i++)
     {
