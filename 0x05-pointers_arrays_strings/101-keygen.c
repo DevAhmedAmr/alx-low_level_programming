@@ -21,11 +21,12 @@ int main()
     char passwd[100];
     int allcharsLength = strlen(allchars) + 1;
     int range = random_int(50, 100);
+    int i;
 
     // Seed the random number generator with the current time
     srand(time(NULL));
 
-    for (int i = 0; i < range; i++)
+    for (i = 0; i < range; i++)
     {
         passwd[i] = allchars[random_int(0, allcharsLength - 1)]; // Subtract 1 from allcharsLength to exclude the null terminator
     }
