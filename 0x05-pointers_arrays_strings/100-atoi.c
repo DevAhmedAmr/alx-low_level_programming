@@ -42,7 +42,7 @@ int _atoi(char *s)
 			operator*= 1;
 		
 
-		if (num > 0 && ascii_code < 47 || num > 0 && ascii_code > 58)
+		if ((num > 0 && ascii_code < 47) || (num > 0 && ascii_code > 58))
 			break;
 		else if ((ascii_code < 47) || ascii_code > 58)
 			continue;
