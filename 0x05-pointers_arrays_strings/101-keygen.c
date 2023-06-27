@@ -5,6 +5,7 @@
 #define PASSWORD_LENGTH 10
 
 int main(void) {
+	int i;
     char password[PASSWORD_LENGTH + 1];
 
     const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=";
@@ -14,7 +15,7 @@ int main(void) {
     srand(time(NULL));
 
    
-    for (int i = 0; i < PASSWORD_LENGTH; i++) {
+    for (i = 0; i < PASSWORD_LENGTH; i++) {
         password[i] = charset[rand() % charset_length];
     }
     password[PASSWORD_LENGTH] = '\0';
