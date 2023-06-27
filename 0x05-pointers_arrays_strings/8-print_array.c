@@ -3,14 +3,14 @@ void print_array(int *a, int n)
 {
 	int i;
 
-    for (i = 0; i < n; i++)
-    {
-        printf("%i", a[i]);
-        if (i != n - 1)
-        {
-            putchar(',');
-            putchar(' ');
-        }
-    }
-    putchar('\n');
+	for (i = 0; i < n; i++)
+	{
+		printf("%i", a[i]);
+		if (i != n - 1)
+		{
+			putchar(',');
+			putchar(' ');
+		}
+	}
+	putchar('\n');
 }
