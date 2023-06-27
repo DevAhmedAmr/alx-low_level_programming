@@ -2,41 +2,30 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
-int getRandomAsciiNumber()
-{
-    int num = rand() % 128; /* generate a random number between 0 and 127 (inclusive) */
-    return num;
-}
+/**
+ * main - function that generate random password
+ *
+ * Return: 0 = success else failed
+ */
 
 int main(void)
 {
-    int i = 0;
-    int totalSum = 0;
-    char password[100] = {0}; /* initialize the password array to all zeros */
-    srand(time(NULL)); /* seed the random number generator with current time*/
-
-    while (totalSum != 2772 && i < 100)
-    {
-        if (totalSum < 2652)
-        {
-            int random = getRandomAsciiNumber();
-            totalSum += random;
-            password[i] = random;
-            i++;
-        }
-        else
-        {
-            int x = 2772 - totalSum;
-            totalSum += x;
-            password[i] = x;
-            i++;
-        }
-    }
-
-    printf("%s , %i", password, totalSum);
-    return 0;
+	int i = 0;
+	int randomNumber = 0;
+	int totalSum = 0;
+	char passwd[100];
+	char allchars[63] = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	srand(time(NULL));
+	while (totalSum < (2772 - 122))
+	{
+		randomNumber = rand() % 62;
+		passwd[i] = allchars[randomNumber];
+		totalSum += passwd[i];
+		i++;
+	}
+	randomNumber = 2772 - totalSum;
+	passwd[i] = randomNumber;
+	passwd[++i] = '\0';
+	printf("%s\n", passwd);
+	return (0);
 }
