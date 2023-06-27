@@ -1,25 +1,36 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
-#define PASSWORD_LENGTH 10
+int random_int(int min, int max)
+{
+    // Generate a random number between 0 and RAND_MAX
+    int rand_num = rand();
 
-int main(void) {
-	int i;
-    char password[PASSWORD_LENGTH + 1];
+    // Scale the random number to the range [min, max]
+    int range = max - min + 1;
+    int scaled_num = rand_num % range + min;
 
-    const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=";
+    return scaled_num;
+}
 
-    const int  charset_length = sizeof(charset) - 1;
+int main()
+{
+    char allchars[] = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~\0";
+    char passwd[100];
+    int allcharsLength = strlen(allchars) + 1;
+    int range = random_int(50, 100);
 
+    // Seed the random number generator with the current time
     srand(time(NULL));
 
-   
-    for (i = 0; i < PASSWORD_LENGTH; i++) {
-        password[i] = charset[rand() % charset_length];
+    for (int i = 0; i < range; i++)
+    {
+        passwd[i] = allchars[random_int(0, allcharsLength - 1)]; // Subtract 1 from allcharsLength to exclude the null terminator
     }
-    password[PASSWORD_LENGTH] = '\0';
+    passwd[range] = '\0';
 
-    printf("%s", password);
+    printf("%s", passwd);
     return 0;
 }
