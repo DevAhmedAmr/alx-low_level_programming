@@ -15,7 +15,7 @@ int _strlen(char *s)
 	return (len);
 }
 /**
- * puts_half: function to print half str
+ * puts_half - function to print half str
  * @str: string paramter
  *
  * return: void
@@ -31,7 +31,7 @@ void puts_half(char *str)
 	else
 		i = _strlen(str) / 2;
 	for (; i < _strlen(str); i++)
-	{ 
+	{
 		_putchar(str[i]);
 	}
 	_putchar('\n');
