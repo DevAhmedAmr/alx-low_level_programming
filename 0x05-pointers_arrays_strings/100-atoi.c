@@ -28,7 +28,7 @@ int _atoi(char *s)
 
 	int value;
 
-	for (i = 0; i < strlen(s); i++)
+	for (i = 0; i < _strlen(s); i++)
 	{
 		ascii_code = (int)s[i];
 
