@@ -14,6 +14,14 @@ int _strlen(char *s)
 		len++;
 	return (len);
 }
+/**
+ * puts_half: function to print half str
+ * @str: string paramter
+ *
+ * return: void
+ *
+ */
+
 void puts_half(char *str)
 {
 	int i;
@@ -28,4 +36,3 @@ void puts_half(char *str)
 	}
 	_putchar('\n');
 }
-
