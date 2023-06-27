@@ -25,8 +25,7 @@ int main()
 
     for (i = 0; i < range; i++)
     {
-        passwd[i] = allchars[random_int(0, allcharsLength - 1)]; // Subtract 1 from allcharsLength to exclude the null terminator
-    }
+        passwd[i] = allchars[random_int(0, allcharsLength - 1)];    }
     passwd[range] = '\0';
 
     printf("%s", passwd);
