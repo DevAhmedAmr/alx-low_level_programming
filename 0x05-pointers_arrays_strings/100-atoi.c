@@ -14,6 +14,12 @@ int _strlen(char *s)
 		len++;
 	return (len);
 }
+/**
+ * _atoi - function that parse from string to int
+ * @s: paramter type string
+ *
+ * Return: parsed string to int
+ */
 
 
 int _atoi(char *s)
@@ -35,11 +41,9 @@ int _atoi(char *s)
 		if (ascii_code == 45)
 
 			operator *= -1;
-		
 		else if (ascii_code == 43)
 
 			operator *= 1;
-		
 		if ((num > 0 && ascii_code < 47) || (num > 0 && ascii_code > 58))
 			break;
 		else if ((ascii_code < 47) || ascii_code > 58)
