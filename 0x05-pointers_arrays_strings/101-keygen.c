@@ -38,7 +38,7 @@ int main(void)
             random = getRandomAsciiNumber();
             totalSum += random;
             asci = random;
-            // printf("%c", asci);
+      
             password[i] = asci;
         }
         printf("total sum = %i", totalSum);
