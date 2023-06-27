@@ -16,7 +16,7 @@ int main(void)
 	char passwd[100];
 	char allchars[63] = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	srand(time(NULL));
-	while (totalSum < (2772 - 122))
+	while (totalSum < (2650))/*2772 -122*/
 	{
 		randomNumber = rand() % 62;
 		passwd[i] = allchars[randomNumber];
