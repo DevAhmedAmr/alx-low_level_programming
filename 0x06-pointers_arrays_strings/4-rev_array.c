@@ -1,24 +1,21 @@
 #include"main.h"
 /**
- * _strlen -  a function that returns the length of a string.
+ * reverse_array - Write a function that compares two strings.
  *
- * @s: type str
+ * @a: type string input
+ * @n: number of the string charachters
  *
- * Return: length of a string
+ * Return: void
+ *
  */
-int _strlen(char *s)
-{
-	int len = 0;
-
-	while (s[len] != '\0')
-		len++;
-	return (len);
-}
 void reverse_array(int *a, int n)
 {
-	for(i = n ;i >= 0 ; i++)
-	{
-		
+    int i = (n - 1), j = 0;
 
-	}
+    for (; i >= n / 2; i--, j++)
+    {
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
 }
