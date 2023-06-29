@@ -23,16 +23,16 @@ int _strlen(char *s)
  * If s1 is greater than s2, the function returns a positive integer.
  * If s1 is equal to s2, the function returns zero.
  */
-int _strcmp(char *s1, char *s2)
+int _strcm2p(char *s1, char *s2)
 {
-	if (_strlen(s1) < _strlen(s2))
+	while (*s1 == *s2 && *s1 != '\0' && *s2 != '\0')
 	{
-		return -15;
+		s1++;
+		s2++;
 	}
-	else if (_strlen(s1) > _strlen(s2))
-	{
-		return 15;
-	}
+	if (*s1 != *s2)
 
-	return 0;
+		return (*s1 - *s2);
+	else
+		return (0);
 }
