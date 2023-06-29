@@ -16,7 +16,7 @@ int _strlen(char *s)
 }
 /**
  * _strcmp - function compare strings lenth
- * @s1: string1 
+ * @s1: string1
  * @s2: string1
  *
  * Return: If s1 is less than s2, the function returns a negative integer.
