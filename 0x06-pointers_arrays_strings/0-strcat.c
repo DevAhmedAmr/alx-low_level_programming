@@ -20,3 +20,4 @@ char *_strcat(char *dest, char *src)
 	dest[_strlen(dest)] = '\0';
 	return (dest);
 }
+

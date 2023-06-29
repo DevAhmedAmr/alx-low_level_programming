@@ -5,4 +5,5 @@ int _strlen(char *s);
 char *_strcat(char *dest, char *src);
 #define MAX_SIZE 100
 
-#endif 
+#endif
+
