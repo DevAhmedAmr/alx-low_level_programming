@@ -10,7 +10,7 @@
  * Return:
  * A pointer to the encrypted string.
  */
-char *rot132(char *str)
+char *rot13(char *str)
 {
 	int i;
 
