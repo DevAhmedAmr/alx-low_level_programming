@@ -14,11 +14,12 @@ int _strlen(char *s)
 		len++;
 	return (len);
 }
+
 void intToString(int num, char *str)
 {
     int isNegative = 0;
     int i = 0;
-    int length = i;
+    int length;
     int j;
 
     if (num == 0)
@@ -48,7 +49,9 @@ void intToString(int num, char *str)
 
     str[i] = '\0';
 
-    /* Reverse the string*/
+    /* Reverse the string */
+
+    length = i;
 
     for (j = 0; j < length / 2; j++)
     {
@@ -57,7 +60,6 @@ void intToString(int num, char *str)
         str[length - j - 1] = temp;
     }
 }
-
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
     int num1 = 0;
