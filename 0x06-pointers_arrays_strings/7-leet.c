@@ -32,13 +32,15 @@ char *leet(char *str)
 
 	for (i = 0; i < _strlen(str); i++)
 	{
-		for (j = 0; j < 10 && str[i] != '\0'; j++)
+		for (j = 0; j < 10; j++)
 		{
 			if (str[i] == charsList[j])
 			{
 				str[i] = charsToNumbers[j];
 			}
 		}
+		str[_strlen(str)]=('\0');
+
 	}
 	return (str);
 }
