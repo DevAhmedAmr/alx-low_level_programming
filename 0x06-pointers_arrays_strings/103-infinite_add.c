@@ -75,7 +75,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
         return 0;
     }
 
-      for (i = 0; i < len1; i++)
+    for (i = 0; i < len1; i++)
     {
         num1 = num1 * 10;
         num1 += (n1[i] - '0');
@@ -89,10 +89,15 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 
     result = num1 + num2;
 
-    intToString(result, r);
+    if (result < 0) {
+        result *= -1;
+        r[0] = '-';
+        intToString(result, r+1);
+    } else {
+        intToString(result, r);
+    }
 
     r[_strlen(r)] = '\0';
-
 
     return r;
 }
