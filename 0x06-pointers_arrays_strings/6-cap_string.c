@@ -28,14 +28,8 @@ char *cap_string(char *str)
     {
         for (j = 0; j < 14; j++)
         {
-            if (str[i - 1] == '\t')
-            {
-                str[i - 1] = ' ';
-
-                str[i] = (int)str[i] - 32;
-            }
-
-            else if (str[i - 1] == Separators[j] && (int)str[i] < 123 && (int)str[i] > 96)
+            
+             if (str[i - 1] == Separators[j] && (int)str[i] < 123 && (int)str[i] > 96)
 
             {
                 str[i] = (int)str[i] - 32;
