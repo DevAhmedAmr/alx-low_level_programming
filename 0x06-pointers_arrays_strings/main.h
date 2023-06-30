@@ -9,7 +9,7 @@ void reverse_array(int *a, int n);
 char *string_toupper(char *a);
 char *cap_string(char *str);
 char *leet(char *str);
-char *rot132(char *str);
+char *rot13(char *str);
 #define MAX_SIZE 100
 
 #endif
