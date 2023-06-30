@@ -14,13 +14,13 @@ char *rot13(char *str)
 {
 	int i;
 
-	char normalLetters[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char *normalLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-	char rot13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+	char *rot13 = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
 	while (*str)
 	{
-		for (i = 0; i < 52; i++)
+		for (i = 0; i < 53; i++)
 		{
 			if (*str == normalLetters[i])
 			{
