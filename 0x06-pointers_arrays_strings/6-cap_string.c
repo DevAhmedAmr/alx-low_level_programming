@@ -21,20 +21,21 @@ int _strlen(char *s)
  */
 char *cap_string(char *str)
 {
-    int Separators[] = {',', ';', '.', '!', '?', '"',
-                        '(', ')', '{', '}', ' ', '\n', '-', '\t'};
-    int i, j;
-    for (i = 0; i < _strlen(str); i++)
+    char Separators[] = {'\t', '\n', ' ', ',', ';', '!',
+                         '.', '?', '\"', '(', ')', '{', '}'};
+    int i = 0, j;
+    while (i < _strlen(str) && str[i] != '\0')
     {
         for (j = 0; j < 14; j++)
         {
-            
-             if (str[i - 1] == Separators[j] && (int)str[i] < 123 && (int)str[i] > 96)
+
+            if (str[i - 1] == Separators[j] && (int)str[i] < 123 && (int)str[i] > 96)
 
             {
                 str[i] = (int)str[i] - 32;
             }
         }
+        i++;
     }
     return str;
 }
