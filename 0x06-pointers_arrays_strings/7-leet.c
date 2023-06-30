@@ -2,7 +2,7 @@
  * leet - function that encodes a string into 1337.
  * Mozart composed his music not for the elite,
  * but for everybody
- * @str: string that wanted to be encoded
+ * @c: string that wanted to be encoded
  * Return: str
  */
 char *leet(char *c)
