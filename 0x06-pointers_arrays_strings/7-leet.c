@@ -1,44 +1,26 @@
 /**
- * _strlen -  a function that returns the length of a string.
- *
- * @s: type str
- *
- * Return: length of a string
- */
-int _strlen(char *s)
-{
-	int len = 0;
-
-	while (s[len] != '\0')
-		len++;
-	return (len);
-}
-/**
  * leet - function that encodes a string into 1337.
  * Mozart composed his music not for the elite,
  * but for everybody
  * @str: string that wanted to be encoded
  * Return: str
  */
-char *leet(char* str)
+char *leet(char *c)
 {
-	char* strPointer = str;
+	int i, j;
+	char incS[] = {'4', '3', '0', '7', '1'};
+	char incD[] = {'a', 'A', 'e', 'E', 'o', 'O', 't', 'T', 'l', 'L' };
 
-	char lettersToReplace[] = {'A', 'E', 'O', 'T', 'L'};
-	int replacementValues[] = {4, 3, 0, 7, 1};
-
-	unsigned int i;
-	while (*str)
+	for (i = 0; c[i] != '\0'; i++)
 	{
-		for (i = 0; i < sizeof(lettersToReplace) / sizeof(char); i++)
+		for (j = 0; j <= 9; j++)
 		{
-			if (*str == lettersToReplace[i] || *str == lettersToReplace[i] + 32)
+			if ((int)c[i] == (int)incD[j])
 			{
-				*str = 48 + replacementValues[i];
+				c[i] = incS[j / 2];
+				break;
 			}
 		}
-		str++;
 	}
-	return (strPointer);
+	return (c);
 }
-
