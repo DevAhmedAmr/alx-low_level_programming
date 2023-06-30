@@ -1,3 +1,19 @@
+#include"main.h"
+/**
+ * _strlen -  a function that returns the length of a string.
+ *
+ * @s: type str
+ *
+ * Return: length of a string
+ */
+int _strlen(char *s)
+{
+	int len = 0;
+
+	while (s[len] != '\0')
+		len++;
+	return (len);
+}
 void intToString(int num, char *str)
 {
     int isNegative = 0;
@@ -48,8 +64,8 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
     int num2 = 0;
     int result;
 
-    int len1 = strlen(n1);
-    int len2 = strlen(n2);
+    int len1 = _strlen(n1);
+    int len2 = _strlen(n2);
     int i, j;
 
     if (len1 + len2 + 1 > size_r)
