@@ -19,15 +19,14 @@ int _strlen(char *s)
  *
  * Return: void 
  */
-char *cap_string(char *)
-{
 char *cap_string(char *str)
 {
     int Separators[] = {',', ';', '.', '!', '?', '"',
                         '(', ')', '{', '}', ' ', '\n', '-', '\t'};
-    for (int i = 0; i < _strlen(str); i++)
+    int i, j;
+    for (i = 0; i < _strlen(str); i++)
     {
-        for (size_t j = 0; j < 14; j++)
+        for (j = 0; j < 14; j++)
         {
             if (str[i - 1] == '\t')
             {
@@ -44,5 +43,4 @@ char *cap_string(char *str)
         }
     }
     return str;
-}	
 }
