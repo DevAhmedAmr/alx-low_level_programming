@@ -8,16 +8,16 @@
 char *leet(char *c)
 {
 	int i, j;
-	char incS[] = {'4', '3', '0', '7', '1'};
-	char incD[] = {'a', 'A', 'e', 'E', 'o', 'O', 't', 'T', 'l', 'L' };
+	char number[] = {'4', '3', '0', '7', '1'};
+	char letters[] = {'a', 'A', 'e', 'E', 'o', 'O', 't', 'T', 'l', 'L'};
 
 	for (i = 0; c[i] != '\0'; i++)
 	{
 		for (j = 0; j <= 9; j++)
 		{
-			if ((int)c[i] == (int)incD[j])
+			if ((int)c[i] == (int)letters[j])
 			{
-				c[i] = incS[j / 2];
+				c[i] = number[j / 2];
 				break;
 			}
 		}
