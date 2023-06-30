@@ -20,25 +20,25 @@ int _strlen(char *s)
  * @str: string that wanted to be encoded
  * Return: str
  */
-
-
-char *leet(char *s)
+char *leet(char* str)
 {
-	char a[] = "aeotlAEOTL";
-	char n[] = "4307143071";
-	int i = 0;
-	int j;
+	char* strPointer = str;
 
-	while (*(s + i) != '\0')
+	char lettersToReplace[] = {'A', 'E', 'O', 'T', 'L'};
+	int replacementValues[] = {4, 3, 0, 7, 1};
+
+	unsigned int i;
+	while (*str)
 	{
-		for (j = 0; j <= 9; j++)
+		for (i = 0; i < sizeof(lettersToReplace) / sizeof(char); i++)
 		{
-			if (*(s + i) == a[j])
+			if (*str == lettersToReplace[i] || *str == lettersToReplace[i] + 32)
 			{
-				*(s + i) = n[j];
+				*str = 48 + replacementValues[i];
 			}
 		}
-		i++;
+		str++;
 	}
-	return (s);
+	return (strPointer);
 }
+
