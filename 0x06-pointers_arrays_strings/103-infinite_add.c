@@ -1,15 +1,16 @@
-
 void intToString(int num, char *str)
 {
+    int isNegative = 0;
+    int i = 0;
+    int length = i;
+    int j;
+
     if (num == 0)
     {
         str[0] = '0';
         str[1] = '\0';
         return;
     }
-
-    int isNegative = 0;
-    int i = 0;
 
     if (num < 0)
     {
@@ -32,9 +33,6 @@ void intToString(int num, char *str)
     str[i] = '\0';
 
     /* Reverse the string*/
-    int length = i;
-
-    int j;
 
     for (j = 0; j < length / 2; j++)
     {
@@ -46,6 +44,10 @@ void intToString(int num, char *str)
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
+    int num1 = 0;
+    int num2 = 0;
+    int result;
+
     int len1 = strlen(n1);
     int len2 = strlen(n2);
     int i, j;
@@ -55,11 +57,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
         return 0;
     }
 
-    int num1 = 0;
-    int num2 = 0;
-    int result;
-
-    for (i = 0; i < len1; i++)
+      for (i = 0; i < len1; i++)
     {
         num1 = num1 * 10;
         num1 += (n1[i] - '0');
@@ -72,7 +70,6 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
     }
 
     result = num1 + num2;
-    
 
     intToString(result, r);
 
