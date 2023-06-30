@@ -28,9 +28,11 @@ char *leet(char *str)
 
 	char charsToNumbers[] = {'4', '4', '3', '3', '0', '0', '7', '7', '1', '1'};
 
-	for (int i = 0; i < _strlen(str); i++)
+	int i, j;
+
+	for (i = 0; i < _strlen(str); i++)
 	{
-		for (size_t j = 0; j < 10 && str[i] != '\0'; j++)
+		for (j = 0; j < 10 && str[i] != '\0'; j++)
 		{
 			if (str[i] == charsList[j])
 			{
