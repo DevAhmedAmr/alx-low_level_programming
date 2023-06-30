@@ -22,25 +22,23 @@ int _strlen(char *s)
  */
 
 
-
-char *leet(char *str)
+char *leet(char *s)
 {
-    char charsList[] = "aeotlAEOTL";
+	char a[] = "aeotlAEOTL";
+	char n[] = "4307143071";
+	int i = 0;
+	int j;
 
-    char charsToNumbers[] = "4307143071";
-
-    int i = 0, j;
-
-    while (*(str + i) != '\0')
-    {
-        for (j = 0; j < 10; j++)
-        {
-            if (*(str + i) == charsList[j])
-            {
-                *(str + i) = charsToNumbers[j];
-            }
-        }
-        i++;
-    }
-    return (str);
+	while (*(s + i) != '\0')
+	{
+		for (j = 0; j <= 9; j++)
+		{
+			if (*(s + i) == a[j])
+			{
+				*(s + i) = n[j];
+			}
+		}
+		i++;
+	}
+	return (s);
 }
