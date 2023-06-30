@@ -15,27 +15,30 @@ int _strlen(char *s)
 	return (len);
 }
 /**
- * cap_string - function apitalizes all words of a string.
+ * cap_string - function capitalizes all words of a string.
  *
- * Return: void 
+ *@str: input for string to be captizesed
+ * Return: void
  */
 char *cap_string(char *str)
 {
-    char Separators[] = {'\t', '\n', ' ', ',', ';', '!',
-                         '.', '?', '\"', '(', ')', '{', '}'};
-    int i = 0, j;
-    while (i < _strlen(str) && str[i] != '\0')
-    {
-        for (j = 0; j < 14; j++)
-        {
+	char Separators[] = {'\t', '\n', ' ', ',', ';', '!',
+		'.', '?', '\"', '(', ')', '{', '}'};
 
-            if (str[i - 1] == Separators[j] && (int)str[i] < 123 && (int)str[i] > 96)
+	int i = 0, j;
 
-            {
-                str[i] = (int)str[i] - 32;
-            }
-        }
-        i++;
-    }
-    return str;
+	while (i < _strlen(str) && str[i] != '\0')
+	{
+		for (j = 0; j < 14; j++)
+		{
+
+			if (str[i - 1] == Separators[j] && (int)str[i] < 123 && (int)str[i] > 96)
+
+			{
+				str[i] = (int)str[i] - 32;
+			}
+		}
+		i++;
+	}
+	return (str);
 }
