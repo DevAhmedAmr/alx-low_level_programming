@@ -18,6 +18,8 @@ char *rot13(char *str)
 
 	char *rot13 = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
+	char *ptr = str;
+
 	while (*str)
 	{
 		for (i = 0; i < 53; i++)
@@ -30,6 +32,6 @@ char *rot13(char *str)
 		}
 		str++;
 	}
-	return (str);
+	return (ptr);
 }
 
