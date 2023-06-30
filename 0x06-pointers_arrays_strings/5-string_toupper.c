@@ -1,3 +1,20 @@
+#include"main.h"
+/**
+ * _strlen -  a function that returns the length of a string.
+ *
+ * @s: type str
+ *
+ * Return: length of a string
+ */
+int _strlen(char *s)
+{
+	int len = 0;
+
+	while (s[len] != '\0')
+		len++;
+	return (len);
+}
+
 /**
  * string_toupper - function converts small letters to capital letters
  * @a: string that wanted to be changed
@@ -6,18 +23,16 @@
  */
 char *string_toupper(char *a)
 {
-	int i, j;
-	char capitals[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
-		'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-	char smalls[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
-		'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
-	for (i = 0; i < 26; i++)
+	int j, i, charAsciCode;
+
+	for (i = 0; i < _strlen(a); i++)
 	{
-		for (j = 0; j < 26; j++)
+		for (j = 'a'; j < 'z'; j++)
 		{
-			if (a[i] == smalls[j])
+			charAsciCode = (int)a[i];
+			if (charAsciCode == (int)j)
 			{
-				a[i] = capitals[j];
+				a[i] -= 32;
 			}
 		}
 	}
