@@ -17,6 +17,7 @@ char *rot132(char *str)
 	char *normalLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 	char *rot13 = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+
 	while (*str != '\0')
 	{
 		for (i = 0; i < 52; i++)
