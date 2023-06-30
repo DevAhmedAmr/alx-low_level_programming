@@ -1,20 +1,4 @@
 /**
- * _strlen -  a function that returns the length of a string.
- *
- * @s: type str
- *
- * Return: length of a string
- */
-int _strlen(char *s)
-{
-	int len = 0;
-
-	while (s[len] != '\0')
-		len++;
-	return (len);
-}
-
-/**
  * rot13 - Applies the ROT13 substitution cipher to a string
  * Replaces each letter in the string with the letter 13 positions
  * ahead of it in the alphabet, wrapping around from 'z' to 'a' or
@@ -26,27 +10,25 @@ int _strlen(char *s)
  * Return:
  * A pointer to the encrypted string.
  */
-
-char *rot13(char *str)
+char *rot132(char *str)
 {
-	int i, j;
-
-	int len = _strlen(str);
+	int i;
 
 	char *normalLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 	char *rot13 = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
-
-	for (i = 0; i < len; i++)
+	while (*str != '\0')
 	{
-		for (j = 0; j < 52; j++)
+		for (i = 0; i < 52; i++)
 		{
-			if (str[i] == normalLetters[j])
+			if (*str == normalLetters[i])
 			{
-				str[i] = rot13[j];
+				*str = rot13[i];
 				break;
 			}
 		}
+		str++;
 	}
-	return (str);
+	return str;
 }
+
