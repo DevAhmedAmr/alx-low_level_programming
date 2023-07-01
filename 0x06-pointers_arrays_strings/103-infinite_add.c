@@ -64,7 +64,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	int num1 = 0;
 	int num2 = 0;
 	int result;
-
+	char *ptr;
 	int len1 = _strlen(n1);
 	int len2 = _strlen(n2);
 	int i, j;
@@ -95,6 +95,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		intToString(result, r);
 	}
 	r[_strlen(r)] = '\0';
+	ptr = r;
 
-	return *r;
+	return ptr;
 }
