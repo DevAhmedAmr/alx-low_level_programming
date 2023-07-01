@@ -8,7 +8,7 @@
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-    int len1 = 0, len2 = 0, len_sum = 0, carry = 0, sum = 0, i = 0, j = 0;
+    int len1 = 0, len2 = 0, len_sum = 0, carry = 0, i = 0, j = 0;
 
     while (n1[len1] != '\0') /* Calculate length of n1 */
         len1++;
@@ -18,52 +18,32 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
     /* Check if the sum of n1 and n2 can fit in r */
     if (len1 > size_r || len2 > size_r)
     {
-        return NULL;
+        return 0;
     }
-
-    char *result = malloc(size_r + 1);
-    if (!result)
-    {
-        return NULL;
-    }
-
     /* Add digits from right to left */
-    for (i = len1 - 1, j = len2 - 1, len_sum = 0; i >= 0 || j >= 0 || carry; i--, j--)
+
+    for (i = len1 - 1, j = len2 - 1; i >= 0 || j >= 0 || carry; i--, j--, len_sum++)
     {
-        sum = carry;
-
-        if (i >= 0)
-            sum += n1[i] - '0';
-        if (j >= 0)
-            sum += n2[j] - '0';
-
-        result[len_sum] = sum % 10 + '0';
+        int digit_n1 = i >= 0 ? n1[i] - '0' : 0;
+        int digit_n2 = j >= 0 ? n2[j] - '0' : 0;
+        int sum = digit_n1 + digit_n2 + carry;
         carry = sum / 10;
-        len_sum++;
+        r[len_sum] = sum % 10 + '0';
     }
 
-    result[len_sum] = '\0';
+    r[len_sum] = '\0';
 
     if (carry)
-    {
-        free(result);
-        return NULL;
-    }
 
-    /* Reverse the string in result */
+        return 0;
+
+    /* Reverse the string in r */
     for (i = 0, j = len_sum - 1; i < j; i++, j--)
     {
-        char temp = result[i];
-        result[i] = result[j];
-        result[j] = temp;
+        char temp = r[i];
+        r[i] = r[j];
+        r[j] = temp;
     }
 
-    /* Copy the result to r */
-    strcpy(r, result);
-
-    /* Free the memory allocated for result */
-    free(result);
-
-    /* Return a pointer to the first element of r */
-    return r;
+    return (r);
 }
