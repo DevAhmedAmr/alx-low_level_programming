@@ -44,6 +44,10 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
     }
 
     r[len_sum] = '\0';
+    if (carry)
+    {
+        return 0;
+    }
 
     return (r);
 }
