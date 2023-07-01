@@ -20,7 +20,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
         len2++;
 
     /* Check if the sum of n1 and n2 can fit in r */
-    if (len1 > size_r || len2 > size_r)
+    if (len1 + 1 > size_r || len2 + 1 > size_r)
         return (0);
 
     /* Add digits from right to left */
