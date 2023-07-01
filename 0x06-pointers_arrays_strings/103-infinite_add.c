@@ -18,11 +18,6 @@ char *infinite_add(char *num1, char *num2, char *result, int result_size)
         ;
     len_num2 = i;
 
-    if (len_num1 > result_size || len_num2 > result_size)
-    {
-        return NULL;
-    }
-
     index = 0;
 
     for (i = len_num1 - 1; i >= 0 || len_num2 - 1 >= i || carry; i--, index++)
@@ -35,11 +30,6 @@ char *infinite_add(char *num1, char *num2, char *result, int result_size)
     }
 
     result[index] = '\0';
-
-    if (carry)
-    {
-        return NULL;
-    }
 
     for (i = 0, index = index - 1; i < index; i++, index--)
     {
