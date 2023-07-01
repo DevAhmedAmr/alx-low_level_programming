@@ -1,55 +1,58 @@
-#include"main.h"
 
 /**
- * infinite_add - Adds two numbers.
- * @n1: The first number to add.
- * @n2: The second number to add.
- * @r: The buffer to store the result.
- * @size_r: The size of the buffer.
- *
- * Return: A pointer to the result, or 0 if the result cannot be stored in r.
+ * infinite_add - adds tp argument from char* as numbers
+ * @n1: type char*
+ * @n2: type char*
+ * @r: buffer size type int char*
+ * @size_r: buffer size: type int
+ * Return: the pointer to dest.
  */
-char *infinite_add(char *n1, char *n2, char *result, int size_result)
+char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-    int len_n1, len_n2, carry = 0;
-    int i, j, k;
+	/*declare counter varables*/
+	int i, i1, i2, i3, i4, i5;
 
-    for (i = 0; n1[i]; i++)
-        ;
-    len_n1 = i;
-    for (j = 0; n2[j]; j++)
-        ;
-    len_n2 = j;
+	for (i = 0; n1[i]; i++)
+	;
 
-    if (len_n1 > size_result || len_n2 > size_result)
-    {
-        return 0;
-    }
+	for (i1 = 0; n2[i1]; i1++)
+	;
 
-    k = 0;
+	/*checks if either i or j is greater than size_r.*/
+	if (i > size_r || i1 > size_r)
+	{
+		return (0);
+	}
+	i4 = 0;
+	/*loop will stop when it reaches the limit of the buffer size*/
+	for (i -= 1, i1 -= 1, i2 = 0; i2 < size_r - 1; i--, i1--, i2++)
+	{
+		i5 = i4;
+		if (i >= 0)
+		{
+			i5 += n1[i] - '0';
+		}
+			if (i1 >= 0)
+			{
+				i5 += n2[i1] - '0';
+			}
+		/* If this is true, it breaks out of the loop.*/
+		if (i < 0 && i1 < 0 && i5 == 0)
+		{
+			break;
+		}
+		i4 = i5 / 10;
+		r[i2] = i5 % 10 + '0';
+	}
+	r[i2] = '\0';
+	if (i >= 0 || i1 >= 0 || i4)
+		return (0);
+	for (i2 -= 1, i3 = 0; i3 < i2; i2--, i3++)
+	{
+		i4 = r[i2];
+		r[i2] = r[i3];
+		r[i3] = i4;
+	}
+	return (r);
 
-    for (i = len_n1 - 1, j = len_n2 - 1; i >= 0 || j >= 0 || carry; i--, j--, k++)
-    {
-        int digit_n1 = i >= 0 ? n1[i] - '0' : 0;
-        int digit_n2 = j >= 0 ? n2[j] - '0' : 0;
-        int sum = digit_n1 + digit_n2 + carry;
-        carry = sum / 10;
-        result[k] = sum % 10 + '0';
-    }
-
-    result[k] = '\0';
-
-    if (carry)
-    {
-        return 0;
-    }
-
-    for (i = 0, j = k - 1; i < j; i++, j--)
-    {
-        char temp = result[i];
-        result[i] = result[j];
-        result[j] = temp;
-    }
-
-    return result;
 }
