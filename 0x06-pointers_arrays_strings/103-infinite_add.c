@@ -68,6 +68,7 @@ void intToString(int num, char *str)
  *
  * Return: A pointer to the result, or 0 if the result cannot be stored in r.
  */
+
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
     int len1 = 0, len2 = 0, len_sum = 0, carry = 0, sum = 0, i = 0, j = 0;
@@ -78,11 +79,11 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
         len2++;
 
     /* Check if the sum of n1 and n2 can fit in r */
-    if (len1 + len2 + 1 > size_r)
+    if (len1 > size_r || len2 > size_r)
         return (0);
 
     /* Add digits from right to left */
-    for (i = len1 - 1, j = len2 - 1, len_sum = 0; i >= 0 || j >= 0 || carry; i--, j--)
+    for (i = len1 - 1, j = len2 - 1, len_sum = 0; i >= 0 || j >= 0 || carry != 0; i--, j--)
     {
         sum = carry;
 
