@@ -1,53 +1,62 @@
-/*
+/**
  * infinite_add - adds two numbers stored as strings
- *
- * @n1: First number string
- * @n2: Second number string
- * @r: Buffer to store result
- * @size_r: Size of buffer
- *
- * Returns: Pointer to result, or NULL if buffer is too small
+ * @n1: first number as a string
+ * @n2: second number as a string
+ * @r: buffer to store the result
+ * @size_r: size of the buffer
+ * Return: pointer to the result string
  */
-char *infinite_add(const char *n1, const char *n2, char *r, int size_r) {
-  /* Declare counter variables */
-  int i, j, k, carry;
+char *infinite_add(char *n1, char *n2, char *r, int size_r)
+{
+	/* Declare counter variables */
+	int len_n1, len_n2, len_r, carry, sum, i, j, k;
 
-  /* Iterate over each character in the strings */
-  for (i = strlen(n1), j = strlen(n2), k = 0; k < size_r - 1; i--, j--, k++) {
-    /* Initialize carry */
-    carry = 0;
+	/* Calculate lengths of n1 and n2 */
+	for (len_n1 = 0; n1[len_n1]; len_n1++)
+		;
+	for (len_n2 = 0; n2[len_n2]; len_n2++)
+		;
 
-    /* Add the current digits and carry */
-    if (i >= 0) {
-      carry += n1[i] - '0';
-    }
-    if (j >= 0) {
-      carry += n2[j] - '0';
-    }
+	/* Check if either len_n1 or len_n2 is greater than size_r */
+	if (len_n1 > size_r || len_n2 > size_r)
+	{
+		return (0);
+	}
 
-    /* Store the result */
-    r[k] = carry % 10 + '0';
+	carry = 0;
+	/* Loop will stop when it reaches the limit of the buffer size */
+	for (len_n1 -= 1, len_n2 -= 1, len_r = 0; len_r < size_r - 1; len_n1--, len_n2--, len_r++)
+	{
+		sum = carry;
+		if (len_n1 >= 0)
+		{
+			sum += n1[len_n1] - '0';
+		}
+		if (len_n2 >= 0)
+		{
+			sum += n2[len_n2] - '0';
+		}
+		/* If this condition is true, it breaks out of the loop */
+		if (len_n1 < 0 && len_n2 < 0 && sum == 0)
+		{
+			break;
+		}
+		carry = sum / 10;
+		r[len_r] = sum % 10 + '0';
+	}
+	r[len_r] = '\0';
 
-    /* Update carry for next iteration */
-    carry /= 10;
-  }
+	if (len_n1 >= 0 || len_n2 >= 0 || carry)
+		return (0);
 
-  /* Terminate the string */
-  r[k] = '\0';
+	/* Reverse the result string */
+	for (len_r -= 1, i = 0; i < len_r; len_r--, i++)
+	{
+		j = r[len_r];
+		r[len_r] = r[i];
+		r[i] = j;
+	}
 
-  /* Check if the result fits in the buffer */
-  if (i >= 0 || j >= 0 || carry) {
-    return NULL;
-  }
-
-  /* Reverse the string */
-  for (k -= 1, j = 0; j < k; k--, j++) {
-    char temp = r[k];
-    r[k] = r[j];
-    r[j] = temp;
-  }
-
-  /* Return the result */
-  return r;
+	return (r);
 }
 
