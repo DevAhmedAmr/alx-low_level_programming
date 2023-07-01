@@ -8,7 +8,7 @@
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-    int len1 = 0, len2 = 0, len_sum = 0, carry = 0, sum = 0, i = 0, j = 0;
+    int len1 = 0, len2 = 0, len_sum = 0, carry = 0, i = 0, j = 0;
 
     for (i = 0; n1[i]; i++)
         ;
