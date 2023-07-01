@@ -9,7 +9,7 @@
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
 	/* Declare counter variables */
-	int len_n1, len_n2, len_r, carry, sum, i, j, k;
+	int len_n1, len_n2, len_r, carry, sum, i, j;
 
 	/* Calculate lengths of n1 and n2 */
 	for (len_n1 = 0; n1[len_n1]; len_n1++)
