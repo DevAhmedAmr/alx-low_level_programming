@@ -6,51 +6,47 @@
  * @size_r: size of the buffer
  * Return: pointer to the result string
  */
-char *infinite_add(char *n1, char *n2, char *r, int size_r)
+char *infinite_add2(char *n1, char *n2, char *result, int size_result)
 {
-    int len1 = 0, len2 = 0, len_sum = 0, carry = 0, i = 0, j = 0;
-
-    char *result_ptr;
+    int len_n1, len_n2, carry = 0;
+    int i, j, k;
 
     for (i = 0; n1[i]; i++)
         ;
-    len1 = i;
+    len_n1 = i;
     for (j = 0; n2[j]; j++)
         ;
-    len2 = j;
+    len_n2 = j;
 
-    /* Check if the sum of n1 and n2 can fit in r */
-    if (len1 > size_r || len2 > size_r)
+    if (len_n1 > size_result || len_n2 > size_result)
     {
         return 0;
     }
 
-    /* Add digits from right to left */
-    for (i = len1 - 1, j = len2 - 1; i >= 0 || j >= 0 || carry; i--, j--, len_sum++)
+    k = 0;
+
+    for (i = len_n1 - 1, j = len_n2 - 1; i >= 0 || j >= 0 || carry; i--, j--, k++)
     {
         int digit_n1 = i >= 0 ? n1[i] - '0' : 0;
         int digit_n2 = j >= 0 ? n2[j] - '0' : 0;
         int sum = digit_n1 + digit_n2 + carry;
         carry = sum / 10;
-        r[len_sum] = sum % 10 + '0';
+        result[k] = sum % 10 + '0';
     }
 
-    r[len_sum] = '\0';
+    result[k] = '\0';
 
     if (carry)
-        return 0;
-
-    /* Reverse the string in r */
-    for (i = 0, j = len_sum - 1; i < j; i++, j--)
     {
-        char temp = r[i];
-        r[i] = r[j];
-        r[j] = temp;
+        return 0;
     }
 
-    /* Declare a pointer variable and assign the address of the result buffer to it */
-    result_ptr = r;
+    for (i = 0, j = k - 1; i < j; i++, j--)
+    {
+        char temp = result[i];
+        result[i] = result[j];
+        result[j] = temp;
+    }
 
-    /* Return the pointer variable */
-    return result_ptr;
+    return result; // Return a pointer to the result buffer.
 }
