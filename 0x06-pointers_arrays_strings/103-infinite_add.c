@@ -6,7 +6,7 @@
  * @size_r: size of the buffer
  * Return: pointer to the result string
  */
-char *infinite_add(char *n1, char *n2, char *r, int size_r)
+char *infinite_add(char *n1, char *n2, char *r, int size_result)
 {
     int len1 = 0, len2 = 0, len_sum = 0, carry = 0, sum = 0, i = 0, j = 0;
 
@@ -16,7 +16,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
         len2++;
 
     /* Check if the sum of n1 and n2 can fit in r */
-    if (len1 > size_r || len2 > size_r)
+    if (len1 > size_result || len2 > size_result)
     {
         return 0;
     }
