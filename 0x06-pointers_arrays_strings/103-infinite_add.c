@@ -38,6 +38,11 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
         len_sum++;
     }
 
+      if (carry)
+    {
+        return 0;
+    }
+
     /* Reverse the string in r */
     for (i = 0, j = len_sum - 1; i < j; i++, j--)
     {
