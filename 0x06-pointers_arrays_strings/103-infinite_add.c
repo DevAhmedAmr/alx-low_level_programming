@@ -6,7 +6,7 @@
  * @size_r: size of the buffer
  * Return: pointer to the result string
  */
-char *infinite_add2(char *n1, char *n2, char *result, int size_result)
+char *infinite_add(char *n1, char *n2, char *result, int size_result)
 {
     int len_n1, len_n2, carry = 0;
     int i, j, k;
@@ -48,5 +48,5 @@ char *infinite_add2(char *n1, char *n2, char *result, int size_result)
         result[j] = temp;
     }
 
-    return result; // Return a pointer to the result buffer.
+    return result; /* Return a pointer to the result buffer.*/
 }
