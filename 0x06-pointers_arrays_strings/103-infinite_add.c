@@ -8,55 +8,42 @@
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	/* Declare counter variables */
-	int len_n1, len_n2, len_r, carry, sum, i, j;
+    int len1 = 0, len2 = 0, len_sum = 0, carry = 0, sum = 0, i = 0, j = 0;
 
-	/* Calculate lengths of n1 and n2 */
-	for (len_n1 = 0; n1[len_n1]; len_n1++)
-		;
-	for (len_n2 = 0; n2[len_n2]; len_n2++)
-		;
+    while (n1[len1] != '\0') /* Calculate length of n1 */
+        len1++;
+    while (n2[len2] != '\0') /* Calculate length of n2 */
+        len2++;
 
-	/* Check if either len_n1 or len_n2 is greater than size_r */
-	if (len_n1 > size_r || len_n2 > size_r)
-	{
-		return (0);
-	}
+    /* Check if the sum of n1 and n2 can fit in r */
+    if (len_n1 > size_result || len_n2 > size_result)
+    {
+        return 0;
+    }
+    /* Add digits from right to left */
+    for (i = len1 - 1, j = len2 - 1, len_sum = 0; i >= 0 || j >= 0 || carry !0; i--, j--)
+    {
+        sum = carry;
 
-	carry = 0;
-	/* Loop will stop when it reaches the limit of the buffer size */
-	for (len_n1 -= 1, len_n2 -= 1, len_r = 0; len_r < size_r - 1; len_n1--, len_n2--, len_r++)
-	{
-		sum = carry;
-		if (len_n1 >= 0)
-		{
-			sum += n1[len_n1] - '0';
-		}
-		if (len_n2 >= 0)
-		{
-			sum += n2[len_n2] - '0';
-		}
-		/* If this condition is true, it breaks out of the loop */
-		if (len_n1 < 0 && len_n2 < 0 && sum == 0)
-		{
-			break;
-		}
-		carry = sum / 10;
-		r[len_r] = sum % 10 + '0';
-	}
-	r[len_r] = '\0';
+        if (i >= 0)
+            sum += n1[i] - '0';
+        if (j >= 0)
+            sum += n2[j] - '0';
 
-	if (len_n1 >= 0 || len_n2 >= 0 || carry)
-		return (0);
+        r[len_sum] = sum % 10 + '0';
+        carry = sum / 10;
+        len_sum++;
+    }
 
-	/* Reverse the result string */
-	for (len_r -= 1, i = 0; i < len_r; len_r--, i++)
-	{
-		j = r[len_r];
-		r[len_r] = r[i];
-		r[i] = j;
-	}
+    /* Reverse the string in r */
+    for (i = 0, j = len_sum - 1; i < j; i++, j--)
+    {
+        char temp = r[i];
+        r[i] = r[j];
+        r[j] = temp;
+    }
 
-	return (r);
+    r[len_sum] = '\0';
+
+    return (r);
 }
-
