@@ -12,26 +12,29 @@
  */
 char *rot13(char *str)
 {
-	int i;
+	int i, j = 0;
 
 	char *normalLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 	char *rot13 = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
+	int strLen = _strlen(str);
+
 	/*char *ptr = str;*/
 
-	while (*str)
+	while (j < strLen)
 	{
 		for (i = 0; i < 53; i++)
 		{
-			if (*str == normalLetters[i])
+			if (str[j] == normalLetters[i])
 			{
-				*str = rot13[i];
+				str[j] = rot13[i];
 				break;
 			}
 		}
-		str++;
+		j++;
 	}
+	str[strLen] = '\0';
+
 	return (str);
 }
-
