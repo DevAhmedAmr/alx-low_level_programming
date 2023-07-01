@@ -18,7 +18,7 @@ char *rot13(char *str)
 
 	char *rot13 = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
-	char *ptr = str;
+	/*char *ptr = str;*/
 
 	while (*str)
 	{
