@@ -1,58 +1,53 @@
-
-/**
- * infinite_add - adds tp argument from char* as numbers
- * @n1: type char*
- * @n2: type char*
- * @r: buffer size type int char*
- * @size_r: buffer size: type int
- * Return: the pointer to dest.
+/*
+ * infinite_add - adds two numbers stored as strings
+ *
+ * @n1: First number string
+ * @n2: Second number string
+ * @r: Buffer to store result
+ * @size_r: Size of buffer
+ *
+ * Returns: Pointer to result, or NULL if buffer is too small
  */
-char *infinite_add(char *n1, char *n2, char *r, int size_r)
-{
-	/*declare counter varables*/
-	int i, i1, i2, i3, i4, i5;
+char *infinite_add(const char *n1, const char *n2, char *r, int size_r) {
+  /* Declare counter variables */
+  int i, j, k, carry;
 
-	for (i = 0; n1[i]; i++)
-	;
+  /* Iterate over each character in the strings */
+  for (i = strlen(n1), j = strlen(n2), k = 0; k < size_r - 1; i--, j--, k++) {
+    /* Initialize carry */
+    carry = 0;
 
-	for (i1 = 0; n2[i1]; i1++)
-	;
+    /* Add the current digits and carry */
+    if (i >= 0) {
+      carry += n1[i] - '0';
+    }
+    if (j >= 0) {
+      carry += n2[j] - '0';
+    }
 
-	/*checks if either i or j is greater than size_r.*/
-	if (i > size_r || i1 > size_r)
-	{
-		return (0);
-	}
-	i4 = 0;
-	/*loop will stop when it reaches the limit of the buffer size*/
-	for (i -= 1, i1 -= 1, i2 = 0; i2 < size_r - 1; i--, i1--, i2++)
-	{
-		i5 = i4;
-		if (i >= 0)
-		{
-			i5 += n1[i] - '0';
-		}
-			if (i1 >= 0)
-			{
-				i5 += n2[i1] - '0';
-			}
-		/* If this is true, it breaks out of the loop.*/
-		if (i < 0 && i1 < 0 && i5 == 0)
-		{
-			break;
-		}
-		i4 = i5 / 10;
-		r[i2] = i5 % 10 + '0';
-	}
-	r[i2] = '\0';
-	if (i >= 0 || i1 >= 0 || i4)
-		return (0);
-	for (i2 -= 1, i3 = 0; i3 < i2; i2--, i3++)
-	{
-		i4 = r[i2];
-		r[i2] = r[i3];
-		r[i3] = i4;
-	}
-	return (r);
+    /* Store the result */
+    r[k] = carry % 10 + '0';
 
+    /* Update carry for next iteration */
+    carry /= 10;
+  }
+
+  /* Terminate the string */
+  r[k] = '\0';
+
+  /* Check if the result fits in the buffer */
+  if (i >= 0 || j >= 0 || carry) {
+    return NULL;
+  }
+
+  /* Reverse the string */
+  for (k -= 1, j = 0; j < k; k--, j++) {
+    char temp = r[k];
+    r[k] = r[j];
+    r[j] = temp;
+  }
+
+  /* Return the result */
+  return r;
 }
+
