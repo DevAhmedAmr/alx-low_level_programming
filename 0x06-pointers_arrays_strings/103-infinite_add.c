@@ -18,8 +18,15 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
     /* Check if the sum of n1 and n2 can fit in r */
     if (len1 > size_r || len2 > size_r)
     {
-        return 0;
+        return NULL;
     }
+
+    char *result = malloc(size_r + 1);
+    if (!result)
+    {
+        return NULL;
+    }
+
     /* Add digits from right to left */
     for (i = len1 - 1, j = len2 - 1, len_sum = 0; i >= 0 || j >= 0 || carry; i--, j--)
     {
@@ -30,24 +37,33 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
         if (j >= 0)
             sum += n2[j] - '0';
 
-        r[len_sum] = sum % 10 + '0';
+        result[len_sum] = sum % 10 + '0';
         carry = sum / 10;
         len_sum++;
     }
 
-    r[len_sum] = '\0';
+    result[len_sum] = '\0';
 
     if (carry)
-
-        return 0;
-
-    /* Reverse the string in r */
-    for (i = 0, j = len_sum - 1; i < j; i++, j--)
     {
-        char temp = r[i];
-        r[i] = r[j];
-        r[j] = temp;
+        free(result);
+        return NULL;
     }
 
-    return (r);
+    /* Reverse the string in result */
+    for (i = 0, j = len_sum - 1; i < j; i++, j--)
+    {
+        char temp = result[i];
+        result[i] = result[j];
+        result[j] = temp;
+    }
+
+    /* Copy the result to r */
+    strcpy(r, result);
+
+    /* Free the memory allocated for result */
+    free(result);
+
+    /* Return a pointer to the first element of r */
+    return r;
 }
