@@ -16,12 +16,12 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
         len2++;
 
     /* Check if the sum of n1 and n2 can fit in r */
-    if (len_n1 > size_result || len_n2 > size_result)
+    if (len1 > size_r || len2 > size_r)
     {
         return 0;
     }
     /* Add digits from right to left */
-    for (i = len1 - 1, j = len2 - 1, len_sum = 0; i >= 0 || j >= 0 || carry !0; i--, j--)
+    for (i = len1 - 1, j = len2 - 1, len_sum = 0; i >= 0 || j >= 0 || carry != 0; i--, j--)
     {
         sum = carry;
 
