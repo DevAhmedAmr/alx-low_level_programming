@@ -8,34 +8,55 @@
  */
 char *infinite_add(char *num1, char *num2, char *result, int result_size)
 {
-    int i, len_num1, len_num2, carry = 0, sum = 0, index = 0;
+    /* Declare counter variables */
+    int len_num1, len_num2, sum, carry = 0, index_result = 0, index_num1, index_num2;
 
-    for (i = 0; num1[i]; i++)
+    for (index_num1 = 0; num1[index_num1]; index_num1++)
         ;
-    len_num1 = i;
+    len_num1 = index_num1;
 
-    for (i = 0; num2[i]; i++)
+    for (index_num2 = 0; num2[index_num2]; index_num2++)
         ;
-    len_num2 = i;
+    len_num2 = index_num2;
 
-    index = 0;
-
-    for (i = len_num1 - 1; i >= 0 || len_num2 - 1 >= i || carry; i--, index++)
+    /* Check if either len_num1 or len_num2 is greater than result_size */
+    if (len_num1 > result_size || len_num2 > result_size)
     {
-        int digit_num1 = i >= 0 ? num1[i] - '0' : 0;
-        int digit_num2 = len_num2 - 1 >= i ? num2[i] - '0' : 0;
-        sum = digit_num1 + digit_num2 + carry;
-        carry = sum / 10;
-        result[index] = sum % 10 + '0';
+        return 0;
     }
 
-    result[index] = '\0';
-
-    for (i = 0, index = index - 1; i < index; i++, index--)
+    carry = 0;
+    /* Loop will stop when it reaches the limit of the buffer size */
+    for (index_num1 -= 1, index_num2 -= 1, index_result = 0; index_result < result_size - 1; index_num1--, index_num2--, index_result++)
     {
-        char temp = result[i];
-        result[i] = result[index];
-        result[index] = temp;
+        sum = carry;
+        if (index_num1 >= 0)
+        {
+            sum += num1[index_num1] - '0';
+        }
+        if (index_num2 >= 0)
+        {
+            sum += num2[index_num2] - '0';
+        }
+        /* If this is true, it breaks out of the loop */
+        if (index_num1 < 0 && index_num2 < 0 && sum == 0)
+        {
+            break;
+        }
+        carry = sum / 10;
+        result[index_result] = sum % 10 + '0';
+    }
+    result[index_result] = '\0';
+
+    if (index_num1 >= 0 || index_num2 >= 0 || carry)
+        return 0;
+
+    /* Reverse the result */
+    for (index_result -= 1, index_num1 = 0; index_num1 < index_result; index_result--, index_num1++)
+    {
+        int temp = result[index_result];
+        result[index_result] = result[index_num1];
+        result[index_num1] = temp;
     }
 
     return result;
