@@ -78,7 +78,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		carry = sum / 10;
 		r_counter++;
 	}
-	if (i >= 0 || j >= 0 || carry)
+	if (i >= 0 || j >= 0 || carry != 0)
 		return (0);
 	r[r_counter] = '\0';
 	reverseStr(r, r_counter);
