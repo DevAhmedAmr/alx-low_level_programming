@@ -30,7 +30,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
     if (len1 > size_r || size_r < len2)
         return 0;
 
-    for (i = len1 - 1, j = len2 - 1; r_counter < size_r; i--, j--)
+    for (i = len1 - 1, j = len2 - 1; r_counter < size_r - 1; i--, j--)
     {
         /*carry used to store ten in it ,*/
         /*so that we make sum = carry so we can */
@@ -55,6 +55,8 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
         carry = sum / 10;
         r_counter++;
     }
+    if (i >= 0 || j >= 0 || carry)
+        return 0;
     r[r_counter] = '\0';
     reverseStr(r, r_counter);
     return r;
