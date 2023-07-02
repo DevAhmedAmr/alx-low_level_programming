@@ -1,3 +1,15 @@
+char *reverseStr(char *str, int len)
+{
+	int i, j;
+	for (i = len - 1, j = 0; j < len / 2; i--, j++)
+	{
+		int tmp = str[i];
+		str[i] = str[j];
+		str[j] = tmp;
+	}
+	return str;
+}
+
 /**
  * infinite_add - adds two numbers stored as strings
  * @n1: first number as a string
@@ -6,58 +18,44 @@
  * @size_r: size of the buffer
  * Return: pointer to the result string
  */
-char *infinite_add(char *num1, char *num2, char *result, int result_size)
+char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-    /* Declare counter variables */
-    int len_num1, len_num2, sum, carry = 0, index_result = 0, index_num1, index_num2;
-
-    for (index_num1 = 0; num1[index_num1]; index_num1++)
-        ;
-    len_num1 = index_num1;
-
-    for (index_num2 = 0; num2[index_num2]; index_num2++)
-        ;
-    len_num2 = index_num2;
-
-    /* Check if either len_num1 or len_num2 is greater than result_size */
-    if (len_num1 > result_size || len_num2 > result_size)
-    {
+    /*declare counter varables*/
+    int len1 = 0, len2 = 0, sum = 0, carry = 0;
+    int i, j, r_counter = 0;
+    while (n1[len1] != '\0')
+        len1++;
+    while (n2[len2] != '\0')
+        len2++;
+    if (len1 > size_r || size_r < len2)
         return 0;
-    }
 
-    carry = 0;
-    /* Loop will stop when it reaches the limit of the buffer size */
-    for (index_num1 -= 1, index_num2 -= 1, index_result = 0; index_result < result_size - 1; index_num1--, index_num2--, index_result++)
+    for (i = len1 - 1, j = len2 - 1; r_counter < size_r; i--, j--)
     {
+        /*carry used to store ten in it ,*/
+        /*so that we make sum = carry so we can */
+        /*calculate it with the new irritation variables */
         sum = carry;
-        if (index_num1 >= 0)
+        if (i >= 0)
         {
-            sum += num1[index_num1] - '0';
+            int charToInt = n1[i] - 48;
+            sum += charToInt;
         }
-        if (index_num2 >= 0)
+        if (j >= 0)
         {
-            sum += num2[index_num2] - '0';
+            int charToInt = n2[j] - 48;
+            sum += charToInt;
         }
-        /* If this is true, it breaks out of the loop */
-        if (index_num1 < 0 && index_num2 < 0 && sum == 0)
-        {
+        /*break if true to prevent adding additional 0*/
+        if (i < 0 && j < 0 && carry == 0)
             break;
-        }
+        /*store the one in the ''r'' variable */
+        r[r_counter] = (sum % 10) + 48;
+        /*store ten at the carry variable*/
         carry = sum / 10;
-        result[index_result] = sum % 10 + '0';
+        r_counter++;
     }
-    result[index_result] = '\0';
-
-    if (index_num1 >= 0 || index_num2 >= 0 || carry)
-        return 0;
-
-    /* Reverse the result */
-    for (index_result -= 1, index_num1 = 0; index_num1 < index_result; index_result--, index_num1++)
-    {
-        int temp = result[index_result];
-        result[index_result] = result[index_num1];
-        result[index_num1] = temp;
-    }
-
-    return result;
+    r[r_counter] = '\0';
+    reverseStr(r, r_counter);
+    return r;
 }
