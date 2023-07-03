@@ -5,7 +5,7 @@
  * @c: variable
  * Return: ptr
  */
-char *_strchr2(char *s, char c)
+char *_strchr(char *s, char c)
 {
     int i = 0;
 
