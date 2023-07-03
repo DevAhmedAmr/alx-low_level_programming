@@ -5,8 +5,8 @@
  *
  * parameters:
  * @a: paramter of type pointer to an intiger array
- * @size: size of the array = size * size 
- * exp: 3 * 3 
+ * @size: size of the array = size * size
+ * exp: 3 * 3
  *
  * Return: void;
  */
