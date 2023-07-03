@@ -1,28 +1,28 @@
 #include <stddef.h>
 /**
- * _strchr - function
- * @s: variable
- * @c: variable
- * Return: ptr
+ * _strchr - function that return a pointer to wanted charachter in a string
+ * @s: the string variable that wanted to be searched in
+ * @c: the variable that want to check for
+ * Return: pointer to the character if found or null if it isn't
  */
 char *_strchr(char *s, char c)
 {
-    int len = 0;
-    while (s[len] != '\0')
-    {
-        len++;
-    }
+	int len = 0;
 
-    while (*s != '\0')
-    {
-        if (*(s) == c)
-            return (s);
+	/*calculate the len*/
+	while (s[len] != '\0')
+		len++;
 
-        s++;
-    }
+	while (*s != '\0')
+	{
+		if (*(s) == c)
+			return (s);
+		s++;
+	}
 
-    if (*(s) == c)
-        return (s);
+	/*check if the 'c' is the null terminator */
+	if (*(s) == c)
+		return (s);
 
-    return NULL;
+	return (NULL);
 }
