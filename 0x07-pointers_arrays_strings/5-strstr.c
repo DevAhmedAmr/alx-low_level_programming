@@ -1,3 +1,4 @@
+#include<stddef.h>
 char *_strstr(char *haystack, char *needle)
 {
 	/* Check if the needle == null terminator, if true return haystack */
