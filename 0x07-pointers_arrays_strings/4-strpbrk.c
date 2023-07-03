@@ -1,3 +1,4 @@
+#include <stddef.h>
 char *_strpbrk(char *s, char *accept)
 {
     unsigned int sLen = 0, acceptLen = 0, j, i;
