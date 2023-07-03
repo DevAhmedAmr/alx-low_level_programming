@@ -10,5 +10,5 @@ void print_diagsums(int *a, int size)
         leftDiagonals += a[i * size + (size - 1 - i)];
     }
 
-   printf("%lu, %lu\n", rightDiagonals, leftDiagonals);
+   printf("%i, %i\n", rightDiagonals, leftDiagonals);
 }
