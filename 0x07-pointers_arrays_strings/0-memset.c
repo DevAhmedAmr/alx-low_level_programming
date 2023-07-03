@@ -7,11 +7,6 @@
  */
 char *_memset(char *s, char b, unsigned int n)
 {
-	int size = 0;
-
-	while(s[size])
-		size++;
-
 	unsigned int i;
 
 	for (i = 0; i < n; i++)
