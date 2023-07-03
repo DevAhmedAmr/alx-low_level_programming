@@ -1,36 +1,31 @@
 unsigned int _strspn(char *s, char *accept)
 {
-    unsigned int sLen = 0, acceptLen = 0, x = 0, j, i;
-    while (s[sLen] != '\0')
-    {
-        sLen++;
-    }
-    while (accept[acceptLen] != '\0')
-    {
-        acceptLen++;
-    }
+	unsigned int sLen = 0, acceptLen = 0, is_match  = 0, j, i;
+	/*get s variable length*/
+	while (s[sLen] != '\0')
+		sLen++;
 
-    for (i = 0; i < sLen; i++)
-    {
+	/*get accept variable length*/
+	while (accept[acceptLen] != '\0')
+		acceptLen++;
 
-        for (j = 0; j < acceptLen; j++)
-        {
-            /*printf("s %c , accept %c\n", s[i], accept[j]);*/
+	for (i = 0; i < sLen; i++)
+	{
 
-            if (s[i] == accept[j])
-            {
-                x = 1;
-                break;
-            }
-            x = 0;
-        }
-        /* printf("-----------\n");*/
+		for (j = 0; j < acceptLen; j++)
+		{
+			if (s[i] == accept[j])
+			{
+				is_match  = 1;
+				break;
+			}
+			is_match  = 0;
+		}
+		if (is_match  == 0)
+		{
+			return i;
+		}
+	}
 
-        if (x == 0)
-        {
-            return i;
-        }
-    }
-
-    return i;
+    return 1;
 }
