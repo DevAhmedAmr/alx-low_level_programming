@@ -5,14 +5,13 @@
  * @c: variable
  * Return: ptr
  */
-char *strchr(const char *str, int c) {
-  while (*str != c && *str != '\0') {
-    str++;
-  }
-  if (*str == c) {
-    return (char *) str;
-  } else {
-    return NULL;
-  }
-}
+char *_strchr(char *s, char c)
+{
+	while (*s != c)
+		s++;
 
+	if (*s == '\0')
+	return NULL;
+
+    return s;
+}
