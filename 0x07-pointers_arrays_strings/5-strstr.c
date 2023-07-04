@@ -45,6 +45,9 @@ int matchIndex = -1, i, j;
 /* if the loop is not broken that means j will only be more than '0' */
 /* if (needle[j] != haystack[j + i]) is false*/
 
+/* !!we using j+i instead of just i bcs in the inner loop bcs i value wont!! */
+/*be changed in inner loop it only get changed if break out of the inner loop*/
+
 			if (needle[j] != haystack[i + j])
 			{
 /* If a mismatch is found, set the flag to false and break the loop */
@@ -53,20 +56,17 @@ int matchIndex = -1, i, j;
 				break;
 			}
 		}
-
-/* If a match is found, store i in match index and break the loop */
+		/* If a match is found, store i in match index and break the loop */
 		if (isMatch == 1)
 		{
 			matchIndex = i;
 			break;
 		}
 	}
-
-/* If a match is found, return a pointer to the matching substring;*/
+	/* If a match is found, return a pointer to the matching substring;*/
 /* otherwise, return NULL */
 	if (matchIndex != -1)
-	{
+		/* same as : (haystack + matchIndex) */
 		return (&haystack[matchIndex]);
-	}
 	return (NULL);
 }
