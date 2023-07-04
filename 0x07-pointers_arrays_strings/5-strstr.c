@@ -1,5 +1,21 @@
 #include<stddef.h>
 /**
+ * _strlen -  a function that returns the length of a string.
+ *
+ * @s: type str
+ *
+ * Return: length of a string
+ */
+int _strlen(char *s)
+{
+	int len = 0;
+
+	while (s[len] != '\0')
+		len++;
+	return (len);
+}
+
+/**
  * _strstr - function that search for a string in another string
  *
  * parameters:
@@ -13,12 +29,12 @@ char *_strstr(char *haystack, char *needle)
 {
     int isMatch = 0;
     int matchIndex = -1;
-    for (int i = 0; i < strlen(haystack); i++)
+    int i, j;
+    for (i= 0; i < _strlen(haystack); i++)
     {
-        // hello world
-        //  world
+       
         isMatch = 1;
-        for (int j = 0; j < strlen(needle); j++)
+        for ( j = 0; j < _strlen(needle); j++)
         {
             if (needle[j] != haystack[i + j])
             {
@@ -30,7 +46,7 @@ char *_strstr(char *haystack, char *needle)
 
         if (isMatch == 1)
         {
-            matchIndex = i; // Store the starting index of the match
+            matchIndex = i; /* Store the starting index of the match*/
 
             break;
         }
@@ -38,7 +54,7 @@ char *_strstr(char *haystack, char *needle)
     if (matchIndex != -1)
     {
 
-        return &haystack[matchIndex]; // Return a pointer to the matching substring
+        return &haystack[matchIndex]; /* Return a pointer to the matching substring*/
     }
     return (NULL);
 }
