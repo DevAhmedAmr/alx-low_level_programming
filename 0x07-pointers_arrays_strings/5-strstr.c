@@ -8,31 +8,37 @@
  * Return: a pointer to needle if found
  * if not found return null
  */
+
 char *_strstr(char *haystack, char *needle)
 {
-	/* Check if the needle == null terminator, if true return haystack */
-	if (*needle == '\0')
-		return ((char *)haystack);
-	/* Iterate over each character in the haystack  */
-	while (*haystack != '\0')
-	{
-		char *h = haystack; /* Pointer to current position in haystack */
-		char *n = needle;   /* Pointer to current position in needle */
+    int isMatch = 0;
+    int matchIndex = -1;
+    for (int i = 0; i < strlen(haystack); i++)
+    {
+        // hello world
+        //  world
+        isMatch = 1;
+        for (int j = 0; j < strlen(needle); j++)
+        {
+            if (needle[j] != haystack[i + j])
+            {
 
-		/* Check if the chars match until the end of the needle */
-		/*or a mismatch is found */
+                isMatch = 0;
+                break;
+            }
+        }
 
-		while (*n != '\0' && *h == *n)
-		{
-			h++;
-			n++;
-		}
-		/* If the end of the needle is reached, a match is found,*/
-		/* return pointer to haystack */
-		if (*n == '\0')
-			return ((char *)haystack);
-		haystack++; /* Move to the next char in haystack */
-	}
-	/* If no match return NULL */
-	return (NULL);
+        if (isMatch == 1)
+        {
+            matchIndex = i; // Store the starting index of the match
+
+            break;
+        }
+    }
+    if (matchIndex != -1)
+    {
+
+        return &haystack[matchIndex]; // Return a pointer to the matching substring
+    }
+    return (NULL);
 }
