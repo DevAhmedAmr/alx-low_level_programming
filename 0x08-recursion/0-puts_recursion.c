@@ -8,12 +8,13 @@
  */
 void _puts_recursion(char *s)
 {
-	write(1, s, 1);
 
-	if (*s != '\0')
-	{
-		s++;
-		_puts_recursion(s);
-	}
+    if (*s != '\0')
+    {
+        write(1, s, 1);
+        s++;
+        _puts_recursion(s);
+    }
+    else
+        write(1, "\n", 1);
 }
-
