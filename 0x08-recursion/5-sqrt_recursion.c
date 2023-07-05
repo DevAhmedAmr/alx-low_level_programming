@@ -1,3 +1,4 @@
+sqrtHelper(int num, int n);
 int _sqrt_recursion(int n)
 {
     int num = 0;
