@@ -14,7 +14,8 @@ void print_diagsums(int *a, int size)
 {
     int leftColom = 0;
     int rightColom = 0;
-    for (size_t i = 0; i < size * size; i++)
+    int i;
+    for ( i = 0; i < size * size; i++)
     {
         if (i % (size + 1) == 0)
         {
