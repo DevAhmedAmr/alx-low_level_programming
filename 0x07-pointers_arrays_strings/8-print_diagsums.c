@@ -10,21 +10,30 @@
  *
  * Return: void;
  */
+
 void print_diagsums(int *a, int size)
 {
-    int leftColom = 0;
-    int rightColom = 0;
-    int i;
-    for ( i = 0; i < size * size; i++)
+    int i = 0;
+    int leftDiagonals = 0, isLeftDiagonal;
+    int rightDiagonals = 0, isRightDiagonal;
+
+    for (; i < size * size; i++)
     {
-        if (i % (size + 1) == 0)
+        isLeftDiagonal = i % (size + 1);
+
+        isRightDiagonal = i % (size - 1);
+
+        if (isLeftDiagonal == 0)
         {
-            leftColom += *(a + i);
+            leftDiagonals += *(a + i);
         }
-        if (i % (size - 1) == 0 && i != 0 && i != (size * size) - 1)
+
+        if (isRightDiagonal == 0 &&
+            i != 0 &&
+            i != (size * size) - 1)
         {
-            rightColom += *(a + i);
+            rightDiagonals += *(a + i);
         }
     }
-    printf("%i, %i\n", leftColom, rightColom);
+    printf("%i, %i\n", leftDiagonals, rightDiagonals);
 }
