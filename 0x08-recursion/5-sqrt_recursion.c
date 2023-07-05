@@ -1,11 +1,11 @@
-sqrtHelper(int num, int n);
+int sqrtHelper(int num, int n);
 int _sqrt_recursion(int n)
 {
     int num = 0;
 
     return sqrtHelper(num, n);
 }
-sqrtHelper(int num, int n)
+int sqrtHelper(int num, int n)
 {
     if (num > n)
     {
