@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 	if (argv[0] == 0)
 		return (1);
 
-	_putchar((argc -1) + 48);
+	_putchar((argc - 1) + 48);
 	_putchar('\n');
 	return (0);
 }
