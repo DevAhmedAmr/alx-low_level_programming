@@ -58,7 +58,8 @@ int main(int argc, char *argv[])
 	stringToInt(&num1, argv[1]);
 	stringToInt(&num2, argv[2]);
 	result = num1 * num2;
-	printf("%i\n", result);
-	return (0);
+	printf("%d\n", result);
+	return(0);
+
 }
 
