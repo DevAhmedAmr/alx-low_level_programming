@@ -24,17 +24,28 @@ int _strlen(char *s)
  *
  * Return: void
  */
+
 void stringToInt(int *num, char *str)
 {
+	int isNegative = 0;
+
 	int i = 0;
+
+	if (*str == '-')
+	{
+		*str = '0';
+		isNegative = 1;
+	}
 
 	for (; i < _strlen(str); i++)
 	{
 		*num *= 10;
 		*num += (((int)str[i]) - 48);
 	}
-}
 
+	if (isNegative == 1)
+		*num *= -1;
+}
 /**
  * main - Entry point to an app that multi the command arguments
  *
