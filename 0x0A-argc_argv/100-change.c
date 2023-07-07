@@ -16,8 +16,8 @@ int main(int argc, char *argv[])
     arg = atoi(argv[1]);
     if (arg < 0)
     {
-        printf("5\n");
-        return 0;
+        printf("0\n");
+        return 1;
     }
 
     while (total != arg)
