@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
  * main - Entry point app that prints its file name and the path
@@ -19,10 +19,10 @@ int main(int argc, char *argv[])
 
 	while (*argv[0])
 	{
-		putchar(*argv[0]);
+		_putchar(*argv[0]);
 		argv[0]++;
 	}
-	putchar('\n');
+	_putchar('\n');
 
 	return (0);
 }
