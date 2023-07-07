@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
 	if (argc != 3)
 	{
 		printf("Error\n");
-		return (0);
+		return (1);
 	}
 
 	stringToInt(&num1, argv[1]);
