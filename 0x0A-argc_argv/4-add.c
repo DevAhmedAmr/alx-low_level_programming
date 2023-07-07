@@ -15,57 +15,57 @@ int _strlen(char *s)
 		len++;
 	return (len);
 }
+
 int stringToInt(int *num, char *str)
 {
-    int isNegative = 0;
+	int isNegative = 0;
+	int i = 0;
 
-    int i = 0;
+	if (*str == '-')
+	{
+		*str = '0';
+		isNegative = 1;
+	}
 
-    if (*str == '-')
-    {
-        *str = '0';
-        isNegative = 1;
-    }
+	for (; i < _strlen(str); i++)
+	{
+		*num *= 10;
+		if ((int)str[i] < 48 || (int)str[i] > 57)
+		{
+			return 1;
+		}
+		*num += (((int)str[i]) - 48);
+	}
 
-    for (; i < _strlen(str); i++)
-    {
-        *num *= 10;
-        if ((int)str[i] < 48 || (int)str[i] > 57)
-        {
-            return 1;
-        }
-
-        *num += (((int)str[i]) - 48);
-    }
-
-    if (isNegative == 1)
-        *num *= -1;
-    return 0;
+	if (isNegative == 1)
+		*num *= -1;
+	return 0;
 }
+
 int main(int argc, char *argv[])
 {
-	 int total = 0, num,i;
+	int total = 0, num, i;
 
-    if (argc < 3)
-    {
-        printf("0\n");
-        return 0;
-    }
+	if (argc < 3)
+	{
+		printf("0\n");
+		return 0;
+	}
 
-   
-    for (i = 1; i < argc; i++)
-    {
-        num = 0;
+	for (i = 1; i < argc; i++)
+	{
+		num = 0;
 
-        if (stringToInt(&num, argv[i]) == 1)
-        {
-            printf("Error\n");
-            return 1;
-        }
+		if (stringToInt(&num, argv[i]) == 1)
+		{
+			printf("Error\n");
+			return 1;
+		}
 
-        total += num;
-    }
+		total += num;
+	}
 
-    printf("%i\n", total);
-    return 0;
+	printf("%i\n", total);
+	return 0;
 }
+
