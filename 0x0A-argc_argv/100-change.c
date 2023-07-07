@@ -5,7 +5,7 @@ int main(int argc, char *argv[])
 
     int list[5] = {25, 10, 5, 2, 1};
     int total = 0;
-    int arg = atoi(argv[1]);
+    int arg;
     int i = 0;
     int NumberOfCoins = 0;
     if (argc != 2)
@@ -13,6 +13,7 @@ int main(int argc, char *argv[])
         printf("Error\n");
         return 1;
     }
+    arg = atoi(argv[1]);
     if (arg < 0)
     {
         printf("0\n");
