@@ -1,8 +1,9 @@
 #include<stdio.h>
 #include <stdlib.h>
 /**
- * main - Entry point for an app that prints the minimum number of coins
- * to make change for an amount of money and it print Error if input < 0
+ * change - improved approach to greedy algorithm to an app that
+ * prints the minimum number of coins to make change for an amount of money and
+ * it print Error if input < 0
  *
  * Description: the algorisim is used with  "improved" greedy algorithm
  * so that it consumes less memory and faster
