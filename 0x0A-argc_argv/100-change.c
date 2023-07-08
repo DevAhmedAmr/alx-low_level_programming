@@ -18,15 +18,13 @@ int main(int argc, char *argv[])
 		int arg = atoi(argv[1]);
 
 		unsigned int list[5] = {25, 10, 5, 2, 1};
-		unsigned int total = 0, i = 0;
 
-		unsigned int NumberOfCoins = 0;
-		unsigned tankArg = arg;
+		unsigned int total = 0, i = 0, NumberOfCoins = 0, tankArg = arg;
 
 		if (arg < 0)
 		{
 			printf("0\n");
-			return 0;
+			return (0);
 		}
 
 		while (total != tankArg)
@@ -36,23 +34,20 @@ int main(int argc, char *argv[])
 				NumberOfCoins++;
 				/*printf("%i\n", list[i]);*/
 				total += list[i];
-				i = 0;
+				i = (0);
 				continue;
 			}
-
 			i++;
 			if (i > 4)
-			{
-				i = 0;
-			}
+			i = 0;
 		}
 		printf("%i\n", NumberOfCoins);
 	}
 	else
 	{
 		printf("Error\n");
-		return 1;
+		return (1);
 	}
-	return 0;
+	return (0);
 }
 
