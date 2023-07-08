@@ -13,39 +13,46 @@
  */
 int main(int argc, char *argv[])
 {
-	int coin_values[5] = {25, 10, 5, 2, 1};
-
-	int arg, i, coinsNumbr = 0;
-
-	if (argc != 2)
+	if (argc == 2)
 	{
-		printf("Error\n");
-		return (1);
-	}
+		int arg = atoi(argv[1]);
 
-	arg = atoi(argv[1]);
+		unsigned int list[5] = {25, 10, 5, 2, 1};
+		unsigned int total = 0, i = 0;
 
-	if (arg < 0)
-	{
-		printf("0\n");
-		return (0);
-	}
+		unsigned int NumberOfCoins = 0;
+		unsigned tankArg = arg;
 
-	for (i = 0; i < 5; i++)
-	{
-		if (arg >= coin_values[i])
+		if (arg < 0)
 		{
-			coinsNumbr += arg / coin_values[i];
-			arg = arg % coin_values[i];
-			if (!arg % coin_values[i])
+			printf("0\n");
+			return 0;
+		}
+
+		while (total != tankArg)
+		{
+			if (total + list[i] <= tankArg)
 			{
-				break;
+				NumberOfCoins++;
+				/*printf("%i\n", list[i]);*/
+				total += list[i];
+				i = 0;
+				continue;
+			}
+
+			i++;
+			if (i > 4)
+			{
+				i = 0;
 			}
 		}
+		printf("%i\n", NumberOfCoins);
 	}
-
-	printf("%i\n", coinsNumbr);
-
-	return (0);
+	else
+	{
+		printf("Error\n");
+		return 1;
+	}
+	return 0;
 }
 
