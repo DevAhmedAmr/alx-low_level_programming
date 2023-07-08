@@ -19,14 +19,13 @@ int main(int argc, char *argv[])
     arg = atoi(argv[1]);
 
     /* Check if the input number is negative */
-    if (arg < 0)
-    {
-        printf("0\n");
-        return 1;
-    }
-
-    while (total != arg)
-    {
+    	if (arg < 0)
+	{
+		printf("0\n");
+		return (0);
+	} 
+     	while (total != arg)
+	{
         if (total + list[i] <= arg)
         {
             NumberOfCoins++;
