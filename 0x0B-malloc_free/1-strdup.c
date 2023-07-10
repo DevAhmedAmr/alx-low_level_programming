@@ -16,37 +16,38 @@ int _strlen(char *s)
 	len++;
 	return (len);
 }
-
+/**
+ * _strdup - function that duplicates a string
+ *
+ * paramters:
+ * @str: string to be copied
+ *
+ * Return: a copy of the string
+ */
 char *_strdup(char *str)
 {
 	int i;
-
 	int strLen;
-
 	char *strCpy;
 
-    if (str == NULL)
-    {
-        return NULL;
-    }
+	if (str == NULL)
+	{
+		return (NULL);
+	}
 
-    strLen = _strlen(str);
-    strCpy = malloc((strLen) * sizeof(char));
+	strLen = _strlen(str);
+	strCpy = malloc((strLen + 1) * sizeof(char));
+	if (strCpy == NULL)
+	{
+		return (NULL);
+	}
 
+	for (i = 0; i < strLen; i++)
+	{
+		strCpy[i] = str[i];
+	}
 
-    if (strCpy == NULL)
-    {
-        return NULL;
-    }
-
-    if (strCpy == NULL)
-    {
-        return NULL;
-    }
-    for (i = 0; i < strLen; i++)
-    {
-        strCpy[i] = str[i];
-    }
-    strCpy[strLen] = '\0';
-    return strCpy;
+	strCpy[strLen] = '\0';
+	return (strCpy);
 }
+
