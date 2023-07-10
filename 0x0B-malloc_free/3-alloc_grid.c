@@ -1,4 +1,12 @@
 #include <stdlib.h>
+/**
+ * alloc_grid - function that create 2d array and assign all its values to 0
+ *
+ * @height: the hight of the array
+ * @width: width of the arr
+ *
+ * Return the arr
+ */
 int **alloc_grid(int width, int height)
 {
 	int i, j, k;
