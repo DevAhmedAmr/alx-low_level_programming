@@ -19,14 +19,19 @@ int _strlen(char *s)
 
 char *_strdup(char *str)
 {
+	int i;
+
+	int strLen =_strlen(str);
+
+	char *strCpy = malloc((strLen) * sizeof(char));
+
     if (str == NULL)
     {
         return NULL;
     }
 
-    int i;
-    int strLen =_strlen(str);
-    char *strCpy = malloc((strLen) * sizeof(char)); /* Allocate memory for the null-terminator as well*/
+    strCpy = malloc((strLen) * sizeof(char));
+
     if (strCpy == NULL)
     {
         return NULL;
