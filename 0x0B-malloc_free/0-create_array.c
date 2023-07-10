@@ -6,11 +6,9 @@ char *create_array(unsigned int size, char c)
 	char *arry;
 
 	if (size == 0)
-	{
 		return NULL;
-	}
-
-       	*arry = malloc(sizeof(char) * size);
+	
+	arry = malloc(sizeof(char) * size);
 
 	for (i = 0; i < size; i++)
 	{
