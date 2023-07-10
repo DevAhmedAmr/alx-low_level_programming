@@ -3,12 +3,14 @@ char *create_array(unsigned int size, char c)
 {
 	unsigned int i;
 
+	char *arry;
+
 	if (size == 0)
 	{
 		return NULL;
 	}
 
-	char *arry = malloc(sizeof(char) * size);
+       	*arry = malloc(sizeof(char) * size);
 
 	for (i = 0; i < size; i++)
 	{
