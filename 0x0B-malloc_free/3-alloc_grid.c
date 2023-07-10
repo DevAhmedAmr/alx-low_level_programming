@@ -1,7 +1,7 @@
 #include <stdlib.h>
 int **alloc_grid(int width, int height)
 {
-    int i, j;
+    int i, j, k;
     int **arr;
     arr = malloc(height * sizeof(int *));
 
@@ -18,7 +18,7 @@ int **alloc_grid(int width, int height)
         arr[i] = malloc(width * sizeof(int));
         if (arr[i] == NULL)
         {
-            for (size_t k = 0; k < i; k++)
+            for (k = 0; k < i; k++)
             {
                 free(arr[k]);
             }
