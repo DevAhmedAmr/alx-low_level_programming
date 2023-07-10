@@ -14,6 +14,15 @@ int _strlen(char *s)
 	len++;
 	return (len);
 }
+/**
+ * argstostr - function that collect al arguments to 1 variable type str
+ *
+ * parameter:
+ * @ac: number of paramters
+ * @av: arr of the parameters
+ *
+ * Return:a pointer to the parameters
+ */
 
 char *argstostr(int ac, char **av)
 {
