@@ -5,7 +5,7 @@
  * @height: the hight of the array
  * @width: width of the arr
  *
- * Return the arr
+ * Return: the arr
  */
 int **alloc_grid(int width, int height)
 {
