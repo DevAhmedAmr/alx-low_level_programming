@@ -1,3 +1,4 @@
+#include"stdlib.h"
 /**
  * _strlen -  a function that returns the length of a string.
  *
@@ -31,6 +32,7 @@ char *str_concat(char *s1, char *s2)
     }
 
     i = 0;
+
     for (j = _strlen(s1); j < len; j++)
     {
 
