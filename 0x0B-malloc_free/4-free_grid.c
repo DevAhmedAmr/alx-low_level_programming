@@ -9,10 +9,12 @@
  * Return: void
  */
 
-/*a good yt vedio that explain how dynamic 2d array in memory works*/
-/*and how to free it: https://www.youtube.com/watch?v=ZLc_OpzND2c */
 void free_grid(int **grid, int height)
 {
+/* a good yt vedio that explain how dynamic 2d array in memory works */
+/* and how to free it*/
+/*https://www.youtube.com/watch?v=ZLc_OpzND2c*/
+
 	int i;
 
 	for (i = 0; i < height; i++)
