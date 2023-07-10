@@ -1,3 +1,22 @@
+#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+/**
+ * _strlen -  a function that returns the length of a string.
+ *
+ * @s: type str
+ *
+ * Return: length of a string
+ */
+int _strlen(char *s)
+{
+	int len = 0;
+
+	while (s[len] != '\0')
+	len++;
+	return (len);
+}
+
 char *_strdup(char *str)
 {
     if (str == NULL)
@@ -6,7 +25,7 @@ char *_strdup(char *str)
     }
 
     int i;
-    int strLen = strlen(str);
+    int strLen =_strlen(str);
     char *strCpy = malloc((strLen) * sizeof(char)); /* Allocate memory for the null-terminator as well*/
     if (strCpy == NULL)
     {
