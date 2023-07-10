@@ -17,11 +17,21 @@ int _strlen(char *s)
 
 char *str_concat(char *s1, char *s2)
 {
-    int i, j;
+	int i, j, len;
+	char *str;
 
-    int len = _strlen(s1) + _strlen(s2) + 1;
+	if(s1 == NULL)
+		s1 = "";
 
-    char *str = malloc(len * sizeof(char));
+	if(s2 == NULL)
+		s2 = "";
+
+    len = _strlen(s1) + _strlen(s2) + 1;
+
+    str = malloc(len * sizeof(char));
+
+    if(str==NULL)
+	    return NULL;
 
     for (i = 0; i < _strlen(s1); i++)
     {
