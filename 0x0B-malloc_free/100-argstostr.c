@@ -1,3 +1,20 @@
+#include <stdlib.h>
+/**
+ * _strlen -  a function that returns the length of a string.
+ *
+ * @s: type str
+ *
+ * Return: length of a string
+ */
+int _strlen(char *s)
+{
+	int len = 0;
+
+	while (s[len] != '\0')
+	len++;
+	return (len);
+}
+
 char *argstostr(int ac, char **av)
 {
     char *str;
@@ -9,7 +26,7 @@ char *argstostr(int ac, char **av)
     len = 0;
     for (i = 1; i < ac; i++)
     {
-        len += strlen(av[i]) + 1; 
+        len += _strlen(av[i]) + 1; 
     }
     str = malloc((len * sizeof(char)) + 1);
 
@@ -22,7 +39,7 @@ char *argstostr(int ac, char **av)
 
     for (i = 1; i < ac; i++)
     {
-        for (j = 0; j <= strlen(av[i]); j++)
+        for (j = 0; j <= _strlen(av[i]); j++)
         {
             if (av[i][j] == '\0') 
             {
