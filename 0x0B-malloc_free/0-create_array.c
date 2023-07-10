@@ -1,4 +1,13 @@
 #include"stdlib.h"
+/**
+ * create_array - function that creates an array of a given char
+ *
+ * parameters:
+ * @size: size of the array that is wanted to be inizialized
+ * @c: that char we want in the arry
+ *
+ * Return: array
+ */
 char *create_array(unsigned int size, char c)
 {
 	unsigned int i;
@@ -7,7 +16,7 @@ char *create_array(unsigned int size, char c)
 
 	if (size == 0)
 		return (NULL);
-	
+
 	arry = malloc(sizeof(char) * size);
 
 	if (arry == NULL)
@@ -20,4 +29,3 @@ char *create_array(unsigned int size, char c)
 
 	return (arry);
 }
-
