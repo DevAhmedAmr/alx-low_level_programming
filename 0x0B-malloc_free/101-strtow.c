@@ -95,38 +95,42 @@ int wordcounter(char *str)
 }
 char **strtow(char *str)
 {
-    int len = _strlen(str), i, j, k = 0;
+	int len = _strlen(str), i, j, k = 0, isEmptyString = 1;
+	int wordsCount = wordcounter(str);
+	char **strAyy = (char **)malloc((wordsCount + 1) * sizeof(char *));
 
-    int wordsCount = wordcounter(str);
+	if (str == NULL || _strlen(str) == 0)
+		return NULL;
 
-    char **strAyy = (char **)malloc(wordsCount * sizeof(char *));
+	for (i = 0; i < len; i++)
+	{
+		char buffer[16350];
 
-     if (str == NULL || _strlen(str) == 0 || (str[0] == ' ' && len == 1))
-   
-        return NULL;
-     for (i = 0; i < len; i++)
-    {
-        char buffer[16350];
+		if (str[i] == ' ')
+		{
+			if (isEmptyString == 1 && i == len - 1)
+				return NULL;
+			continue;
+		}
+		isEmptyString = 0;
 
-        if (str[i] == ' ')
-            continue;
+		j = 0;
 
-        j = 0;
+		while (str[i] != ' ' && str[i] != '\0')
+		{
+			buffer[j] = str[i];
+			i++;
+			j++;
+		}
 
-        while (str[i] != ' ' && str[i] != '\0')
-        {
-            buffer[j] = str[i];
-            i++;
-            j++;
-        }
+		buffer[j] = '\0';
 
-        buffer[j] = '\0';
+		strAyy[k] = (char *)malloc((j + 1) * sizeof(char));
+		_strncpy(strAyy[k], buffer);
 
-        strAyy[k] = (char *)malloc((j + 1) * sizeof(char));
-      _strncpy(strAyy[k], buffer);
-
-        k++;
-    }
-    strAyy[k] = NULL;
-    return strAyy;
+		k++;
+	}
+	strAyy[k] = NULL;
+	return strAyy;
 }
+
