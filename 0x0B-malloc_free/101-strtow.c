@@ -95,9 +95,9 @@ int wordcounter(char *str)
 }
 char **strtow(char *str)
 {
-	int len = _strlen(str), i, j, k = 0/*, isEmptyString = 1 */;
+	int len = _strlen(str), i, j, k = 0, isEmptyString = 1 ;
 	int wordsCount = wordcounter(str);
-	char **strAyy = (char **)malloc((wordsCount + 1) * sizeof(char *));
+	char **strAyy = (char **)malloc((wordsCount) * sizeof(char *));
 
 	if (str == NULL || _strlen(str) == 0)
 		return NULL;
@@ -108,11 +108,11 @@ char **strtow(char *str)
 
 		if (str[i] == ' ')
 		{
-			/*if (isEmptyString == 1 && i == len - 1)*/
-				/*return NULL;*/
+			if (isEmptyString == 1 && i == len - 1)
+				return NULL;
 			continue;
 		}
-		/*isEmptyString = 0;*/
+		isEmptyString = 0;
 
 		j = 0;
 
