@@ -101,7 +101,7 @@ char **strtow(char *str)
 
     char **strAyy = (char **)malloc(wordsCount * sizeof(char *));
 
-     if (str == NULL || _strlen(str) == 0)
+     if (str == NULL || _strlen(str) == 0 || (str[0] == ' ' && len==1))
    
         return NULL;
      for (i = 0; i < len; i++)
