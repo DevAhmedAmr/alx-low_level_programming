@@ -28,10 +28,37 @@ void _printf(char *str, char *firstVariable)
 					j++;
 				}
 			}
+
+			// Uncomment and complete the code for other specifiers, such as "%d" or "%i"
+			// if (strcmp(specifier, "%d") == 0 || strcmp(specifier, "%i") == 0)
+			// {
+			// 	int numberLen = 0, numbercpy = firstVariable;
+
+			// 	/*get the length of the number*/
+			// 	while (numbercpy > 0)
+			// 	{
+			// 		numbercpy = numbercpy / 10;
+			// 		numberLen++;
+			// 	}
+
+			// 	/*print the number num by num*/
+			// 	while (numberLen > 0)
+			// 	{
+			// 		double devsion = pow(10, (numberLen - 1));
+			// 		double mod = pow(10, numberLen);
+			// 		putchar(firstVariable % (int)mod / (int)devsion + 48);
+			// 		numberLen--;
+			// 	}
+			// }
+
+			// /*skip %s */
+			// i++;
+			// i++;
 		}
 		putchar(str[i]);
 	}
 }
+
 
 int main(void)
 {
