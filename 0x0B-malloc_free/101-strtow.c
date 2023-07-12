@@ -121,7 +121,7 @@ char **strtow(char *str)
 {
 	int len = _strlen(str), i, j, k = 0, isEmptyString = 1;
 	int wordsCount = wordcounter(str);
-	char **strAyy = (char **)malloc((wordsCount + 1) * sizeof(char *));
+	char **strAyy = malloc((wordsCount + 1) * sizeof(char *));
 
 	if (str == NULL || _strlen(str) == 0)
 		return (NULL);
