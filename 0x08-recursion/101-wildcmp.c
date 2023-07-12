@@ -1,3 +1,14 @@
+/**
+ * wildcmpHelper - a helper function that compares 2 strings
+ * that contains wildcards
+ *
+ * parameters:
+ * @s1: the first string that wanted to be compared
+ * @s2: the second string to be compared
+ * @seenAstar: a boolen that checks if s2 has star or not
+ *
+ * Return: 1 two strings are identical else 0
+ */
 int wildcmpHelper(char *s1, char *s2, int seenAstar)
 {
 	if (*s2 == '*')
@@ -41,9 +52,20 @@ int wildcmpHelper(char *s1, char *s2, int seenAstar)
 	return (wildcmpHelper(s1, s2, seenAstar));
 }
 
+/**
+ * wildcmp - a function that compares 2 strings that contains wildcards
+ *
+ * parameters:
+ * @s1: the first string that wanted to be compared
+ * @s2: the second string to be compared
+ *
+ * Return: 1 two strings are identical else 0
+ */
+
 int wildcmp(char *s1, char *s2)
 {
 	int seenAstar = 0;
+
 	if (*s2 == '*')
 	{
 		s2++;
