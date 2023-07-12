@@ -39,68 +39,67 @@ char *_strchr(char *s, char c)
  * _strncpy - function that copies a string to another empty string
  * @dest: string paramter that will the copied text save in
  * @src: text string to be copied
- * @n: number of chars to be copied from src
  *
  * Return: dest var
  */
 char *_strncpy(char *dest, char *src)
 {
-   int i , len = _strlen(src);
+	int i, len = _strlen(src);
 
-    for (i = 0; (i < len) && (src[i] != '\0'); i++)
-    {
-        dest[i] = src[i];
-    }
-   
-    dest[i] = '\0';
+	for (i = 0; (i < len) && (src[i] != '\0'); i++)
+		dest[i] = src[i];
 
-    return dest;
+	dest[i] = '\0';
+
+	return (dest);
 }
 int wordcounter(char *str)
 {
-    char *separators = " \t\n,";
-    int i = 0, count = 0, len = _strlen(str);
-    int oldI;
-    while (i < len)
-    {
-        /*leaping threw separators and skip them */
-        while (i < len)
-        {
+	char *separators = " \t\n,";
+	int i = 0, count = 0, len = _strlen(str);
+	int oldI;
 
-            /*if current str[i] (char) is not a separators break; else increment 'i' */
-            if (_strchr(separators, str[i]) == NULL)
-            {
+	while (i < len)
+	{
+		/* Leaping through separators and skipping them */
+		while (i < len)
+		{
+			/* If current str[i] (char) is not a separator, break; else increment 'i' */
+			if (_strchr(separators, str[i]) == NULL)
+			{
+				break;
+			}
+			i++;
+		}
 
-                break;
-            }
-            i++;
-        }
-        oldI = i;
-        while (i < len)
-        {
-            /*the current index str[i] is  equal to separator break else increment the counter*/
+		oldI = i;
 
-            if (_strchr(separators, str[i]) != NULL)
-            {
-                break;
-            }
-            i++;
-        }
-        if (i > oldI)
+		while (i < len)
+		{
+/* The current index str[i] is equal to a separator,*/
+/*  break; else increment the counter */
+			if (_strchr(separators, str[i]) != NULL)
+			{
+				break;
+			}
+			i++;
+		}
 
-            count++;
-    }
+		if (i > oldI)
+			count++;
+	}
 
-    return count;
+	return (count);
 }
+
 char **strtow(char *str)
 {
-	int len = _strlen(str), i, j, k = 0, isEmptyString = 1 ;
+	int len = _strlen(str), i, j, k = 0, isEmptyString = 1;
 	int wordsCount = wordcounter(str);
-	char **strAyy = (char **)malloc((wordsCount) * sizeof(char *));
+	char **strAyy = (char **)malloc((wordsCount + 1) * sizeof(char *));
 
 	if (str == NULL || _strlen(str) == 0)
-		return NULL;
+		return (NULL);
 
 	for (i = 0; i < len; i++)
 	{
@@ -109,11 +108,10 @@ char **strtow(char *str)
 		if (str[i] == ' ')
 		{
 			if (isEmptyString == 1 && i == len - 1)
-				return NULL;
+				return (NULL);
 			continue;
 		}
 		isEmptyString = 0;
-
 		j = 0;
 
 		while (str[i] != ' ' && str[i] != '\0')
@@ -124,13 +122,12 @@ char **strtow(char *str)
 		}
 
 		buffer[j] = '\0';
-
 		strAyy[k] = (char *)malloc((j + 1) * sizeof(char));
 		_strncpy(strAyy[k], buffer);
 
 		k++;
 	}
-	strAyy[k] = NULL;
-	return strAyy;
+	strAyy[k] = (NULL);
+	return (strAyy);
 }
 
