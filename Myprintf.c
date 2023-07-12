@@ -51,9 +51,6 @@ void _printf(char *str, char *firstVariable)
 			// 	}
 			// }
 
-			// /*skip %s */
-			// i++;
-			// i++;
 		}
 		putchar(str[i]);
 	}
