@@ -14,6 +14,16 @@ int _strlen(char *s)
 	len++;
 	return (len);
 }
+/**
+ * _strchr - function that searchs a char in a string
+ *
+ * parameters:
+ * @s: a string
+ * @c: char to be searched in str
+ *
+ * Return: a pointerto the char or null
+ */
+
 char *_strchr(char *s, char c)
 {
 	int len = 0;
@@ -53,6 +63,13 @@ char *_strncpy(char *dest, char *src)
 
 	return (dest);
 }
+/**
+ * wordcounter - a helper function that counts the numbers of words in a string
+ *
+ * parameters:
+ * @str: a string wanted to be word counted
+ * Return: number of words in a given string
+ */
 int wordcounter(char *str)
 {
 	char *separators = " \t\n,";
@@ -92,6 +109,14 @@ int wordcounter(char *str)
 	return (count);
 }
 
+/**
+ * strtow - function that split a string into a array of words
+ *
+ * parameters:
+ * @str: the given string to be spliited
+ *
+ * Return: array of words
+ */
 char **strtow(char *str)
 {
 	int len = _strlen(str), i, j, k = 0, isEmptyString = 1;
