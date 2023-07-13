@@ -5,6 +5,7 @@
  * parameters:
  * @s1: first string to be concatenates
  * @s2: second string to be concatenates
+ * @n: number of char in str 2 to be concatenates
  *
  * Return: a pointer to a variable that holds s1 + s2
  */
