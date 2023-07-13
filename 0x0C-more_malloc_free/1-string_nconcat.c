@@ -4,10 +4,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
     unsigned int s1Len = 0, i, j, k = 0;
     char *newSentance;
 
-    if(*s1 == NULL)
-	    *s1 = "";
+    if (s1 == NULL)
+        s1 = "";
     if (s2 == NULL)
-	    s2 = "";
+        s2 = "";
 
     /*get the len of s1*/
     while (s1[s1Len] != '\0')
@@ -17,7 +17,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
     newSentance = malloc((s1Len + n + 1) * sizeof(char));
 
     if (newSentance == NULL)
-	    return (NULL);
+        return (NULL);
 
     /*add s1*/
 
@@ -34,6 +34,4 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
     newSentance[s1Len + n] = '\0';
 
     return newSentance;
-
 }
-
