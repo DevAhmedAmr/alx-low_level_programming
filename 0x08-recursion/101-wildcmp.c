@@ -85,8 +85,8 @@ int wildcmp(char *s1, char *s2)
 /*
  * function Explanation
  *
- * The function initializes the seenAstar flag and 
- * skips any leading * characters in s2. It moves the pointer s1 to 
+ * The function initializes the seenAstar flag and
+ * skips any leading * characters in s2. It moves the pointer s1 to
  * the position of the first character match in the two strings.
  *
  * The function enters a loop to compare the strings one
