@@ -13,9 +13,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
     while (s1[s1Len] != '\0')
         s1Len++;
 
-    if (s2len <= n)
-	    return
-
     /*allocated the memory*/
     newSentance = malloc((s1Len + n + 1) * sizeof(char));
 
