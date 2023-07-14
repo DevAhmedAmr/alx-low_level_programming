@@ -8,7 +8,7 @@ void *_calloc(size_t nmemb, size_t size)
 	if (p == NULL || size == 0 || nmemb == 0)
 		return NULL;
 
-	for (i = 0; i < nmemb; i++)
+	for (i = 0; i < nmemb * size; i++)
 		p[i] = 0;
 	return p;
 }
