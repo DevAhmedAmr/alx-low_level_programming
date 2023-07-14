@@ -1,19 +1,21 @@
 #include<stdlib.h>
+
 void *_calloc(size_t nmemb, size_t size)
 {
 	size_t i;
 
-	char *p;
+	void *p;
+
 	if (size == 0 || nmemb == 0)	
-		return NULL;
+		return (NULL);
 
 	p = malloc(nmemb * size);
 
 	if(p == NULL)
-		return 0;
+		return (NULL);
 
 	for (i = 0; i < nmemb * size; i++)
-		p[i] = 0;
+		((int)p)[i] = 0;
 
-	return p;
+	return (p);
 }
