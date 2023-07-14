@@ -15,7 +15,7 @@ void *_calloc(size_t nmemb, size_t size)
 		return (NULL);
 
 	for (i = 0; i < nmemb * size; i++)
-		((int)p)[i] = 0;
+		((char *)p)[i] = 0;
 
 	return (p);
 }
