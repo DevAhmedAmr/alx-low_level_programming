@@ -115,9 +115,14 @@ int main(int argc, char **argv)
 		fprintf(stderr, "Memory allocation failed!\n");
 		return 1;
 	}
+	
 
 	strcpy(num1, argv[1]);
 	strcpy(num2, argv[2]);
+	
+	if (num1[0] == '0' || num2[0] == '0')
+		printf("0\n");
+	return 0;
 
 	len1 = strlen(num1);
 	len2 = strlen(num2);
