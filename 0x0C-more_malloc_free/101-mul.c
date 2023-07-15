@@ -81,6 +81,7 @@ int main(int argc, char **argv)
 	char *finalSum;
 	char *buffer;
 	char *tmp;
+	int subNum1, subNum2;
 
 	if (argc != 3)
 	{
@@ -130,7 +131,16 @@ int main(int argc, char **argv)
 		{
 			if (i >= 0)
 			{
-				mul = ((int)num2[i] - 48) * (((int)num1[j] - 48)) + carry;
+				subNum1 = (((int)num1[j] - 48));
+				subNum2 = ((int)num2[i] - 48);
+
+				if (subNum1 > 9 || subNum2 > 9)
+				{
+					printf("Error\n");
+					exit(98);
+				}
+
+				mul = subNum2 * subNum1 + carry;
 				carry = mul / 10;
 				buffer[buffer_count] = mul % 10 + 48;
 				buffer_count++;
