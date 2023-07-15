@@ -85,8 +85,8 @@ int main(int argc, char **argv)
 
 	if (argc != 3)
 	{
-		/*printf("Error\n");*/
-		/*exit(98);*/
+		printf("Error\n");
+		exit(98);
 	}
 	num1 = malloc(strlen(argv[1]) * sizeof(char) + 1);
 	num2 = malloc(strlen(argv[2]) * sizeof(char) + 1);
@@ -136,8 +136,8 @@ int main(int argc, char **argv)
 
 				if (subNum1 > 9 || subNum2 > 9)
 				{
-					printf("Error\n");
-					exit(98);
+					/*printf("Error\n");*/
+					/*exit(98);*/
 				}
 
 				mul = subNum2 * subNum1 + carry;
