@@ -37,6 +37,13 @@ char *_strcpy(char *dest, char *src)
 	return (dest);
 }
 
+/**
+ * reverseStr - function that reverse a string by swaping the string chars
+ * @str: parameter1 - the string that wanted to be reversed
+ * @len: parameter2 - the length of that string
+ * Return: the string reversed
+ */
+
 void reverseString(char *str)
 {
 	int i;
@@ -48,6 +55,15 @@ void reverseString(char *str)
 		str[length - 1 - i] = temp;
 	}
 }
+
+/**
+ * infinite_add - adds two numbers stored as strings
+ * @n1: first number as a string
+ * @n2: second number as a string
+ * @r: buffer to store the result
+ * @size_r: size of the buffer
+ * Return: pointer to the result string
+ */
 
 void ifninty_Add(char *num1, char *num2, char *result)
 {
@@ -69,7 +85,12 @@ void ifninty_Add(char *num1, char *num2, char *result)
 	result[k] = '\0';
 	reverseString(result);
 }
-
+/**
+ * main - Entry point
+ * @argc: number of arguments
+ * @argv: array of 2 numbers in a string form
+ * return: 0 on succses
+ */
 int main(int argc, char **argv)
 {
 	char *num1;
