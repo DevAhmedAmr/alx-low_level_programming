@@ -102,11 +102,20 @@ int multiplicate(char *num1, char *num2)
 	buffer = malloc(sizeof(char) * (len1 + len2 + 1));
 	tmp = malloc(sizeof(char) * (len1 + len2 + 1));
 
-	if (finalSum == NULL || buffer == NULL || tmp == NULL)
+if (finalSum == NULL || buffer == NULL || tmp == NULL)
 	{
-		/*fprintf(stderr, "Memory allocation failed!\n");*/;
+		/*fprintf(stderr, "Memory allocation failed!\n");*/
+		if (finalSum != NULL)
+			free(finalSum);
+
+		if (buffer != NULL)
+			free(buffer);
+
+		if (tmp != NULL)
+			free(tmp);
+
 		return (1);
-	}
+	}	
 	finalSum[0] = '0';
 	finalSum[1] = '\0';
 
