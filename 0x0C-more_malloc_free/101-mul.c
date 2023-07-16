@@ -160,6 +160,7 @@ int multiplicate(char *num1, char *num2)
 		buffer_count = 0;
 	}
 
+	additional_Zeros_remover(finalSum);
 	printf("%s\n", finalSum);
 
 	free(finalSum);
