@@ -1,39 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-/**
- * _strlen -  a function that returns the length of a string.
- *
- * @s: type str
- *
- * Return: length of a string
- */
-int _strlen(char *s)
-{
-	int len = 0;
-
-	while (s[len] != '\0')
-		len++;
-	return (len);
-}
-/**
- * _strcpy - function that copies a string
- *
- * @dest: parameter of a string wanted to be copied to
- * @src: string wanted to be copy from
- *
- * Return: dest value .
- *
- */
 char *_strcpy(char *dest, char *src)
 
 {
-	int i = 0;
+	unsigned int i = 0;
 
-	for (; i <= _strlen(src); i++)
-	{
+	for (; i <= strlen(src); i++)
+
 		dest[i] = src[i];
-	}
+	
 	return (dest);
 }
 
@@ -46,7 +22,7 @@ char *_strcpy(char *dest, char *src)
 void reverseString(char *str)
 {
 	int i;
-	int length = _strlen(str);
+	int length = strlen(str);
 	for (i = 0; i < length / 2; i++)
 	{
 		char temp = str[i];
@@ -66,7 +42,7 @@ void reverseString(char *str)
 void ifninty_Add(char *num1, char *num2, char *result)
 {
 	int sum = 0, carry = 0, i, j, k = 0;
-	int len1 = _strlen(num1), len2 = _strlen(num2);
+	int len1 = strlen(num1), len2 = strlen(num2);
 
 	for (i = len1 - 1, j = len2 - 1; i >= 0 || j >= 0 || carry != 0; i--, j--)
 	{
@@ -83,12 +59,33 @@ void ifninty_Add(char *num1, char *num2, char *result)
 	result[k] = '\0';
 	reverseString(result);
 }
+
+
 /**
  * main - Entry point
  * @argc: number of arguments
  * @argv: array of 2 numbers in a string form
  * Return: 0 on succses
  */
+void additional_Zeros_remover(char *numb)
+{
+
+	int i;
+	int len = strlen(numb);
+	int isZero = 0;
+	for (i = 0; i < len; i++)
+	{
+		if (numb[i] != '0')
+		{
+			isZero = 1;
+			break;
+		}
+	}
+	if (isZero == 0)
+	{
+		_strcpy(numb, "0");
+	}
+}
 int main(int argc, char **argv)
 {
 	char *num1;
@@ -115,11 +112,9 @@ int main(int argc, char **argv)
 		fprintf(stderr, "Memory allocation failed!\n");
 		return 1;
 	}
-	
 
 	strcpy(num1, argv[1]);
 	strcpy(num2, argv[2]);
-	
 
 	len1 = strlen(num1);
 	len2 = strlen(num2);
@@ -187,6 +182,7 @@ int main(int argc, char **argv)
 		strcpy(finalSum, tmp);
 		buffer_count = 0;
 	}
+	additional_Zeros_remover(finalSum);
 
 	printf("%s\n", finalSum);
 
@@ -198,3 +194,4 @@ int main(int argc, char **argv)
 
 	return 0;
 }
+
