@@ -104,7 +104,8 @@ void additional_Zeros_remover(char *numb)
  *
  * Return: 1 on succsess
  */
-int main(int argc, char **argv)
+
+ *int main(int argc, char **argv)
 {
 	char *num1;
 	char *num2;
@@ -127,7 +128,9 @@ int main(int argc, char **argv)
 
 	if (num1 == NULL || num2 == NULL)
 	{
-		fprintf(stderr, "Memory allocation failed!\n");
+		/*fprintf(stderr, "Memory allocation failed!\n");*/
+		free(num1);
+		free(num2);
 		return 1;
 	}
 
@@ -143,9 +146,10 @@ int main(int argc, char **argv)
 
 	if (finalSum == NULL || buffer == NULL || tmp == NULL)
 	{
-		fprintf(stderr, "Memory allocation failed!\n");
-		free(num1);
-		free(num2);
+		/*fprintf(stderr, "Memory allocation failed!\n");*/
+		free(finalSum);
+		free(buffer);
+		free(tmp);
 		return 1;
 	}
 
@@ -211,5 +215,4 @@ int main(int argc, char **argv)
 	free(num2);
 
 	return 0;
-}
-
+}/
