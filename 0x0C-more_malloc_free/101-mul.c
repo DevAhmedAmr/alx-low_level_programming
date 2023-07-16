@@ -104,9 +104,7 @@ int multiplicate(char *num1, char *num2)
 
 	if (finalSum == NULL || buffer == NULL || tmp == NULL)
 	{
-		/*fprintf(stderr, "Memory allocation failed!\n");*/
-		free(num1);
-		free(num2);
+		/*fprintf(stderr, "Memory allocation failed!\n");*/;
 		return (1);
 	}
 	finalSum[0] = '0';
