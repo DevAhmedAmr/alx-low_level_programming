@@ -16,7 +16,6 @@ void reverseString(char *str)
 	for (i = 0; i < length / 2; i++)
 	{
 		char temp = str[i];
-
 		str[i] = str[length - 1 - i];
 		str[length - 1 - i] = temp;
 	}
@@ -104,7 +103,7 @@ int multiplicate(char *num1, char *num2)
 
 	if (finalSum == NULL || buffer == NULL || tmp == NULL)
 	{
-		fprintf(stderr, "Memory allocation failed!\n");
+		/*fprintf(stderr, "Memory allocation failed!\n");*/
 		free(num1);
 		free(num2);
 		return (1);
