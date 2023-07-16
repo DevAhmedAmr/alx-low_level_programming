@@ -1,6 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+/**
+ * _strcpy - my custom implementation for strcpy function in c
+ *
+ * @dest: destination
+ * @src: src to be copied
+ *
+ * Return: a pointer for destination after copying src to it
+ */
 char *_strcpy(char *dest, char *src)
 
 {
@@ -62,10 +70,12 @@ void ifninty_Add(char *num1, char *num2, char *result)
 
 
 /**
- * main - Entry point
- * @argc: number of arguments
- * @argv: array of 2 numbers in a string form
- * Return: 0 on succses
+ * additional_Zeros_remover - function that removes the leading zeros
+ * in the result if the input is 00 ,000 ,0000 ,etc
+ *
+ * @numb: the result that will be modifyed
+ *
+ * Return:void
  */
 void additional_Zeros_remover(char *numb)
 {
@@ -86,6 +96,14 @@ void additional_Zeros_remover(char *numb)
 		_strcpy(numb, "0");
 	}
 }
+/**
+ * main - Entry point to program the multiablicate infinty numbers of intigers
+ *
+ * @argc: number of arguments
+ * @argv: arguments values
+ *
+ * Return: 1 on succsess
+ */
 int main(int argc, char **argv)
 {
 	char *num1;
