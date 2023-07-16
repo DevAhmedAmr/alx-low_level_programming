@@ -23,14 +23,14 @@ void reverseString(char *str)
 }
 
 /**
- * ifninty_Add - adds two numbers stored as strings
+ * infinity_Add - adds two numbers stored as strings
  * @num1: first number as a string
  * @num2: second number as a string
  * @result: buffer to store the result
  * Return: pointer to the result string
  */
 
-void ifninty_Add(char *num1, char *num2, char *result)
+void infinity_Add(char *num1, char *num2, char *result)
 {
 	int sum = 0, carry = 0, i, j, k = 0;
 	int len1 = strlen(num1), len2 = strlen(num2);
@@ -92,94 +92,99 @@ void additional_Zeros_remover(char *numb)
 
 int multiplicate(char *num1, char *num2)
 {
-	int mul, len1, len2, carry = 0, buffer_count = 0, i, k, j;
-	int needCarry = 0, zerosCountAdd = 0, subNum1, subNum2;
-	char *finalSum, *buffer, *tmp;
+	/* Variable Initialization */
+	int product, len1, len2, carry = 0, buffer_count = 0, i, k, j;
+	int requireCarry = 0, zerosToAdd = 0, subNum1, subNum2;
+	char *finalSum, *buffer, *temp;
 
+	/* Memory Allocation */
 	len1 = strlen(num1);
 	len2 = strlen(num2);
-	finalSum = malloc(sizeof(char) * (len1 + len2 + 1));
-	buffer = malloc(sizeof(char) * (len1 + len2 + 1));
-	tmp = malloc(sizeof(char) * (len1 + len2 + 1));
+	finalSum = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
+	buffer = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
+	temp = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
 
-if (finalSum == NULL || buffer == NULL || tmp == NULL)
+	/* Memory Allocation Error Check */
+	if (finalSum == NULL || buffer == NULL || temp == NULL)
 	{
-		/*fprintf(stderr, "Memory allocation failed!\n");*/
 		if (finalSum != NULL)
 			free(finalSum);
-
 		if (buffer != NULL)
 			free(buffer);
-
-		if (tmp != NULL)
-			free(tmp);
-
+		if (temp != NULL)
+			free(temp);
 		return (1);
-	}	
+	}
+
 	finalSum[0] = '0';
 	finalSum[1] = '\0';
 
+	/* Main Multiplication Loop */
 	for (i = len2 - 1; i >= 0; i--)
 	{
 		carry = 0;
 
-		for (k = 0; k < zerosCountAdd; k++)
+		/* Append Zeros for Each Iteration */
+		for (k = 0; k < zerosToAdd; k++)
 		{
-			buffer[buffer_count] = 48;
+			buffer[buffer_count] = '0';
 			buffer_count++;
 		}
 
+		/* Perform Multiplication and Addition */
 		for (j = len1 - 1; j >= 0; j--)
 		{
 			if (i >= 0)
 			{
-				subNum1 = (((int)num1[j] - 48));
-				subNum2 = ((int)num2[i] - 48);
+				subNum1 = ((int)num1[j] - '0');
+				subNum2 = ((int)num2[i] - '0');
 
+				/* Check for Invalid Characters */
 				if (subNum1 > 9 || subNum2 > 9)
 				{
-					printf("Error\n");
+					printf("Error: Invalid characters in input\n");
 
 					free(finalSum);
 					free(buffer);
-					free(tmp);
+					free(temp);
 
 					exit(98);
 				}
 
-				mul = subNum2 * subNum1 + carry;
-				carry = mul / 10;
-				buffer[buffer_count] = mul % 10 + 48;
+				product = subNum2 * subNum1 + carry;
+				carry = product / 10;
+				buffer[buffer_count] = (product % 10) + '0';
 				buffer_count++;
 			}
 		}
 
+		/* Append Carry, if Exists */
 		if (carry > 0)
 		{
-			buffer[buffer_count] = carry + 48;
-			needCarry = 1;
+			buffer[buffer_count] = carry + '0';
+			requireCarry = 1;
 		}
 
-		if (needCarry == 1)
-			buffer[buffer_count + 1] = '\0';
-		else
-			buffer[buffer_count] = '\0';
-
+		buffer[requireCarry ? buffer_count + 1 : buffer_count] = '\0';
 		reverseString(buffer);
-		needCarry = 0;
-		zerosCountAdd++;
+		requireCarry = 0;
+		zerosToAdd++;
 
-		ifninty_Add(finalSum, buffer, tmp);
-		strcpy(finalSum, tmp);
+		/* Addition of Buffer to FinalSum */
+		infinity_Add(finalSum, buffer, temp);
+		strcpy(finalSum, temp);
 		buffer_count = 0;
 	}
 
+	/* Removing Additional Leading Zeros */
 	additional_Zeros_remover(finalSum);
 	printf("%s\n", finalSum);
 
+	/* Freeing Allocated Memory */
 	free(finalSum);
 	free(buffer);
-	free(tmp);
+	free(temp);
+
 	return (0);
 }
 
