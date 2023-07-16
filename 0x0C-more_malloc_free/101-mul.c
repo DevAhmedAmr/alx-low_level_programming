@@ -105,7 +105,7 @@ void additional_Zeros_remover(char *numb)
  * Return: 1 on succsess
  */
 
- *int main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	char *num1;
 	char *num2;
@@ -215,4 +215,4 @@ void additional_Zeros_remover(char *numb)
 	free(num2);
 
 	return 0;
-}/
+}
