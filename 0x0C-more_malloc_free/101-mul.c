@@ -139,6 +139,11 @@ if (finalSum == NULL || buffer == NULL || tmp == NULL)
 				if (subNum1 > 9 || subNum2 > 9)
 				{
 					printf("Error\n");
+
+					free(finalSum);
+					free(buffer);
+					free(tmp);
+
 					exit(98);
 				}
 
