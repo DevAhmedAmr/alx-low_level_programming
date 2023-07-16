@@ -142,7 +142,7 @@ int multiplicate(char *num1, char *num2)
 				/* Check for Invalid Characters */
 				if (subNum1 > 9 || subNum2 > 9)
 				{
-					printf("Error: Invalid characters in input\n");
+					printf("Error\n");
 
 					free(finalSum);
 					free(buffer);
