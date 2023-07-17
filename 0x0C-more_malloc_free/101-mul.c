@@ -140,7 +140,8 @@ int multiplicate(char *num1, char *num2)
 				subNum2 = ((int)num2[i] - '0');
 
 				/* Check for Invalid Characters */
-				if (subNum1 > 9 || subNum2 > 9)
+				if (subNum1 > 9 || subNum2 > 9
+					       	||subNum1 < 0 || subNum2 < 0)
 				{
 					printf("Error\n");
 
