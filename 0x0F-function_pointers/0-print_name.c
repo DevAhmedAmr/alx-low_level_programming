@@ -12,9 +12,8 @@
  */
 void print_name(char *name, void (*f)(char *))
 {
-	if (!f || !name)
-		return;
-	f(name);
+	if (f != NULL && name != NULL && strcmp("",name) != 0)
+		f(name);
 }
 
 
