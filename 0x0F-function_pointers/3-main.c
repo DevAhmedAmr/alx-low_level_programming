@@ -1,4 +1,13 @@
 #include"calc.h"
+/**
+ * main - Entry point for an app that performs simple math operations on 2 nums
+ *
+ * parameters:
+ * @argc: number of arguments
+ * @argv: array of arguments values in astring form
+ *
+ * Return: 0 on success or exsit on fail
+ */
 int main(int argc, char **argv)
 {
 	int num1;
@@ -22,5 +31,5 @@ int main(int argc, char **argv)
 	num2 = atoi(argv[3]);
 	printf("%d\n", get_op_func(argv[2])(num1, num2));
 
-	return 0;
+	return (0);
 }
