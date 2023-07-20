@@ -1,5 +1,14 @@
 #include "variadic_functions.h"
 
+/**
+ * print_number - function that print number
+ * without using stdio lib
+ *
+ * @n: type int
+ *
+ * Return: number
+ */
+
 void print_number(int n)
 {
 	unsigned int num = n;
@@ -15,6 +24,13 @@ void print_number(int n)
 
 	_putchar((num % 10) + 48);
 }
+/**
+ * print_numbers - function that print a given numbers
+ *
+ * parameters:
+ * @separator: separate the numbers with a separator
+ * @n: number of number to be printed
+ */
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
 	va_list args;
