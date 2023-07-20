@@ -1,4 +1,13 @@
 #include "variadic_functions.h"
+
+/**
+ * print_strings -  function that prints strings, followed
+ * by a new line from scratch based on custom implementation of putchar .
+ *
+ * @parameters:
+ * @separator: string that used to separate the other strings
+ * @n: number of the strings excluding separator
+ */
 void print_strings(const char *separator, const unsigned int n, ...)
 {
 	va_list args;
@@ -13,7 +22,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 
 		if (str == NULL)
 		{
-			str="(nil)";
+			str = "(nil)";
 		}
 
 		for (j = 0; j < strlen(str); j++)
@@ -23,7 +32,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		if (i >= n - 1)
 			break;
 
-		if(separator == NULL)
+		if (separator == NULL)
 			continue;
 
 		/*print separator */
