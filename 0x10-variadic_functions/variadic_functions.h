@@ -3,9 +3,13 @@
 
 #include <stdarg.h>
 #include <stddef.h>
+#include<stdio.h>
+#include <math.h>
+
 
 /* Function Prototypes */
 
 int sum_them_all(const unsigned int n, ...);
-
+int _putchar(char c);
+void print_numbers(const char *separator, const unsigned int n, ...);
 #endif /* VARIADIC_FUNCTIONS_H */
