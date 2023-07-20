@@ -11,6 +11,7 @@
  */
 int main(int argc, char *argv[])
 {
+	int i;
 
 	if (argc != 2)
 	{
@@ -28,7 +29,7 @@ int main(int argc, char *argv[])
 
 	unsigned char *function_ptr = (char *)main;
 
-	for (int i = 0; i < num_bytes; i++)
+	for (i = 0; i < num_bytes; i++)
 	{
 		printf("%02hhx", function_ptr[i]);
 		if (i < num_bytes - 1)
