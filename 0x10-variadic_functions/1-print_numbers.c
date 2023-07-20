@@ -52,7 +52,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 
 		if (j < n - 1 && separator != NULL)
 		{
-			for (i = 0; i < strlen(separator);i++)
+			for (i = 0; i < strlen(separator); i++)
 			_putchar(separator[i]);
 		}
 	}
