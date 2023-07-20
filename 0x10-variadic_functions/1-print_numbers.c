@@ -1,4 +1,5 @@
 #include "variadic_functions.h"
+#include <string.h>
 
 /**
  * print_number - function that print number
@@ -15,14 +16,14 @@ void print_number(int n)
 
 	if (n < 0)
 	{
-		putchar('-');
+		_putchar('-');
 		num = -num;
 	}
 
 	if ((num / 10) > 0)
 		print_number(num / 10);
 
-	putchar((num % 10) + 48);
+	_putchar((num % 10) + 48);
 }
 /**
  * print_numbers - function that print a given numbers
@@ -43,16 +44,19 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 
 	for (j = 0; j < n; j++)
 	{
+		unsigned int i;
+
 		num = va_arg(args, int);
 
 		print_number(num);
 
 		if (j < n - 1 && separator != NULL)
 		{
-			printf("%s", separator);
+			for (i = 0; i < strlen(separator);i++)
+			_putchar(separator[i]);
 		}
 	}
-	putchar('\n');
+	_putchar('\n');
 
 	va_end(args);
 }
