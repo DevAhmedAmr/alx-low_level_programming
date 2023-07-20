@@ -20,7 +20,7 @@ int _pow(int base, int exponent) {
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
 	va_list args;
-	int num, numCpy, numlen = 0, i;
+	long int num, numCpy, numlen = 0, i;
 	unsigned int j;
 	double power;
 	va_start(args, n);
@@ -46,7 +46,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 
 		for (i = 0; i <= numlen; i++)
 		{
-			printf("%i",num / (int)power % 10);
+			printf("%ld",num / (int)power % 10);
 			power /= 10;
 		}
 		numlen = 0;
