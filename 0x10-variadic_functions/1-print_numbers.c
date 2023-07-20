@@ -27,14 +27,14 @@ void print_number(int n)
 
 	if (n < 0)
 	{
-		_putchar('-');
+		putchar('-');
 		num = -num;
 	}
 
 	if ((num / 10) > 0)
 		print_number(num / 10);
 
-	_putchar((num % 10) + 48);
+	putchar((num % 10) + 48);
 }
 /**
  * print_numbers - function that print a given numbers
@@ -64,7 +64,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 			printf("%s", separator);
 		}
 	}
-	_putchar('\n');
+	putchar('\n');
 
 	va_end(args);
 }
