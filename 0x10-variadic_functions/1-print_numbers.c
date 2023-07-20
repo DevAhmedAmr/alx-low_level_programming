@@ -13,18 +13,22 @@ void print_number(int n)
 	if ((num / 10) > 0)
 		print_number(num / 10);
 
-	_putchar((num % 10) + '0');
+	_putchar((num % 10) + 48);
 }
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
 	va_list args;
+
 	int num;
 
-	va_start(args, n); // initialize args to store all values after n
+	unsigned int j;
 
-	for (unsigned int j = 0; j < n; j++)
+	va_start(args, n);
+
+	for (j = 0; j < n; j++)
 	{
 		num = va_arg(args, int);
+
 		print_number(num);
 
 		if (j < n - 1 && separator != NULL)
@@ -34,6 +38,6 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	}
 	printf("\n");
 
-	va_end(args); // clean up the list
+	va_end(args);
 }
 
