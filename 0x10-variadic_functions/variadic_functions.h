@@ -4,7 +4,6 @@
 #include <stdarg.h>
 #include <stddef.h>
 #include<stdio.h>
-#include <math.h>
 
 
 /* Function Prototypes */
