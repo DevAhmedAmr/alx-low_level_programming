@@ -11,12 +11,20 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	{
 		char *str = va_arg(args, char *);
 
+		if (str == NULL)
+		{
+			str="(nil)";
+		}
+
 		for (j = 0; j < strlen(str); j++)
 			_putchar(str[j]);
 
 		/*break in order not to print separator if 'i' is the last element */
 		if (i >= n - 1)
 			break;
+
+		if(separator == NULL)
+			continue;
 
 		/*print separator */
 		for (j = 0; j < strlen(separator); j++)
