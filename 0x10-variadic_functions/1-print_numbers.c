@@ -22,7 +22,7 @@ void print_number(int n)
 	if ((num / 10) > 0)
 		print_number(num / 10);
 
-	printf((num % 10));
+	printf("%i",(num % 10));
 }
 /**
  * print_numbers - function that print a given numbers
