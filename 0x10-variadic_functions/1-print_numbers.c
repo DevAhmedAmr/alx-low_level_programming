@@ -44,7 +44,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		numCpy = num;
 		if (num < 0)
 		{
-			putchar('-');
+			printf("-");
 			num = num * -1;
 			numCpy = num;
 		}
@@ -59,7 +59,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 
 		for (i = 0; i <= numlen; i++)
 		{
-			putchar(num / (int)power % 10 + 48);
+			printf("%i",num / (int)power % 10);
 			power /= 10;
 		}
 		numlen = 0;
