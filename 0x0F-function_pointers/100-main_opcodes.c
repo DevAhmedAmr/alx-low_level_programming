@@ -1,5 +1,14 @@
 #include<stdio.h>
 #include<stdlib.h>
+/**
+ * main - Entry point to an app that prints the opcodes of
+ * its own main function.
+ *
+ * @argc: number of passed parameters
+ * @argv: array of parameters in string
+ *
+ * Return: 0 on success
+ */
 int main(int argc, char *argv[])
 {
 	int i;
@@ -33,5 +42,5 @@ int main(int argc, char *argv[])
 			printf("\n");
 	}
 
-	return 0;
+	return (0);
 }
