@@ -20,7 +20,7 @@ void print_number(int n)
 	}
 
 	if ((num / 10) > 0)
-		print_number(num / 10+ 48);
+		print_number(num / 10);
 
 	putchar((num % 10) + 48);
 }
