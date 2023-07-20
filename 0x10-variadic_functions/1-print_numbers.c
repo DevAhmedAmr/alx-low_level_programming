@@ -23,17 +23,13 @@ int _putchar(char c)
  * Return: The value of x raised to the power of y,
  * or -1 if y is negative.
  */
-int _pow_recursion(int x, int y)
-{
-	if (y < 0)
-		return (-1);
-	else if (y == 0)
-		return (1);
-	if (y > 0 && y != 1)
-		return (x * _pow_recursion(x, y - 1));
-	return (x);
+int _pow(int base, int exponent) {
+    int result = 1 ,i;
+    for(i = 0; i < exponent; i++) {
+        result *= base;
+    }
+    return result;
 }
-
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
 	va_list args;
@@ -48,7 +44,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		numCpy = num;
 		if (num < 0)
 		{
-			_putchar('-');
+			putchar('-');
 			num = num * -1;
 			numCpy = num;
 		}
@@ -59,11 +55,11 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 			numlen++;
 		}
 
-		power = _pow_recursion(10, numlen);
+		power = _pow(10, numlen);
 
 		for (i = 0; i <= numlen; i++)
 		{
-			_putchar(num / (int)power % 10 + 48);
+			putchar(num / (int)power % 10 + 48);
 			power /= 10;
 		}
 		numlen = 0;
@@ -81,4 +77,3 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		}
 	}
 }
-
