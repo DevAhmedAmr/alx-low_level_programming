@@ -25,16 +25,17 @@ void print_string(va_list args)
 	printf("%s", string);
 }
 
-void print_all(const char * const format, ...)
+void print_all(const char *const format, ...)
 {
 	va_list args;
-	unsigned int format_index, ops_index;
+	unsigned int format_index, formater_index;
 	char *separator = "";
 
-	struct format_ops {
+	struct format_ops
+	{
 		char *specifier;
 		void (*func)(va_list);
-	} ops[] = {
+	} formater[] = {
 		{"c", print_char},
 		{"i", print_int},
 		{"f", print_float},
@@ -45,17 +46,17 @@ void print_all(const char * const format, ...)
 	format_index = 0;
 	while (format && format[format_index])
 	{
-		ops_index = 0;
-		while (ops_index < 4)
+		formater_index = 0;
+		while (formater_index < 4)
 		{
-			if (ops[ops_index].specifier[0] == format[format_index])
+			if (formater[formater_index].specifier[0] == format[format_index])
 			{
 				printf("%s", separator);
 				separator = ", ";
-				ops[ops_index].func(args);
+				formater[formater_index].func(args);
 				break;
 			}
-			ops_index++;
+			formater_index++;
 		}
 		format_index++;
 	}
