@@ -4,7 +4,12 @@
 #include <string.h>
 #include <stdio.h>
 #include <stddef.h>
-
+/**
+ * struct list_s - struct to make a linked list
+ * @str: elements of linked list type str
+ * @len: length of the linked arr
+ * @next: pointer to next node
+ */
 typedef struct list_s
 {
 	char *str;
