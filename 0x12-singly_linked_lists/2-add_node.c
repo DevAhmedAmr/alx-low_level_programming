@@ -26,75 +26,35 @@
  *   On success, returns a pointer to the newly added node. On failure (memory allocation or empty input string),
  *   returns NULL.
  */
-/*
- * Adds a new node to the head of a linked list.
- *
- * head - Pointer to the head pointer of the list
- * str - String to copy into the new node
- *
- * Returns a pointer to the new node, or NULL on failure.
- */
+
 list_t *add_node(list_t **head, const char *str)
 {
+	char *strCpy;
 
-	/* Check for invalid inputs */
-	if (str == NULL)
-	{
-		/* Return NULL to indicate null input string */
-		return NULL;
-	}
+	int len;
 
-	/* Calculate the length of the input string without relying on strlen */
-	size_t len = 0;
-	while (str[len] != '\0')
-	{
-		len++;
-	}
+	list_t *new_node;
 
-	if (len == 0)
-	{
-		/* Return NULL to indicate empty input string */
-		return NULL;
-	}
+	new_node = malloc(sizeof(list_t));
 
-	/* Allocate memory for a new list_t node */
-	list_t *new_node = (list_t *)malloc(sizeof(list_t));
 	if (new_node == NULL)
-	{
-		/* Memory allocation failure, return NULL */
-		return NULL;
-	}
+		return (NULL);
 
-	/* Allocate memory for the string (+1 for the null terminator) */
-	new_node->str = (char *)malloc(sizeof(char) * (len + 1));
-	if (new_node->str == NULL)
+	strCpy = strdup(str);
+
+	if (strCpy == NULL)
 	{
-		/* Memory allocation failure, clean up and return NULL */
 		free(new_node);
-		return NULL;
+		return (NULL);
 	}
 
-	/* Copy the string to the newly allocated memory */
-	for (size_t i = 0; i < len; i++)
-	{
-		new_node->str[i] = str[i];
-	}
-	new_node->str[len] = '\0'; /* Null-terminate the string */
+	for (len = 0; str[len];)
+		len++;
 
-	new_node->len = len; /* Store the length of the string */
+	new_node->str = strCpy;
+	new_node->len = len;
+	new_node->next = *head;
+	*head = new_node;
 
-	if (*head == NULL)
-	{
-		/* If the head is NULL, create a new linked list */
-		new_node->next = NULL;
-		*head = new_node;
-	}
-	else
-	{
-		/* The new node will be the first node, so set its next to the current head */
-		new_node->next = *head;
-		*head = new_node;
-	}
-
-	return new_node; /* Return the pointer to the newly added node */
+	return (new_node);
 }
