@@ -21,9 +21,7 @@ list_t *add_node(list_t **head, const char *str)
 		return NULL;
 
 	if (str == NULL)
-	{
 		return NULL;
-	}
 
 	/* Allocate memory for the string (+1 for the null terminator) */
 	new_node->str = malloc(sizeof(char) * (len + 1));
@@ -39,6 +37,7 @@ list_t *add_node(list_t **head, const char *str)
 
 	new_node->len = len;
 	new_node->next = *head; /* The new node will be the last node, so set its next to NULL*/
+
 	*head = new_node;
 
 	return new_node;
