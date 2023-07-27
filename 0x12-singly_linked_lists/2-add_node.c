@@ -38,7 +38,7 @@ list_t *add_node(list_t **head, const char *str)
 	new_node->str[len] = '\0'; /* Null-terminate the string */
 
 	new_node->len = len;
-	new_node->next = *head; // The new node will be the last node, so set its next to NULL
+	new_node->next = *head; /* The new node will be the last node, so set its next to NULL*/
 	*head = new_node;
 
 	return new_node;
