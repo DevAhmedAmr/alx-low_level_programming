@@ -20,10 +20,14 @@ list_t *add_node(list_t **head, const char *str)
 	if (new_node == NULL)
 		return NULL;
 
+	if (str == NULL)
+	{
+		return NULL;
+	}
+
 	/* Allocate memory for the string (+1 for the null terminator) */
 	new_node->str = malloc(sizeof(char) * (len + 1));
 	if (new_node->str == NULL)
-
 		return NULL;
 
 	/* Copy the string to the newly allocated memory */
