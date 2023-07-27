@@ -26,8 +26,9 @@
  *  str: The input string to be copied to the new node.
  *
  * Returns:
- *   On success, returns a pointer to the newly added node. On failure (memory allocation or empty input string),
- *   returns NULL.
+ * On success, returns a pointer to the newly added node.
+ * On failure (memory allocation or empty input string),
+ * returns NULL.
  */
 
 list_t *add_node(list_t **head, const char *str)
