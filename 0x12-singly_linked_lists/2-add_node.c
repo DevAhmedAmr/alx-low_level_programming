@@ -8,7 +8,7 @@
  *  @head: A pointer to a pointer to the head of the linked list.
  *  @str: The input string to be copied to the new node.
  *
- * Returns:
+ * Return:
  * On success, returns a pointer to the newly added node.
  * On failure (memory allocation or empty input string),
  * returns NULL.
