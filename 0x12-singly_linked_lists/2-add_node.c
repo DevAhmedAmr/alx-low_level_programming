@@ -1,29 +1,12 @@
 #include "lists.h"
-#include <stdlib.h>
-#include <string.h>
-#include "lists.h"
-
 /**
- *
- */
-
-#include <stdlib.h>
-#include <string.h>
-#include "lists.h"
-
-#include <stddef.h>
-#include <stdlib.h>
-
-/**
- * add_node -Adds a new node that has  a copy of the  string at
+ * add_node - Adds a new node that has  a copy of the  string at
  * the beginning of the linked list.
  *
  * Parameters:
  *
- *  head: A pointer to a pointer to the head of the linked list.
- * If the linked list is empty,
- *  head will be NULL, and a new linked list will be created.
- *  str: The input string to be copied to the new node.
+ *  @head: A pointer to a pointer to the head of the linked list.
+ *  @str: The input string to be copied to the new node.
  *
  * Returns:
  * On success, returns a pointer to the newly added node.
