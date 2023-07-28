@@ -24,15 +24,18 @@ list_t *add_node_end(list_t **head, const char *str)
 
 		return (NULL);
 	}
+
 	dup = strcpy(dup, str);
+
 	new->str = dup;
+
 	new->len = strlen(str);
+
 	new->next = NULL;
 
 	if (*head == NULL)
-	{
 		*head = new;
-	}
+
 	else
 	{
 		list_t *last_node = *head;
@@ -43,5 +46,5 @@ list_t *add_node_end(list_t **head, const char *str)
 		last_node->next = new;
 	}
 
-	return new;
+	return (new);
 }
