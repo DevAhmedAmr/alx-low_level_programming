@@ -25,7 +25,7 @@ void free_list(list_t *head)
 	}
 }
 /**
- * free_list - function that Frees a linked list
+ * free_list_recursion - function that Frees a linked list with recursion
  *
  * @head: A pointer to the head of the linked list
  *
