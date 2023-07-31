@@ -9,6 +9,21 @@
  *
  */
 
+void free_list2(list_t *head)
+{
+	/*https://www.youtube.com/watch?v=ld8xjJ3j-eY*/
+
+	while (head != NULL)
+	{
+		list_t *next = head->next;
+
+		free(head->str);
+
+		free(head);
+
+		head = next;
+	}
+}
 void free_list(list_t *head)
 {
 	/*https://www.youtube.com/watch?v=ld8xjJ3j-eY*/
