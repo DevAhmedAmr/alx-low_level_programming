@@ -9,7 +9,7 @@
  *
  */
 
-void free_list2(list_t *head)
+void free_list(list_t *head)
 {
 	/*https://www.youtube.com/watch?v=ld8xjJ3j-eY*/
 
@@ -32,7 +32,7 @@ void free_list2(list_t *head)
  * Return: void
  *
  */
-void free_list(list_t *head)
+void free_list_recursion(list_t *head)
 {
 	/*https://www.youtube.com/watch?v=ld8xjJ3j-eY*/
 	list_t *next;
