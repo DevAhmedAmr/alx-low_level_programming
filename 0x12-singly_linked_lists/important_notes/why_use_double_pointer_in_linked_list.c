@@ -10,7 +10,7 @@ void print_linkedList(struct Node *head)
 	int count = 1;
 	while (head != NULL)
 	{
-		printf("head2 : %p", head);
+		printf("head : %p", head);
 		printf("%i-%i\n", count, head->data);
 		head = head->next;
 		count++;
@@ -56,7 +56,7 @@ int main()
 	insertAtBeginning(head, 10);
 	insertAtBeginning(head, 20);
 
-	print_linkedList(head); //! print no thing bcs the node is only added inside 'insertAtBeginning' noy globally
+	print_linkedList(head); //! print no thing bcs the node is only added in the beginning inside 'insertAtBeginning' not globally
 
 	struct Node *head2 = malloc(sizeof(struct Node));
 
@@ -68,4 +68,3 @@ int main()
 
 	return 0;
 }
-
