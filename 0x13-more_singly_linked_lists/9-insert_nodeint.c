@@ -1,4 +1,4 @@
-#include <stdlib.h>
+#include "lists.h"
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
 	listint_t *curr;
@@ -18,7 +18,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		if (idx == index || isLastIndex)
 		{
 
-			newNode->data = n;
+			newNode->n = n;
 			if (idx > 0)
 
 				before->next = newNode;
@@ -43,4 +43,3 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	}
 	return newNode;
 }
-
