@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 struct Node
 {
@@ -10,7 +11,7 @@ void print_linkedList(struct Node *head)
 	int count = 1;
 	while (head != NULL)
 	{
-		printf("head : %p", head);
+		printf("head2 : %p", head);
 		printf("%i-%i\n", count, head->data);
 		head = head->next;
 		count++;
@@ -31,21 +32,12 @@ void insertAtBeginning(struct Node *head, int newData)
 
 //! bad example 2
 
-//* when using a double pointer it allows  to add a new node at the beginning
-//* of a linked list without losing the old value of the old head node ()
-
-//? in linked list to add a new element to it at the beginning we need to update the first pointer in the linked list
-//? and make it points to a new node and make  'newNode.next' points to the old head node
-//?not just copy the value of the new node to head node
-
-//! but when using a single pointer and trying to copy (dereferencing it) new node value into head value
-//! we actually lose the old head value so that we enter into an infinity loop
-
 void insertAtBeginning_dereferenced(struct Node *head, int newData)
 {
 	struct Node *newNode = malloc(sizeof(struct Node));
 	newNode->data = newData;
 	newNode->next = head;
+
 	*head = *newNode;
 }
 
@@ -56,15 +48,20 @@ int main()
 	insertAtBeginning(head, 10);
 	insertAtBeginning(head, 20);
 
-	print_linkedList(head); //! print no thing bcs the node is only added in the beginning inside 'insertAtBeginning' not globally
+	print_linkedList(head); //! print no thing bcs the node is only added inside 'insertAtBeginning' noy globally
 
-	struct Node *head2 = malloc(sizeof(struct Node));
+	struct Node *head2 = NULL;
 
-	// enters an infinity loop when we try to print the linked list
-	// bcs the we changed the value of the old head so it will never be null
+	//* when we pass a single null pointer , we get an error and the program exist
+	//* that happens bcs when we are trying to access the memory location that the null pointer points to
+	//*  but since the pointer is null (meaning it doesn't point to any valid memory address),
+	//! this operation leads to undefined behavior.
 
-	insertAtBeginning_dereferenced(head2, 20);
-	print_linkedList(head2); // infty loop
+	//? but when we pass a double pointer for a null pointer , when we dereference it , we will get the it's value
+	//? which is the null pointer then we can assign a value for "the dereferenced null pointer" which won't lead to an error
+
+	//? so we use a double null pointer to avoid dereferencing a null pointer to avoid errors and undefined behaviors
+	insertAtBeginning_dereferenced(head2, 20); // unidentified behavior then the program exist
 
 	return 0;
 }
