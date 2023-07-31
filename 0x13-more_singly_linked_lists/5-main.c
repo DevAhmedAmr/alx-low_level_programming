@@ -8,6 +8,7 @@
 int main(void)
 {
 	listint_t *head;
+	listint_t *head2;
 
 	head = NULL;
 	add_nodeint_end(&head, 0);
@@ -21,5 +22,10 @@ int main(void)
 	print_listint(head);
 	free_listint2(&head);
 	printf("%p\n", (void *)head);
+
+	head2 = NULL;
+	free_listint2(&head2);
+	printf("%p\n", (void *)head2);
+
 	return (0);
 }
