@@ -22,7 +22,7 @@ int main(void)
 	print_listint(head);
 
 	head2 = NULL;
-	add_nodeint_end(&head2, 5555);
+	add_nodeint_end(NULL, 5555);
 
 	print_listint(head2);
 
