@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * free_list - function that Frees a linked list
+ * free_list2 - function that Frees a linked list
  *
  * @head: A pointer to the head of the linked list
  *
@@ -24,6 +24,14 @@ void free_list2(list_t *head)
 		head = next;
 	}
 }
+/**
+ * free_list - function that Frees a linked list
+ *
+ * @head: A pointer to the head of the linked list
+ *
+ * Return: void
+ *
+ */
 void free_list(list_t *head)
 {
 	/*https://www.youtube.com/watch?v=ld8xjJ3j-eY*/
