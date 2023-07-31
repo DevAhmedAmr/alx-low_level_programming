@@ -12,10 +12,12 @@
 void free_list(list_t *head)
 {
 	/*https://www.youtube.com/watch?v=ld8xjJ3j-eY*/
-	list_t *next = head->next;
+	list_t *next;
 
 	if (head == NULL)
 		return;
+
+	next = head->next;
 
 	free(head->str);
 
