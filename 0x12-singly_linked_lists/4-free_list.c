@@ -21,6 +21,6 @@ void free_list(list_t *head)
 
 	head = next;
 
-	if (next != NULL)
+	if (head != NULL)
 		free_list(next);
 }
