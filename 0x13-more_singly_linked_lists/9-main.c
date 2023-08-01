@@ -28,9 +28,10 @@ int main(void)
 
     head2 = NULL;
 
-    insert_nodeint_at_index(&head2, 0, 409006);
     add_nodeint_end(&head2, 0);
     add_nodeint_end(&head2, 1);
+    insert_nodeint_at_index(&head2, 3, 409006);
+
     print_listint(head2);
 
     return (0);
