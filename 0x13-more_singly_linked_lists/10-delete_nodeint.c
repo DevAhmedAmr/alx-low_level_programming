@@ -1,13 +1,14 @@
 #include "lists.h"
+size_t listint_len(const listint_t *h);
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
-	unsigned int idx = 0;
+	unsigned int idx = 0, list_len = listint_len(*head);
 	listint_t *curr;
 
 	curr = *head;
 
-	if (head == NULL)
-		return -1;
+	if ((index > list_len) || (list_len == 0))
+		return (-1);
 
 	while (curr != NULL)
 	{
@@ -38,4 +39,17 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		}
 	}
 	return -1;
+}
+
+size_t listint_len(const listint_t *h)
+{
+	const listint_t *cursor = h;
+	size_t count = 0;
+
+	while (cursor != NULL)
+	{
+		count += 1;
+		cursor = cursor->next;
+	}
+	return (count);
 }
