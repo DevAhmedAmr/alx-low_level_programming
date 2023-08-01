@@ -1,4 +1,15 @@
 #include "lists.h"
+/**
+ * insert_nodeint_at_index -  function that inserts a new node
+ * at a given position index.
+ *
+ * @head: the first element in the linked list
+ * @idx: The position where we want to insert the new element
+ * @n: number to be inserted
+ *
+ * Return: a pointer to the new element in the linked list
+ *
+ */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
 	listint_t *curr, *before, *newNode = malloc(sizeof(listint_t));
@@ -9,8 +20,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 
 	curr = *head;
 
-	do
-	{
+	do {
 		int isLastIndex = (idx == 1 + index && curr->next == NULL);
 
 		if (index + 1 == idx)

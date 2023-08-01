@@ -24,7 +24,7 @@ int main(void)
 	printf("%p\n", (void *)head);
 
 	head2 = NULL;
-	free_listint2(&head2);
+	free_listint2(NULL);
 	printf("%p\n", (void *)head2);
 
 	return (0);
