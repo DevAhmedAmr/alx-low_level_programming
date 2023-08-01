@@ -11,7 +11,7 @@
  */
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {
-	unsigned idx = 0;
+	unsigned int idx = 0;
 
 	listint_t *curr;
 
@@ -29,7 +29,7 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 		}
 
 		else if (index == idx)
-			return curr;
+			return (curr);
 
 		else
 			return (NULL);
