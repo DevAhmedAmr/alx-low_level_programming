@@ -66,7 +66,7 @@ int main(void)
 	printf("***********************************\n");
 	head2 = NULL;
 	add_nodeint_end(&head2, 6);
-	add_nodeint_end(&head2, 12);
+	add_nodeint_end(&head2, -12);
 
 	print_listint(head2);
 	printf("----------------\n");
