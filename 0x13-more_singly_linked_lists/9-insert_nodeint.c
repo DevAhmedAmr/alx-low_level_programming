@@ -5,7 +5,8 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	unsigned int index = 0, insert_in_indx_0 = idx <= 0;
 
 	if (newNode == NULL)
-		return NULL;
+		return (NULL);
+
 	curr = *head;
 
 	do
