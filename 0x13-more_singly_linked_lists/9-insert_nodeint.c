@@ -1,28 +1,16 @@
 #include "lists.h"
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	listint_t *curr;
-	listint_t *before;
-	listint_t *newNode = malloc(sizeof(listint_t));
-	unsigned int index = 0;
+	listint_t *curr, *before, *newNode = malloc(sizeof(listint_t));
+	unsigned int index = 0, isListEmpty = curr == NULL && idx == 0;
 
 	if (newNode == NULL)
 		return NULL;
 
 	curr = *head;
 
-	if (curr == NULL && idx == 0)
+	do
 	{
-		newNode->n = n;
-
-		newNode->next = *head;
-		*head = newNode;
-		return newNode;
-	}
-
-	while (curr != NULL)
-	{
-
 		int isLastIndex = (idx == 1 + index && curr->next == NULL);
 
 		if (index + 1 == idx)
@@ -32,16 +20,13 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		{
 
 			newNode->n = n;
-			if (idx <= 0)
+			if (idx <= 0) /*if it's wanted to be inserted in head*/
 			{
-
 				newNode->next = *head;
 				*head = newNode;
 			}
 			else
-			{
 				before->next = newNode;
-			}
 
 			if (isLastIndex)
 
@@ -54,6 +39,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		else
 			index++;
 		curr = curr->next;
-	}
+	} while (curr != NULL);
+
 	return NULL;
 }
