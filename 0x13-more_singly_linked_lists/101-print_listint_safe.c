@@ -3,8 +3,8 @@
 size_t print_listint_safe(const listint_t *head)
 {
 	size_t count = 0;
-	const listint_t *slow = head;
-	const listint_t *fast = head;
+	listint_t *slow = (listint_t *)head;
+	listint_t *fast = (listint_t *)head;
 
 	while (slow != NULL && fast != NULL && fast->next != NULL)
 	{
