@@ -17,7 +17,6 @@ listint_t *find_listint_loop(listint_t *head)
 
 		if (curr > next)
 		{
-			printf("-------------- next %p %i, current %p %i\n", (void *)next, next->n, (void *)curr, curr->n);
 
 			curr = next;
 		}
