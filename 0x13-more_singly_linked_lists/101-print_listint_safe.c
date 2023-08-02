@@ -1,41 +1,32 @@
 #include "lists.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-int hasAloop(listint_t *head);
+#include <stdio.h>
+#include <stddef.h>
 
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t count = 0;
 	listint_t *curr = (listint_t *)head;
-
-	if (hasAloop(curr) == 1)
-	{
-		printf("-> [%p] %i\n", (void *)curr, curr->n);
-		return 0;
-	}
+	size_t count = 0;
 
 	while (curr != NULL)
 	{
-		printf("[%p] %i\n", (void *)curr, curr->n);
-		count++;
-		curr = curr->next;
+		printf("[%p] %d\n", (void *)curr, curr->n);
+
+		if (curr > curr->next)
+		{
+
+			count++;
+			curr = curr->next;
+		}
+		else
+		{
+			printf("-> [%p] %d\n", (void *)curr->next, curr->next->n);
+			count++;
+			exit(98);
+		}
 	}
 
 	return count;
-}
-
-int hasAloop(listint_t *head)
-{
-	listint_t *slow = head;
-	listint_t *fast = head;
-
-	while (slow != NULL && fast != NULL && fast->next != NULL)
-	{
-		slow = slow->next;
-		fast = fast->next->next;
-
-		if (fast == slow)
-			return 1;
-	}
-
-	return 0;
 }
