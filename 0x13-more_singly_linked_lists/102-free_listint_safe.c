@@ -8,6 +8,7 @@ size_t free_listint_safe(listint_t **h)
 		next = curr->next;
 		if (curr > next)
 		{
+			printf("\n%i %i", curr->n, next->n);
 			free(curr);
 			curr = next;
 		}
