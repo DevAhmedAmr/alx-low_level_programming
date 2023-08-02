@@ -16,7 +16,7 @@ listint_t *find_listint_loop(listint_t *head)
 		}
 		else
 		{
-			return curr;
+			return next;
 		}
 	}
 	return (NULL);
