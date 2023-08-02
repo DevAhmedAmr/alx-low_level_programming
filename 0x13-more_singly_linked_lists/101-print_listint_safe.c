@@ -25,8 +25,8 @@ size_t print_listint_safe(const listint_t *head)
 		{
 			printf("-> [%p] %d\n", (void *)curr->next, curr->next->n);
 
-			printf("(%i : %p) > (%p : %i )= %i\n", curr->n, (void *)curr,
-				   (void *)curr->next, curr->next->n, curr > curr->next);
+			/*printf("(%i : %p) > (%p : %i )= %i\n", curr->n, (void *)curr,*/
+			/* (void *)curr->next, curr->next->n, curr > curr->next);*/
 			count++;
 			break;
 		}
