@@ -1,25 +1,42 @@
 #include "lists.h"
+#include <stdlib.h>
+#include <stdio.h>
+
+listint_t *find_listint_loop_pl(listint_t *head)
+{
+	listint_t *ptr, *end;
+
+	if (head == NULL)
+		return (NULL);
+
+	for (end = head->next; end != NULL; end = end->next)
+	{
+		if (end == end->next)
+			return (end);
+		for (ptr = head; ptr != end; ptr = ptr->next)
+			if (ptr == end->next)
+				return (end->next);
+	}
+	return (NULL);
+}
 
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t count = 0;
-	listint_t *slow = (listint_t *)head;
-	listint_t *fast = (listint_t *)head;
+	size_t len = 0;
+	int loop;
+	listint_t *loopnode;
 
-	while (slow != NULL && fast != NULL && fast->next != NULL)
+	loopnode = find_listint_loop_pl((listint_t *)head);
+
+	for (len = 0, loop = 1; (head != loopnode || loop) && head != NULL; len++)
 	{
-		slow = slow->next;
-		fast = fast->next->next;
-
-		printf("[%p] %i\n", (void *)slow, slow->n);
-		count++;
-
-		if (slow == fast)
-		{
-			printf("-> [%p] %i\n", (void *)fast, fast->n);
-			break;
-		}
+		printf("[%p] %d\n", (void *)head, head->n);
+		if (head == loopnode)
+			loop = 0;
+		head = head->next;
 	}
 
-	return count;
+	if (loopnode != NULL)
+		printf("-> [%p] %d\n", (void *)head, head->n);
+	return (len);
 }
