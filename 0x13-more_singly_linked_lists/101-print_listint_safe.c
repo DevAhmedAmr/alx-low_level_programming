@@ -8,6 +8,7 @@
 size_t print_listint_safe(const listint_t *head)
 {
 	listint_t *curr = (listint_t *)head;
+
 	size_t count = 0;
 
 	while (curr != NULL)
@@ -23,8 +24,11 @@ size_t print_listint_safe(const listint_t *head)
 		else
 		{
 			printf("-> [%p] %d\n", (void *)curr->next, curr->next->n);
+
+			printf("(%i : %p) > (%p : %i )= %i\n", curr->n, (void *)curr,
+				   (void *)curr->next, curr->next->n, curr > curr->next);
 			count++;
-			exit(98);
+			break;
 		}
 	}
 
