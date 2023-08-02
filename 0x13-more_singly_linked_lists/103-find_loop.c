@@ -6,6 +6,11 @@ listint_t *find_listint_loop(listint_t *head)
 
 	curr = head;
 
+	if (head)
+	{
+		return NULL;
+	}
+
 	while (curr != NULL)
 	{
 		listint_t *next = curr->next;
