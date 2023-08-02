@@ -6,7 +6,7 @@ listint_t *find_listint_loop(listint_t *head)
 
 	curr = head;
 
-	if (head)
+	if (head == NULL)
 	{
 		return NULL;
 	}
