@@ -10,6 +10,8 @@ listint_t *find_listint_loop(listint_t *head)
 
 		if (curr > next)
 		{
+			printf(">>>>>>>>>>> %p %p\n", (void *)curr, (void *)next);
+
 			curr = next;
 		}
 		else
