@@ -2,6 +2,15 @@
 
 /*https://www.youtube.com/watch?v=95ZfuoSAUPI*/
 
+/**
+ * find_listint_loop - function that find the first node in a
+ * circular linked list
+ *
+ * @param
+ * @head: pointer to the head node in the linked list
+ *
+ * Return:  the first node in a circular linked list
+ */
 listint_t *find_listint_loop(listint_t *head)
 {
 	listint_t *slow = head;
@@ -9,7 +18,7 @@ listint_t *find_listint_loop(listint_t *head)
 
 	if (head == NULL)
 	{
-		return NULL;
+		return (NULL);
 	}
 
 	while (slow != NULL && fast != NULL && fast->next != NULL)
@@ -30,5 +39,5 @@ listint_t *find_listint_loop(listint_t *head)
 			return (slow);
 		}
 	}
-	return NULL;
+	return (NULL);
 }
