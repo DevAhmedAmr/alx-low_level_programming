@@ -12,10 +12,8 @@ listint_t *find_listint_loop(listint_t *head)
 		{
 			curr = next;
 		}
-		if (curr == next)
-		{
+		else
 			return curr;
-		}
 	}
 	return NULL;
 }
