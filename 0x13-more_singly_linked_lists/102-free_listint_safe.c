@@ -1,7 +1,9 @@
 #include "lists.h"
 size_t free_listint_safe(listint_t **h)
 {
-	listint_t *curr, *next;
+	size_t list_len = 0;
+	listint_t *curr,
+		*next;
 	curr = *h;
 	while (curr != NULL)
 	{
@@ -10,13 +12,16 @@ size_t free_listint_safe(listint_t **h)
 		{
 			free(curr);
 			curr = next;
+			list_len++;
 		}
 		else
 		{
+			list_len++;
+
 			free(curr);
 			break;
 		}
 	}
 	*h = NULL;
-	return 0;
+	return list_len;
 }
