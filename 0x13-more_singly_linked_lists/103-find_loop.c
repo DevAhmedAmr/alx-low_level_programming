@@ -23,11 +23,11 @@ listint_t *find_listint_loop(listint_t *head)
 
 			while (slow != fast)
 			{
-				slow = slow->next;
-				fast = fast->next;
-
 				if (fast == slow)
 					return (slow);
+
+				slow = slow->next;
+				fast = fast->next;
 			}
 		}
 	}
