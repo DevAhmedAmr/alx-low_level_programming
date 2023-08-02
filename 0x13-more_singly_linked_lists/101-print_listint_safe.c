@@ -1,10 +1,5 @@
 #include "lists.h"
-#include <stdio.h>
-#include <stdlib.h>
-
-#include <stdio.h>
 #include <stddef.h>
-
 size_t print_listint_safe(const listint_t *head)
 {
 	listint_t *curr = (listint_t *)head;
@@ -32,5 +27,5 @@ size_t print_listint_safe(const listint_t *head)
 		}
 	}
 
-	return count;
+	return (count);
 }
