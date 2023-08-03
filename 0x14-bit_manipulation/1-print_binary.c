@@ -24,7 +24,7 @@ void print_binary(unsigned long int n)
 	{
 		int division = (numCpy >> count);
 
-		printf("%i", (division & 1));
+		_putchar((division & 1) + 48);
 
 		count--;
 	}
