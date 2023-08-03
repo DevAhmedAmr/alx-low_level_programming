@@ -22,7 +22,7 @@ void print_binary(unsigned long int n)
 
 	while (count >= 0)
 	{
-		int division = (numCpy >> count);
+		unsigned int division = (numCpy >> count);
 
 		_putchar((division & 1) + 48);
 
