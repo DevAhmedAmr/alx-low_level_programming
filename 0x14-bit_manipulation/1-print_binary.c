@@ -14,7 +14,7 @@ void print_binary(unsigned long int n)
 		return;
 	}
 
-	while (n >> 1)
+	while (n >> 1 > 0)
 	{
 		n >>= 1;
 		count++;
