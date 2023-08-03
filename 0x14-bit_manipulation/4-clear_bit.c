@@ -10,7 +10,7 @@
  */
 int clear_bit(unsigned long int *n, unsigned int index)
 {
-	unsigned int bitmask = 1UL << index;
+	unsigned int bitmask = 1 << index;
 
 	if (index > 64)
 	{
