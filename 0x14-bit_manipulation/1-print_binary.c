@@ -3,7 +3,7 @@
 
 void print_binary(unsigned long int n)
 {
-	unsigned int numCpy = n;
+	unsigned long int numCpy = n;
 	int len = 0;
 	int seenOne = 0;
 
@@ -23,7 +23,7 @@ void print_binary(unsigned long int n)
 
 	while (len >= 0)
 	{
-		unsigned int division = (numCpy >> len);
+		unsigned long int division = (numCpy >> len);
 
 		if ((division & 1) == 1)
 		{
