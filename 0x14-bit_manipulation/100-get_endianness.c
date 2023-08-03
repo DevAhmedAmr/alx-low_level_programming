@@ -12,5 +12,5 @@ int get_endianness(void)
 
 	/* If the first byte (lowest memory address) is 0x78, it's little endian.*/
 	/* If the first byte is 0x12, it's big endian.*/
-	return (*ptr == 0x78) ? 1 : 0;
+	return ((*ptr == 0x78) ? (1) : (0));
 }
