@@ -6,7 +6,7 @@
  */
 int main(void)
 {
-    print_binary(0);
+    print_binary(10000000000);
     printf("\n");
     print_binary(1);
     printf("\n");

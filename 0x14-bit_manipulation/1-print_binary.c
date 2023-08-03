@@ -4,7 +4,8 @@
 void print_binary(unsigned long int n)
 {
 	unsigned int numCpy = n;
-	int count = 0;
+	int len = 0;
+	int seenOne = 0;
 
 	/*binary len -1*/
 
@@ -17,15 +18,24 @@ void print_binary(unsigned long int n)
 	while (n >> 1 > 0)
 	{
 		n >>= 1;
-		count++;
+		len++;
 	}
 
-	while (count >= 0)
+	while (len >= 0)
 	{
-		unsigned int division = (numCpy >> count);
+		unsigned int division = (numCpy >> len);
 
-		_putchar((division & 1) + 48);
+		if (division & 1 == 1)
+		{
+			_putchar((division & 1) + 48);
+			seenOne = 1;
+		}
 
-		count--;
+		if ((division & 1) == 0 && seenOne == 1)
+		{
+			_putchar((division & 1) + 48);
+		}
+
+		len--;
 	}
 }
