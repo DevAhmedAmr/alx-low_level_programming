@@ -10,6 +10,8 @@ int main(void)
     printf("\n");
     print_binary(1);
     printf("\n");
+    print_binary(2);
+    printf("\n");
     print_binary(98);
     printf("\n");
     print_binary(1024);

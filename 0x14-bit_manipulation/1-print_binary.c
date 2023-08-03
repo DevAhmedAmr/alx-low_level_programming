@@ -1,28 +1,31 @@
 #include "main.h"
+#define mod &1
+
 void print_binary(unsigned long int n)
 {
-	/* left num*2^(0) */
-	/* right num/2^(0) */
-	/* 1000 1001*/
-}
-void main()
-{
+	unsigned int numCpy = n;
+	int count = 0;
 
-	int x = 100;
-	int y = 100;
+	/*binary len -1*/
 
-	printf("%i\n", x >> 1);
-
-	while (x / 2 != 0)
+	if (n == 0)
 	{
-		x /= 2;
-		printf("%i\n", x);
+		printf("0");
+		return;
 	}
-	printf("**********************\n");
-	while (y >> 1 != 0)
-	{
-		y = y >> 1;
 
-		printf("%i\n", y);
+	while (n >> 1)
+	{
+		n >>= 1;
+		count++;
+	}
+
+	while (count >= 0)
+	{
+		int division = (numCpy >> count);
+
+		printf("%i", (division & 1));
+
+		count--;
 	}
 }
