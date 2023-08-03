@@ -25,7 +25,7 @@ void print_binary(unsigned long int n)
 	{
 		unsigned int division = (numCpy >> len);
 
-		if (division & 1 == 1)
+		if ((division & 1) == 1)
 		{
 			_putchar((division & 1) + 48);
 			seenOne = 1;
