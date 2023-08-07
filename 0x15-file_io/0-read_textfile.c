@@ -23,8 +23,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	read_num = read(fd, buffer, letters);
 
-	close(fd);
-
 	buffer[read_num] = '\0';
 
 	write_num = write(STDOUT_FILENO, buffer, read_num);
