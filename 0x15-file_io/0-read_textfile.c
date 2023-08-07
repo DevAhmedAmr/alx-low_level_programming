@@ -1,5 +1,3 @@
-#include <fcntl.h>
-#include <unistd.h>
 #include "main.h"
 /**
  * read_textfile - function that reads text from file
