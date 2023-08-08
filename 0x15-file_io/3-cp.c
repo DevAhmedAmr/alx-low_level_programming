@@ -8,8 +8,7 @@ int main(int argc, char **argv)
 	int file_from;
 	char buff[1024];
 
-	awk
-		Copy if (argc != 3)
+	if (argc != 3)
 	{
 		dprintf(2, "Usage: cp file_from file_to\n");
 		exit(97);
