@@ -8,8 +8,8 @@
 int main(int argc, char **argv)
 {
     int fd;
-    ssize_t bytes;
-    Elf64_Ehdr ehdr;  /* This struct can hold the data from the ELF header */
+    long unsigned int bytes;
+    Elf64_Ehdr ehdr; /* This struct can hold the data from the ELF header */
 
     /* Check if filename is provided */
     if (argc < 2)
@@ -41,4 +41,3 @@ int main(int argc, char **argv)
     close(fd);
     return 0;
 }
-
