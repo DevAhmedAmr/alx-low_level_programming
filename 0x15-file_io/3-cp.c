@@ -38,8 +38,19 @@ int main(int argc, char **argv)
 		if (write_status == -1)
 		{
 			dprintf(2, "Error: Can't write to %s\n", argv[2]);
-			close(file_from);
-			close(file_to);
+
+			if (close(file_from) == -1)
+			{
+				dprintf(2, "Error: Can't close fd %i\n", file_from);
+				exit(100);
+			}
+
+			if (close(file_to) == -1)
+			{
+				dprintf(2, "Error: Can't close fd %i\n", file_to);
+				exit(100);
+			}
+
 			exit(99);
 		}
 	}
