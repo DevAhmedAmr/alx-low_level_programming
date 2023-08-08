@@ -35,22 +35,11 @@ int main(int argc, char **argv)
 	{
 		write_status = write(file_to, buff, read_status);
 
-		if (write_status == -1)
+		if (write_status != read_status)
 		{
 			dprintf(2, "Error: Can't write to %s\n", argv[2]);
-
-			if (close(file_from) == -1)
-			{
-				dprintf(2, "Error: Can't close fd %i\n", file_from);
-				exit(100);
-			}
-
-			if (close(file_to) == -1)
-			{
-				dprintf(2, "Error: Can't close fd %i\n", file_to);
-				exit(100);
-			}
-
+			close(file_from);
+			close(file_to);
 			exit(99);
 		}
 	}
