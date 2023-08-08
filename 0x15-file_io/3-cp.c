@@ -52,13 +52,15 @@ void copy_file(int file_from, int file_to)
 
 int main(int argc, char **argv)
 {
+	int file_from, file_to;
+
 	if (argc != 3)
 	{
 		error_and_exit("Usage: cp file_from file_to", 97);
 	}
 
-	int file_from = open_file(argv[1], O_RDONLY, 0);
-	int file_to = open_file(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	file_from = open_file(argv[1], O_RDONLY, 0);
+	file_to = open_file(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	copy_file(file_from, file_to);
 
