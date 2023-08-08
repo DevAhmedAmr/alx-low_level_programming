@@ -2,68 +2,68 @@
 #include <fcntl.h>
 #include <sys/stat.h>
 
-int main(int argc, char **argv)
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
+
+void error_and_exit(const char *msg, int exit_code)
 {
-	int file_to, read_status, write_status;
-	int file_from;
+	dprintf(STDERR_FILENO, "%s\n", msg);
+	exit(exit_code);
+}
+
+int open_file(char *path, int flags, mode_t mode)
+{
+	int file_desc = open(path, flags, mode);
+	if (file_desc == -1)
+	{
+		error_and_exit("Error: Can't open file", 98);
+	}
+	return file_desc;
+}
+
+void close_file(int fd)
+{
+	if (close(fd) == -1)
+	{
+		error_and_exit("Error: Can't close file", 100);
+	}
+}
+
+void copy_file(int file_from, int file_to)
+{
 	char buff[1024];
-
-	if (argc != 3)
-	{
-		dprintf(2, "Usage: cp file_from file_to\n");
-		exit(97);
-	}
-
-	file_from = open(argv[1], O_RDONLY);
-
-	if (file_from == -1)
-	{
-		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
-
-	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-
-	if (file_to == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		close(file_from);
-		exit(99);
-	}
+	ssize_t read_status, write_status;
 
 	while ((read_status = read(file_from, buff, 1024)) > 0)
 	{
 		write_status = write(file_to, buff, read_status);
-
 		if (write_status != read_status)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			close(file_from);
-			close(file_to);
-			exit(99);
+			error_and_exit("Error: Can't write to file", 99);
 		}
 	}
 
 	if (read_status == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		close(file_from);
-		if (file_to != -1)
-			close(file_to);
-		exit(98);
+		error_and_exit("Error: Can't read from file", 98);
+	}
+}
+
+int main(int argc, char **argv)
+{
+	if (argc != 3)
+	{
+		error_and_exit("Usage: cp file_from file_to", 97);
 	}
 
-	if (close(file_from) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", file_from);
-		exit(100);
-	}
+	int file_from = open_file(argv[1], O_RDONLY, 0);
+	int file_to = open_file(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
-	if (close(file_to) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", file_to);
-		exit(100);
-	}
+	copy_file(file_from, file_to);
+
+	close_file(file_from);
+	close_file(file_to);
 
 	return 0;
 }
