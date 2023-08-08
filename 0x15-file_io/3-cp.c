@@ -41,6 +41,14 @@ int main(int argc, char **argv)
 			exit(99);
 		}
 	}
+	if (read_status == -1)
+	{
+		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+		close(file_from);
+		if (file_to != -1)
+			close(file_to);
+		exit(98);
+	}
 
 	if (close(file_from) == -1)
 	{
