@@ -1,11 +1,18 @@
 #include "main.h"
 #include <fcntl.h>
 #include <sys/stat.h>
-
-#include <fcntl.h>
 #include <unistd.h>
 #include <stdlib.h>
 
+/**
+ * open_files - Opens the source and destination files.
+ * @argc: The argument count.
+ * @argv: The argument vector.
+ * @file_from: A pointer to the source file descriptor.
+ * @file_to: A pointer to the destination file descriptor.
+ *
+ * Return: Nothing.
+ */
 void open_files(int argc, char **argv, int *file_from, int *file_to)
 {
 	if (argc != 3)
@@ -32,6 +39,16 @@ void open_files(int argc, char **argv, int *file_from, int *file_to)
 	}
 }
 
+/**
+ * copy_and_close_files - Copies content from source to destination
+ * file and closes both.
+ *
+ * @file_from: The source file descriptor.
+ * @file_to: The destination file descriptor.
+ * @argv: The argument vector.
+ *
+ * Return: Nothing.
+ */
 void copy_and_close_files(int file_from, int file_to, char **argv)
 {
 	int read_status, write_status;
@@ -72,6 +89,14 @@ void copy_and_close_files(int file_from, int file_to, char **argv)
 	}
 }
 
+/**
+ * main - The main function of the program.
+ * @argc: The argument count.
+ * @argv: The argument vector.
+ *
+ * Return: 0 on success,
+ * other values on error (from open_files or copy_and_close_files).
+ */
 int main(int argc, char **argv)
 {
 	int file_to, file_from;
@@ -79,5 +104,5 @@ int main(int argc, char **argv)
 	open_files(argc, argv, &file_from, &file_to);
 	copy_and_close_files(file_from, file_to, argv);
 
-	return 0;
+	return (0);
 }
