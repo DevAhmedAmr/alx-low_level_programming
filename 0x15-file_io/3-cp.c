@@ -21,25 +21,18 @@ int main(int argc, char **argv)
 		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	file_to = open(argv[2], O_CREAT | O_WRONLY, 0664);
+
+	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	if (file_to == -1)
 	{
 		dprintf(2, "Error: Can't write to %s\n", argv[2]);
+		close(file_from);
 		exit(99);
 	}
 
 	while ((read_status = read(file_from, buff, 1024)) > 0)
 	{
-		if (read_status == -1)
-		{
-			dprintf(2, "Error: Can't read from file %s\n", argv[1]);
-			close(file_from);
-			if (file_to != -1)
-				close(file_to);
-			exit(98);
-		}
-
 		write_status = write(file_to, buff, read_status);
 
 		if (write_status == -1)
@@ -50,6 +43,7 @@ int main(int argc, char **argv)
 			exit(99);
 		}
 	}
+
 	if (read_status == -1)
 	{
 		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
