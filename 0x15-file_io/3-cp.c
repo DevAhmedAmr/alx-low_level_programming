@@ -14,7 +14,7 @@ int main(int argc, char **argv)
 		exit(97);
 	}
 
-	file_from = open(argv[1], O_RDONLY, 0);
+	file_from = open(argv[1], O_RDONLY);
 
 	if (file_from == -1)
 	{
