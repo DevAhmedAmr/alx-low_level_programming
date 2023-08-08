@@ -53,13 +53,13 @@ int main(int argc, char **argv)
 		exit(98);
 	}
 
-	if (close(file_from) != 0)
+	if (close(file_from) != -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", file_from);
 		exit(100);
 	}
 
-	if (close(file_to) != 0)
+	if (close(file_to) != -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", file_to);
 		exit(100);
