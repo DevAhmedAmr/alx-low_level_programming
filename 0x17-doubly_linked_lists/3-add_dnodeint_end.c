@@ -43,7 +43,7 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 }
 
 /**
- * add_head - a  function that adds a new node
+ * _add_head - a  function that adds a new node
  * as the new head for a linked list
  *
  * @param
