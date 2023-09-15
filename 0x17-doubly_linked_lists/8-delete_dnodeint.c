@@ -28,17 +28,6 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 
 			return 1;
 		}
-
-		if (i == index)
-		{
-
-			tmp = curr;
-
-			curr->prev->next = curr->next;
-			curr->next->prev = curr->prev;
-			free(tmp);
-			return (1);
-		}
 	}
 	return -1;
 }
