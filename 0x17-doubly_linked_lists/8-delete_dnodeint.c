@@ -1,40 +1,42 @@
 #include "lists.h"
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *curr = *head, *tmp;
-	unsigned int i = 0;
-
 	if (*head == NULL)
-		return 1;
+	{
+		return -1; /* Return -1 for an empty list.*/
+	}
 
+	dlistint_t *curr = *head;
+
+	/* Handling the case of deleting the first node (index = 0).*/
 	if (index == 0)
 	{
-		tmp = curr;
-		curr->prev = NULL;
-		*head = curr->next;
-		free(tmp);
-		return 1;
+		*head = curr->next; // Update the head.
+		if (curr->next != NULL)
+		{
+			curr->next->prev = NULL;
+		}
+		free(curr); /* Free the memory of the old head.*/
+		return 1;	/* Return 0 for success.*/
 	}
 
-	for (; curr; curr = curr->next, i++)
-	{
-		if ((curr->next == NULL) && (i == index))
-		{
-			tmp = curr;
-			curr->prev->next = NULL;
-			free(tmp);
-			return 1;
-		}
+	unsigned int i = 0;
 
+	while (curr != NULL)
+	{
 		if (i == index)
 		{
-			tmp = curr;
-			curr->next->prev = curr->prev;
 			curr->prev->next = curr->next;
-
-			free(tmp);
-			return (1);
+			if (curr->next != NULL)
+			{
+				curr->next->prev = curr->prev;
+			}
+			free(curr); /* Free the memory of the deleted node.*/
+			return 1;	/* Return 0 for success.*/
 		}
+		curr = curr->next;
+		i++;
 	}
-	return -1;
+
+	return 1; /* Index is out of bounds.*/
 }
