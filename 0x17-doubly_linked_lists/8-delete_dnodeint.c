@@ -1,17 +1,18 @@
 #include "lists.h"
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
+	dlistint_t *curr = *head;
+	unsigned int i = 0;
+
 	if (*head == NULL)
 	{
 		return -1; /* Return -1 for an empty list.*/
 	}
 
-	dlistint_t *curr = *head;
-
 	/* Handling the case of deleting the first node (index = 0).*/
 	if (index == 0)
 	{
-		*head = curr->next; // Update the head.
+		*head = curr->next; /* Update the head.*/
 		if (curr->next != NULL)
 		{
 			curr->next->prev = NULL;
@@ -19,8 +20,6 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		free(curr); /* Free the memory of the old head.*/
 		return 1;	/* Return 0 for success.*/
 	}
-
-	unsigned int i = 0;
 
 	while (curr != NULL)
 	{
