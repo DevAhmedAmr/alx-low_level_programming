@@ -1,12 +1,12 @@
 #include "lists.h"
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *curr = *head, *tmp;
+	dlistint_t *curr, *tmp;
 	unsigned int i = 0;
 
 	if (head == NULL || *head == NULL)
 		return -1;
-
+	curr = *head;
 	if (index == 0)
 	{
 		tmp = curr;
