@@ -7,10 +7,14 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	if (head == NULL || *head == NULL)
 		return -1;
 	curr = *head;
+
 	if (index == 0)
 	{
 		tmp = curr;
-		curr->prev = NULL;
+
+		if (curr->next)
+			curr->next->prev = NULL;
+
 		*head = curr->next;
 		free(tmp);
 		return 1;
