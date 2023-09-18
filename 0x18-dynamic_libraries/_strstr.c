@@ -26,13 +26,6 @@ char *_strstr(char *haystack, char *needle)
 
 		for (j = 0; j < _strlen(needle); j++)
 		{
-			/* Compare the characters at the same index in  both strings */
-			/* 'j' index in 'haystack[j + i]' && needle[j] will only be incremented */
-			/* if the loop is not broken that means j will only be more than '0' */
-			/* if (needle[j] != haystack[j + i]) is false*/
-
-			/* !!we using j+i instead of just i bcs in the inner loop bcs i value wont!! */
-			/*be changed in inner loop it only get changed if break out of the inner loop*/
 
 			if (needle[j] != haystack[i + j])
 			{
