@@ -48,7 +48,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		}
 		else
 		{
-			curr = new_node;
+			curr->key = strdup(key);
+			curr->value = strdup(value);
+			curr->next = new_node;
+			free(new_node);
 		}
 	}
 
