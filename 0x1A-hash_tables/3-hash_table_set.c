@@ -23,23 +23,22 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		ht->array[index]->key = strdup((char *)key);
 		ht->array[index]->value = strdup((char *)value);
 		ht->array[index]->next = NULL;
-		return (1);
 	}
 	else
 	{
 		hash_node_t *curr = ht->array[index];
 
-		while (curr != NULL)
+		while (curr->next != NULL)
 			curr = curr->next;
 
-		curr = malloc(sizeof(hash_node_t));
+		curr->next = malloc(sizeof(hash_node_t));
 
-		if (curr == NULL)
-			return (0);
+		if (curr->next == NULL)
+			return 0;
 
-		curr->key = strdup((char *)key);
-		curr->value = strdup((char *)value);
-		curr->next = NULL;
+		curr->next->key = strdup((char *)key);
+		curr->next->value = strdup((char *)value);
+		curr->next->next = NULL;
 	}
 
 	return (1);
