@@ -34,6 +34,8 @@ int main(void)
     {
         printf("%s\n", ht->array[key_index((const unsigned char *)"ahmed", 1024)]->value);
     }
+    hash_table_set(ht, "stylist", "overrided Ali");
+    printf("%s\n", ht->array[key_index((const unsigned char *)"stylist", 1024)]->value);
 
     return (EXIT_SUCCESS);
 }
