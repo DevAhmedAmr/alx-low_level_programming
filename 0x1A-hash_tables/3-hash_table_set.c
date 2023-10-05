@@ -11,14 +11,18 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	ht->array[key_index((unsigned char *)key, ht->size)] =
-		malloc(sizeof(hash_node_t));
+	unsigned long index = key_index((unsigned char *)key, ht->size);
 
-	ht->array[key_index((unsigned char *)key, ht->size)]->key =
-		strdup((char *)key);
+	if (ht->array[index] == NULL)
+	{
+		ht->array[index] = malloc(sizeof(hash_node_t));
 
-	ht->array[key_index((unsigned char *)key, ht->size)]->value =
-		strdup((char *)value);
-	ht->array[key_index((unsigned char *)key, ht->size)]->next = NULL;
+		if (ht->array[index] == NULL)
+			return (0);
+
+		ht->array[index]->key = key;
+		ht->array[index]->value = value;
+		ht->array[index]->next = NULL;
+	}
 	return (0);
 }
