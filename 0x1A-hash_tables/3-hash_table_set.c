@@ -24,5 +24,22 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		ht->array[index]->value = (char *)value;
 		ht->array[index]->next = NULL;
 	}
+	else
+	{
+		hash_node_t *curr = ht->array[index];
+
+		while (curr != NULL)
+			curr = curr->next;
+
+		curr = malloc(sizeof(hash_node_t));
+
+		if (curr == NULL)
+			return (0);
+
+		curr->key = (char *)key;
+		curr->value = (char *)value;
+		curr->next = NULL;
+	}
+
 	return (0);
 }
