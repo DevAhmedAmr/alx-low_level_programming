@@ -46,7 +46,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			free_node(new_node);
 			return (1);
 		}
-		else if (curr == NULL)
+		else
 		{
 			curr = new_node;
 		}
