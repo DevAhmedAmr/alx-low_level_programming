@@ -12,51 +12,48 @@ void free_node(hash_node_t *node);
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long index = key_index((unsigned char *)key, ht->size);
-	hash_node_t *new_node = malloc(sizeof(hash_node_t));
+	unsigned long int index;
+	hash_node_t *new_node, *current;
 
-	if (new_node == NULL || key == NULL || value == NULL)
+	if (strcmp(key, "") == 0 || key == NULL || ht == NULL)
 		return (0);
-
+	index = key_index((const unsigned char *)key, ht->size);
+	new_node = malloc(sizeof(hash_node_t));
+	if (new_node == NULL)
+		return (0);
 	new_node->key = strdup((char *)key);
-	if (new_node == NULL)
-		return (0);
-
 	new_node->value = strdup((char *)value);
-	if (new_node == NULL)
-		return (0);
-
 	new_node->next = NULL;
-
 	if (ht->array[index] == NULL)
-	{
 		ht->array[index] = new_node;
-		return (1);
-	}
 	else
 	{
-		hash_node_t *curr = ht->array[index];
-
-		while (curr != NULL && strcmp(curr->key, key) != 0)
-			curr = curr->next;
-
-		if (curr != NULL && strcmp(curr->key, key) == 0)
+		current = ht->array[index];
+		if (strcmp(current->key, key) == 0)
 		{
-			free(curr->value);
-			curr->value = strdup(value);
-			free_node(new_node);
+			new_node->next = current->next;
+			ht->array[index] = new_node;
+			free_node(current);
 			return (1);
+		}
+		while (current->next != NULL && strcmp(current->next->key, key) != 0)
+		{
+			current = current->next;
+		}
+		if (strcmp(current->key, key) == 0)
+		{
+			new_node->next = current->next->next;
+			free_node(current->next);
+			current->next = new_node;
 		}
 		else
 		{
+			new_node->next = ht->array[index];
 			ht->array[index] = new_node;
-			return (1);
 		}
 	}
-
 	return (1);
 }
-
 /**
  * free_node - Free a node.
  * @node: Node to free.
