@@ -1,4 +1,5 @@
 #include "hash_tables.h"
+void free_node(hash_node_t *node);
 /**
  * hash_table_set - that adds an element to the hash table.
  *
@@ -12,53 +13,57 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long index = key_index((unsigned char *)key, ht->size);
+	hash_node_t *new_node = malloc(sizeof(hash_node_t));
 
-	if (strcmp(key, "") == 0 || key == NULL || ht == NULL)
+	if (new_node == NULL)
 		return (0);
+
+	new_node->key = strdup((char *)key);
+	if (new_node == NULL)
+		return (0);
+
+	new_node->value = strdup((char *)value);
+	if (new_node == NULL)
+		return (0);
+
+	new_node->next = NULL;
 
 	if (ht->array[index] == NULL)
 	{
-		ht->array[index] = malloc(sizeof(hash_node_t));
-
-		if (ht->array[index] == NULL)
-			return (0);
-
-		ht->array[index]->key = strdup((char *)key);
-
-		if (ht->array[index]->key == NULL)
-			return (0);
-
-		ht->array[index]->value = strdup((char *)value);
-
-		if (ht->array[index]->value == NULL)
-			return (0);
-
-		ht->array[index]->next = NULL;
+		ht->array[index] = new_node;
 	}
 	else
 	{
 		hash_node_t *curr = ht->array[index];
 
-		while (curr != NULL)
+		while (curr != NULL && strcmp(curr->key, key) != 0)
 			curr = curr->next;
 
-		curr = malloc(sizeof(hash_node_t));
-
-		if (curr == NULL)
-			return (0);
-
-		curr->key = strdup((char *)key);
-
-		if (ht->array[index]->key == NULL)
-			return (0);
-
-		curr->value = strdup((char *)value);
-
-		if (ht->array[index]->value == NULL)
-			return (0);
-
-		curr->next = NULL;
+		if (curr != NULL && strcmp(curr->key, key) == 0)
+		{
+			free(curr->value);
+			curr->value = strdup(value);
+			free_node(new_node);
+			return (1);
+		}
+		else if (curr == NULL)
+		{
+			curr = new_node;
+		}
 	}
 
 	return (1);
+}
+
+/**
+ * free_node - Free a node.
+ * @node: Node to free.
+ *
+ * Return: Void.
+ */
+void free_node(hash_node_t *node)
+{
+	free(node->key);
+	free(node->value);
+	free(node);
 }
