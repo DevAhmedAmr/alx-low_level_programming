@@ -1,6 +1,7 @@
 #include "hash_tables.h"
 void free_node(hash_node_t *node);
-void test(hash_node_t *prev, hash_node_t **curr, const char *key, const char *value);
+void insert_in_theEnd(hash_node_t *prev, hash_node_t **curr, const char *key, const char *value);
+void insert_stack(hash_table_t *ht, char *key, char *value);
 /**
  * hash_table_set - that adds an element to the hash table.
  *
@@ -28,11 +29,13 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	else
 	{
 		hash_node_t *curr = ht->array[index];
+		/*hash_node_t *prev = ht->array[index];*/
 
 		while (curr != NULL && strcmp(curr->key, key) != 0)
 		{
 
 			if (curr->next == NULL || strcmp(curr->next->key, key) == 0)
+				/*prev = curr;*/
 				curr = curr->next;
 		}
 
@@ -44,12 +47,27 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			if (curr->value == NULL)
 				return 0;
 		}
+		else if (curr == NULL)
+		{
+			insert_stack(ht, (char *)key, (char *)value);
+		}
 	}
 
 	return (1);
 }
 
-void test(hash_node_t *prev, hash_node_t **curr, const char *key, const char *value)
+void insert_stack(hash_table_t *ht, char *key, char *value)
+{
+	unsigned long index = key_index((const unsigned char *)key, ht->size);
+	hash_node_t *next = ht->array[index];
+	hash_node_t *new_node = malloc(sizeof(hash_node_t));
+
+	new_node->key = strdup(key);
+	new_node->value = strdup(value);
+	new_node->next = next;
+	ht->array[index] = new_node;
+}
+void insert_in_theEnd(hash_node_t *prev, hash_node_t **curr, const char *key, const char *value)
 {
 	(*curr) = malloc(sizeof(hash_node_t));
 	(*curr)->key = strdup(key);
