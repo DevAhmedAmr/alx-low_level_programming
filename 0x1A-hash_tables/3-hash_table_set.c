@@ -46,8 +46,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			if (curr->next == NULL)
 				break;
 
-			curr = curr->next; // Advance to the next node.
-		}
+			curr = curr->next;
+				}
 
 		insert_stack(ht, (char *)key, (char *)value);
 
