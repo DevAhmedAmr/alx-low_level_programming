@@ -5,10 +5,10 @@ void hash_table_print(const hash_table_t *ht)
 	int first_meet = 0;
 
 	if (ht == NULL)
-		return
+		return;
 
-			/*hash_node_t *curr = NULL;*/
-			putchar('{');
+	/*hash_node_t *curr = NULL;*/
+	putchar('{');
 
 	for (i = 0; i < ht->size; i++)
 	{
