@@ -11,9 +11,8 @@
 int main(void)
 {
 	hash_table_t *ht;
-	char *value;
 
-	ht = hash_table_create(1024);
+	ht = hash_table_create(1);
 	hash_table_set(ht, "USA", "Washington");
 	hash_table_set(ht, "France", "Paris");
 	hash_table_set(ht, "UK", "London");
@@ -28,8 +27,7 @@ int main(void)
 	hash_table_set(ht, "Iceland", "Reykjavik");
 	hash_table_set(ht, "Japan", "Tokyo");
 	hash_table_set(ht, "Australia", "Canberra");
-	hash_table_get(NULL, "USA");
-	value = hash_table_get(ht, "Poland");
-	printf("%s:%s\n", "Poland", value);
+
+	hash_table_print(NULL);
 	return (EXIT_SUCCESS);
 }
