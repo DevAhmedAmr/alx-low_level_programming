@@ -12,7 +12,7 @@ int main(void)
 {
 	char *value;
 
-	value = hash_table_get(NULL, "Canada");
+	value = hash_table_get(NULL, NULL);
 	printf("%s:%s\n", "Canada", value);
 	return (EXIT_SUCCESS);
 }
