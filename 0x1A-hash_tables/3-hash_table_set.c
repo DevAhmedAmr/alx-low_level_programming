@@ -47,10 +47,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			if (curr->value == NULL)
 				return 0;
 		}
-		else if (curr == NULL)
-		{
+		else
 			insert_stack(ht, (char *)key, (char *)value);
-		}
 	}
 
 	return (1);
