@@ -1,5 +1,6 @@
 #include "hash_tables.h"
 void free_node(hash_node_t *node);
+void test(hash_node_t *prev, hash_node_t **curr, const char *key, const char *value);
 /**
  * hash_table_set - that adds an element to the hash table.
  *
@@ -29,9 +30,15 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	else
 	{
 		hash_node_t *curr = ht->array[index];
+		hash_node_t *prev = ht->array[index];
 
 		while (curr != NULL && strcmp(curr->key, key) != 0)
+		{
+
+			if (curr->next == NULL || strcmp(curr->next->key, key) == 0)
+				prev = curr;
 			curr = curr->next;
+		}
 
 		if (curr != NULL && strcmp(curr->key, key) == 0)
 		{
@@ -41,14 +48,20 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		}
 		else if (curr == NULL)
 		{
-			curr = malloc(sizeof(hash_node_t));
-			curr->key = strdup(key);
-			curr->value = strdup(value);
-			curr->next = NULL;
+			test(prev, &curr, key, value);
 		}
 	}
 
 	return (1);
+}
+
+void test(hash_node_t *prev, hash_node_t **curr, const char *key, const char *value)
+{
+	(*curr) = malloc(sizeof(hash_node_t));
+	(*curr)->key = strdup(key);
+	(*curr)->value = strdup(value);
+	(*curr)->next = NULL;
+	(prev)->next = *curr;
 }
 
 /**
