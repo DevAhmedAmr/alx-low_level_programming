@@ -9,6 +9,7 @@
  * Return: Always EXIT_SUCCESS.
  */
 void print_ht(hash_table_t *ht, const char *key);
+void hashTable_free(hash_table_t *hash_table, int size);
 int main(void)
 {
     hash_table_t *ht;
@@ -38,7 +39,7 @@ int main(void)
 
     print_ht(ht, "subgenera");
     print_ht(ht, "stylist");
-
+    hashTable_free(ht, ht->size);
     return (EXIT_SUCCESS);
 }
 
@@ -60,4 +61,29 @@ void print_ht(hash_table_t *ht, const char *key)
         curr = curr->next;
     }
     printf("%s: not found\n", key);
+}
+
+void hashTable_free(hash_table_t *hash_table, int size)
+{
+    int i = 0;
+    while (i < size)
+    {
+        hash_node_t **curr = &hash_table->array[i];
+
+        while (*curr != NULL)
+        {
+            hash_node_t *next = (*curr)->next;
+
+            free((*curr)->key);
+            free((*curr)->value);
+            free(*curr);
+            *curr = next;
+        }
+
+        free(hash_table->array[i]);
+
+        i++;
+    }
+    free(hash_table->array);
+    free(hash_table);
 }

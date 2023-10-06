@@ -9,21 +9,21 @@
 
 hash_table_t *hash_table_create(unsigned long int size)
 {
-	hash_table_t *result = malloc(sizeof(hash_table_t));
+	hash_table_t *ht = malloc(sizeof(hash_table_t));
 	unsigned long int i;
 
-	if (result == NULL)
+	if (ht == NULL)
 		return (NULL);
 
-	result->size = size;
+	ht->size = size;
 
-	result->array = malloc(sizeof(hash_node_t *) * size);
+	ht->array = malloc(sizeof(hash_node_t *) * size);
 
-	if (result->array == NULL)
+	if (ht->array == NULL)
 		return (NULL);
 
 	for (i = 0; i < size; i++)
-		result->array[i] = NULL;
+		ht->array[i] = NULL;
 
-	return (result);
+	return (ht);
 }

@@ -14,18 +14,18 @@ void test(hash_node_t *prev, hash_node_t **curr, const char *key, const char *va
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long index = key_index((unsigned char *)key, ht->size);
-	hash_node_t *new_node = malloc(sizeof(hash_node_t));
+	// hash_node_t *new_node = malloc(sizeof(hash_node_t));
 
-	if (new_node == NULL || key == NULL || value == NULL)
-		return (0);
-
-	new_node->key = strdup((char *)key);
-	new_node->value = strdup((char *)value);
-	new_node->next = NULL;
+	// if (new_node == NULL || key == NULL || value == NULL)
+	// 	return (0);
 
 	if (ht->array[index] == NULL)
 	{
-		ht->array[index] = new_node;
+		ht->array[index] = malloc(sizeof(hash_node_t));
+		;
+		ht->array[index]->key = strdup((char *)key);
+		ht->array[index]->value = strdup((char *)value);
+		ht->array[index]->next = NULL;
 	}
 	else
 	{
@@ -44,12 +44,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		{
 			free(curr->value);
 			curr->value = strdup(value);
-			free_node(new_node);
 		}
 		else if (curr == NULL)
 		{
 			test(prev, &curr, key, value);
-			free(new_node);
 		}
 	}
 
