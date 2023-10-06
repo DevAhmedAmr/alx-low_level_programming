@@ -25,6 +25,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		ht->array[index]->key = strdup((char *)key);
 		ht->array[index]->value = strdup((char *)value);
 		ht->array[index]->next = NULL;
+		return (1);
 	}
 	else
 	{
@@ -47,12 +48,13 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 				break;
 
 			curr = curr->next;
-				}
+		}
 
 		insert_stack(ht, (char *)key, (char *)value);
 
 		return (1);
 	}
+	return (1);
 }
 
 void insert_stack(hash_table_t *ht, char *key, char *value)
