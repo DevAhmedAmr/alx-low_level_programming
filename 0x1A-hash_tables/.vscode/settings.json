@@ -2,6 +2,8 @@
   "files.associations": {
     "string.h": "c",
     "hash_tables.h": "c",
-    "stdbool.h": "c"
+    "stdbool.h": "c",
+    "malloc.h": "c",
+    "stdlib.h": "c"
   }
 }
