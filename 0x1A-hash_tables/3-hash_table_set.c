@@ -25,35 +25,31 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		ht->array[index]->key = strdup((char *)key);
 		ht->array[index]->value = strdup((char *)value);
 		ht->array[index]->next = NULL;
-		return (1);
 	}
 	else
 	{
 		hash_node_t *curr = ht->array[index];
 		/*hash_node_t *prev = ht->array[index];*/
 
-		while (curr != NULL)
+		while (curr != NULL && strcmp(curr->key, key) != 0)
 		{
-			if (strcmp(curr->key, key) == 0)
-			{
-				free(curr->value);
-				curr->value = strdup(value);
 
-				if (curr->value == NULL)
-					return 0;
-				return 1;
-			}
-
-			if (curr->next == NULL)
-				break;
-
+			/*prev = curr;*/
 			curr = curr->next;
 		}
 
-		insert_stack(ht, (char *)key, (char *)value);
+		if (curr != NULL && strcmp(curr->key, key) == 0)
+		{
+			free(curr->value);
+			curr->value = strdup(value);
 
-		return (1);
+			if (curr->value == NULL)
+				return 0;
+		}
+		else
+			insert_stack(ht, (char *)key, (char *)value);
 	}
+
 	return (1);
 }
 
