@@ -28,7 +28,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	else
 	{
 		hash_node_t *curr = ht->array[index];
-		hash_node_t *prev = ht->array[index];
 
 		while (curr != NULL && strcmp(curr->key, key) != 0)
 		{
