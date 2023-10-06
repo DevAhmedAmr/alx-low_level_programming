@@ -31,26 +31,28 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		hash_node_t *curr = ht->array[index];
 		/*hash_node_t *prev = ht->array[index];*/
 
-		while (curr != NULL && strcmp(curr->key, key) != 0)
+		while (curr != NULL)
 		{
+			if (strcmp(curr->key, key) == 0)
+			{
+				free(curr->value);
+				curr->value = strdup(value);
 
-			/*prev = curr;*/
-			curr = curr->next;
+				if (curr->value == NULL)
+					return 0;
+				return 1;
+			}
+
+			if (curr->next == NULL)
+				break;
+
+			curr = curr->next; // Advance to the next node.
 		}
 
-		if (curr != NULL && strcmp(curr->key, key) == 0)
-		{
-			free(curr->value);
-			curr->value = strdup(value);
+		insert_stack(ht, (char *)key, (char *)value);
 
-			if (curr->value == NULL)
-				return 0;
-		}
-		else
-			insert_stack(ht, (char *)key, (char *)value);
+		return (1);
 	}
-
-	return (1);
 }
 
 void insert_stack(hash_table_t *ht, char *key, char *value)
