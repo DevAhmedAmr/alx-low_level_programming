@@ -1,34 +1,24 @@
 #include "hash_tables.h"
 void hash_table_print(const hash_table_t *ht)
 {
-	size_t i;
-	int first_meet = 0;
+	unsigned long int i;
+	hash_node_t *tmp;
+	char flag = 0; /* 0 while no data has been printed yet */
 
-	/*hash_node_t *curr = NULL;*/
-	putchar('{');
-
+	if (ht == NULL || ht->array == NULL)
+		return;
+	printf("{");
 	for (i = 0; i < ht->size; i++)
 	{
-		if (ht->array[i] != NULL)
+		tmp = ht->array[i];
+		while (tmp != NULL)
 		{
-			hash_node_t *curr = ht->array[i];
-
-			if (first_meet)
+			if (flag == 1)
 				printf(", ");
-
-			printf("'%s': '%s'", curr->key, curr->value);
-
-			while (curr->next != NULL)
-			{
-				printf(", ");
-
-				printf("'%s': '%s'", curr->key, curr->value);
-
-				curr = curr->next;
-			}
-
-			first_meet = 1;
+			printf("'%s': '%s'", tmp->key, tmp->value);
+			flag = 1;
+			tmp = tmp->next;
 		}
 	}
-	puts("}");
+	printf("}\n");
 }
