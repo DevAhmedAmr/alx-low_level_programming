@@ -16,29 +16,34 @@ int main(void)
 
     ht = hash_table_create(1024);
 
-    hash_table_set(ht, "hetairas", "cool");
-    hash_table_set(ht, "mentioner", "ahmed");
-    hash_table_set(ht, "subgenera", "ahmed2");
-    hash_table_set(ht, "stylist", "ahmed3");
+    printf("return value = %i\n", hash_table_set(ht, "hetairas", "cool"));
+    printf("return value = %i\n", hash_table_set(ht, "mentioner", "ahmed"));
+    printf("return value = %i\n", hash_table_set(ht, "heliotropes", "ahmed2"));
+    printf("return value = %i\n", hash_table_set(ht, "neurospora", "ahmed3"));
 
     print_ht(ht, "hetairas");
     print_ht(ht, "mentioner");
-    print_ht(ht, "subgenera");
-    print_ht(ht, "stylist");
+    print_ht(ht, "heliotropes");
+    print_ht(ht, "neurospora");
 
     printf("----------------------\n");
 
-    hash_table_set(ht, "hetairas", "overrided cool");
+    printf("return value = %i\n", hash_table_set(ht, "hetairas", "overrided cool"));
     print_ht(ht, "hetairas");
 
     printf("    ---------      \n");
 
-    hash_table_set(ht, "subgenera", "overrided subgenera");
-    hash_table_set(ht, "stylist", "overrided stylist");
+    printf("return value = %i\n", hash_table_set(ht, "mentioner", "overrided mentioner"));
+
+    ;
+    printf("return value = %i\n", hash_table_set(ht, "neurospora", "overrided neurospora"));
+
+    ;
     printf("----------------------\n");
 
-    print_ht(ht, "subgenera");
-    print_ht(ht, "stylist");
+    print_ht(ht, "mentioner");
+    print_ht(ht, "heliotropes");
+    print_ht(ht, "neurospora");
     hashTable_free(ht, ht->size);
     return (EXIT_SUCCESS);
 }
@@ -68,19 +73,19 @@ void hashTable_free(hash_table_t *hash_table, int size)
     int i = 0;
     while (i < size)
     {
-        hash_node_t **curr = &hash_table->array[i];
+        hash_node_t *curr = hash_table->array[i];
 
-        while (*curr != NULL)
+        while (curr != NULL)
         {
-            hash_node_t *next = (*curr)->next;
+            hash_node_t *next = (curr)->next;
 
-            free((*curr)->key);
-            free((*curr)->value);
-            free(*curr);
-            *curr = next;
+            free((curr)->key);
+            free((curr)->value);
+            free(curr);
+            curr = next;
         }
 
-        free(hash_table->array[i]);
+        /*free(hash_table->array[i]);*/
 
         i++;
     }
