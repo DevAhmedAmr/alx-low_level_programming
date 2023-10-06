@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdio.h>
 #include "hash_tables.h"
-void print_hash_table(hash_table_t *ht);
+
 /**
  * main - check the code
  *
@@ -16,31 +16,38 @@ int main(void)
 
     ht = hash_table_create(1024);
 
-    // Test Case 1: Insert a key-value pair into an empty table
-    hash_table_set(ht, "key1", "value1");
+    printf("return value = %i\n", hash_table_set(ht, "hetairas", "cool"));
+    printf("return value = %i\n", hash_table_set(ht, "mentioner", "ahmed"));
+    printf("return value = %i\n", hash_table_set(ht, "heliotropes", "ahmed2"));
+    printf("return value = %i\n", hash_table_set(ht, "neurospora", "ahmed3"));
 
-    // Test Case 2: Insert a key-value pair with an existing key (update value)
-    hash_table_set(ht, "key1", "new_value1");
+    print_ht(ht, "hetairas");
+    print_ht(ht, "mentioner");
+    print_ht(ht, "heliotropes");
+    print_ht(ht, "neurospora");
 
-    // Test Case 3: Insert multiple key-value pairs
-    hash_table_set(ht, "key2", "value2");
-    hash_table_set(ht, "key3", "value3");
-    hash_table_set(ht, "key4", "value4");
+    printf("----------------------\n");
 
-    // Test Case 4: Insert a key-value pair with an empty key (should fail)
-    int result = hash_table_set(ht, "", "empty_key_value");
-    printf("Result of inserting an empty key: %d\n", result);
+    printf("return value = %i\n", hash_table_set(ht, "hetairas", "overrided cool"));
+    print_ht(ht, "hetairas");
 
-    // Test Case 5: Insert a key-value pair with a NULL key (should fail)
-    result = hash_table_set(ht, NULL, "null_key_value");
-    printf("Result of inserting a NULL key: %d\n", result);
+    printf("    ---------      \n");
 
-    // Print the hash table to verify the results
-    printf("Hash Table Contents:\n");
-    print_hash_table(ht);
-    hashTable_free(ht, 1024);
+    printf("return value = %i\n", hash_table_set(ht, "mentioner", "overrided mentioner"));
+
+    ;
+    printf("return value = %i\n", hash_table_set(ht, "neurospora", "overrided neurospora"));
+
+    ;
+    printf("----------------------\n");
+
+    print_ht(ht, "mentioner");
+    print_ht(ht, "heliotropes");
+    print_ht(ht, "neurospora");
+    hashTable_free(ht, ht->size);
     return (EXIT_SUCCESS);
 }
+
 void print_ht(hash_table_t *ht, const char *key)
 {
     size_t index = key_index((const unsigned char *)key, 1024);
@@ -84,27 +91,4 @@ void hashTable_free(hash_table_t *hash_table, int size)
     }
     free(hash_table->array);
     free(hash_table);
-}
-void print_hash_table(hash_table_t *ht)
-{
-    if (ht == NULL || ht->array == NULL)
-    {
-        printf("Hash table is empty or invalid.\n");
-        return;
-    }
-
-    printf("Hash Table Contents:\n");
-
-    for (unsigned long i = 0; i < ht->size; i++)
-    {
-        if (ht->array[i] != NULL)
-        {
-            hash_node_t *current = ht->array[i];
-            while (current != NULL)
-            {
-                printf("Key: %s, Value: %s\n", current->key, current->value);
-                current = current->next;
-            }
-        }
-    }
 }
