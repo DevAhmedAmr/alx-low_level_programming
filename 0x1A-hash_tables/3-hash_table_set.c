@@ -59,14 +59,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 void insert_stack(hash_table_t *ht, char *key, char *value)
 {
 	unsigned long index = key_index((const unsigned char *)key, ht->size);
-	hash_node_t *next = ht->array[index];
 	hash_node_t *new_node = malloc(sizeof(hash_node_t));
 
 	new_node->key = strdup(key);
 	new_node->value = strdup(value);
-	new_node->next = next;
+	new_node->next = ht->array[index];
 	ht->array[index] = new_node;
 }
+
 void insert_in_theEnd(hash_node_t *prev, hash_node_t **curr, const char *key, const char *value)
 {
 	(*curr) = malloc(sizeof(hash_node_t));
