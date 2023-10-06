@@ -2,7 +2,7 @@
 void hash_table_print(const hash_table_t *ht)
 {
 	size_t i;
-	int first_meet = 0;
+	int first_meeting = 0;
 
 	if (ht == NULL)
 		return;
@@ -16,12 +16,14 @@ void hash_table_print(const hash_table_t *ht)
 		{
 			hash_node_t *curr = ht->array[i];
 
-			if (first_meet)
+			if (first_meeting)
 				printf(", ");
 
 			printf("'%s': '%s'", curr->key, curr->value);
+			curr = curr->next;
 
-			while (curr->next != NULL)
+			/*to do */
+			while (curr != NULL)
 			{
 				printf(", ");
 
@@ -30,7 +32,7 @@ void hash_table_print(const hash_table_t *ht)
 				curr = curr->next;
 			}
 
-			first_meet = 1;
+			first_meeting = 1;
 		}
 	}
 	puts("}");
