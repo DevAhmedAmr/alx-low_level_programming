@@ -14,10 +14,12 @@ void insert_stack(hash_table_t *ht, char *key, char *value);
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long index = key_index((unsigned char *)key, ht->size);
+	unsigned long index;
 
-	if (strcmp(key, "") == 0 || key == NULL || value == NULL)
+	if (key == NULL || value == NULL || strcmp(key, "") == 0)
 		return (0);
+
+	index = key_index((unsigned char *)key, ht->size);
 
 	if (ht->array[index] == NULL)
 	{
