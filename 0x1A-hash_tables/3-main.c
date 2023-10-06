@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdio.h>
 #include "hash_tables.h"
-
+void print_hash_table(hash_table_t *ht);
 /**
  * main - check the code
  *
@@ -33,14 +33,11 @@ int main(void)
 
     // Test Case 5: Insert a key-value pair with a NULL key (should fail)
     result = hash_table_set(ht, NULL, "null_key_value");
-    printf("seg fault\n");
-
     printf("Result of inserting a NULL key: %d\n", result);
 
     // Print the hash table to verify the results
     printf("Hash Table Contents:\n");
-
-    // Cleanup
+    print_hash_table(ht);
     hashTable_free(ht, 1024);
     return (EXIT_SUCCESS);
 }
@@ -87,4 +84,27 @@ void hashTable_free(hash_table_t *hash_table, int size)
     }
     free(hash_table->array);
     free(hash_table);
+}
+void print_hash_table(hash_table_t *ht)
+{
+    if (ht == NULL || ht->array == NULL)
+    {
+        printf("Hash table is empty or invalid.\n");
+        return;
+    }
+
+    printf("Hash Table Contents:\n");
+
+    for (unsigned long i = 0; i < ht->size; i++)
+    {
+        if (ht->array[i] != NULL)
+        {
+            hash_node_t *current = ht->array[i];
+            while (current != NULL)
+            {
+                printf("Key: %s, Value: %s\n", current->key, current->value);
+                current = current->next;
+            }
+        }
+    }
 }
