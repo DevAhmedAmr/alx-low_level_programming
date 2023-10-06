@@ -4,6 +4,12 @@
     "hash_tables.h": "c",
     "stdbool.h": "c",
     "malloc.h": "c",
-    "stdlib.h": "c"
-  }
+    "stdlib.h": "c",
+    "vector": "c",
+    "memory": "c",
+    "system_error": "c"
+  },
+  "cSpell.words": [
+    "begining"
+  ]
 }
