@@ -4,8 +4,11 @@ void hash_table_print(const hash_table_t *ht)
 	size_t i;
 	int first_meet = 0;
 
-	/*hash_node_t *curr = NULL;*/
-	putchar('{');
+	if (ht == NULL)
+		return
+
+			/*hash_node_t *curr = NULL;*/
+			putchar('{');
 
 	for (i = 0; i < ht->size; i++)
 	{
