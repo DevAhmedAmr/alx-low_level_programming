@@ -42,10 +42,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 		if (curr != NULL && strcmp(curr->key, key) == 0)
 		{
-			// free(curr->value);
-			// curr->value = strdup(value);
 
-			// if (curr->value == NULL)
 			return 0;
 		}
 		else
