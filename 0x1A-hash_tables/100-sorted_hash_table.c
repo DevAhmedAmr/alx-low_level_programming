@@ -94,18 +94,10 @@ void set_snode(shash_table_t *ht, size_t index)
 	while (curr)
 	{
 		int cmp = strcmp(curr->key, str);
-		// printf("out cmp = %i\n", cmp);
 
-		if (cmp < 0)
-		{
-			// printf("-  >>> %s %s - %i  \n", curr->key, ht->array[index]->key, strcmp(curr->key, ht->array[index]->key));
-			// rintf(" next %s %s %i\n", curr->snext->key, ht->array[index]->key, strcmp(curr->snext->key, ht->array[index]->key));
-		}
-		else if (cmp > 0)
+		if (cmp > 0)
 		{
 			put_before = 1;
-			//	printf("cmp = %i\n", cmp);
-
 			break;
 		}
 
@@ -113,28 +105,12 @@ void set_snode(shash_table_t *ht, size_t index)
 			break;
 		curr = curr->snext;
 	}
-	// printf("put_before = %i\n", put_before);
 
 	if (put_before == 0)
-	{
-		// shash_node_t *node = malloc(sizeof(shash_node_t));
-		// node->key = ht->array[index]->key;
-		// node->value = ht->array[index]->value;
-		// curr->snext = node;
-		// node->sprev = curr;
-		// node->snext = NULL;
 		insert_add_theEnd(ht, curr, index);
 
-		// printf("-_-\n");
-	}
 	else if (curr && put_before == 1)
-	{
-		//	printf("bbb?\n");
 		put_before_node(ht, curr, index);
-		// printf("**)\n");
-	}
-	// print_node_s(ht->shead);
-	// printf("\n-------------\n");
 }
 
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
