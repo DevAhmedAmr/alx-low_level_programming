@@ -76,5 +76,15 @@ typedef struct shash_table_s
 	shash_node_t *shead;
 	shash_node_t *stail;
 } shash_table_t;
+void set_snode(shash_table_t *ht, shash_node_t *new_node);
+void put_before_node(shash_table_t *ht, shash_node_t *curr_pos, shash_node_t *node);
+int shash_table_set(shash_table_t *ht, const char *key, const char *value);
+void insert_add_theEnd(shash_table_t *ht, shash_node_t *curr, shash_node_t *new_node);
+void set_shead_and_stail(shash_table_t *ht, size_t index);
 
+/***/
+// int shash_table_set(shash_table_t *ht, const char *key, const char *value);
+// void __insert_add_theEnd(shash_table_t *ht, shash_node_t **curr, shash_node_t **new_node);
+// void __set_snode(shash_table_t **ht, shash_node_t **new_node);
+// void __put_before_node(shash_table_t **ht, shash_node_t **curr_pos, shash_node_t **node);
 #endif
