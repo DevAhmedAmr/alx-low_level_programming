@@ -1,0 +1,11 @@
+all: build_O_file build
+
+CC= gcc
+SRC = school.c main.c
+OBJ= school.o main.o
+NAME= school
+
+build_O_file: $(SRC)
+	$(CC) -c $(SRC)
+build:
+	$(CC) $(OBJ) -o $(NAME)
