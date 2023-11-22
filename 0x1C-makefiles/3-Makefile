@@ -6,10 +6,10 @@ RM = rm -f
 TMP_files= *~ .~-
 
 all: $(OBJ)
-	$(CC) $(OBJ) -o $(school)
+	$(CC) $(OBJ) -o $(NAME)
 
 clean: 
-	$(RM) $(TMP_files) $(NAME)
+	$(RM) $(TMP_files) $(NAME) # rm -f *~ .~- school
 
 
 oclean:
