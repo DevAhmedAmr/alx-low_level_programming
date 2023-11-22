@@ -1,1 +1,7 @@
-#!/usr/bin/env bash
+cc= gcc
+SRC= school.c main.c
+
+all : build
+
+build : $(SRC)
+	$(cc) $(SRC)
