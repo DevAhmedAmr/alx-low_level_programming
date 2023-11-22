@@ -3,8 +3,9 @@ SRC = school.c main.c
 OBJ=  $(SRC:.c=.o)
 NAME= school
 
-all:  build
+all: build_O_file build
 
-
+build_O_file: $(SRC)
+	$(CC) -c $(SRC)
 build:
 	$(CC) $(OBJ) -o $(NAME)
