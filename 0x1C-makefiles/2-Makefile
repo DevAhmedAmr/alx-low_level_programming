@@ -1,9 +1,9 @@
-all: build_O_file build
-
 CC= gcc
 SRC = school.c main.c
 OBJ= school.o main.o
 NAME= school
+
+all: build_O_file build
 
 build_O_file: $(SRC)
 	$(CC) -c $(SRC)
