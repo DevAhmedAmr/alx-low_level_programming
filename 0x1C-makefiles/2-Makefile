@@ -10,4 +10,4 @@ build_O_file: $(SRC)
 build:
 	$(CC) $(OBJ) -o $(NAME)
 clean: $(OBJ)
-	rm $(OBJ)
+	rm -f $(OBJ)
