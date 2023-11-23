@@ -8,7 +8,6 @@ def island_perimeter(grid):
     first_one = 0
     for i in range(len(grid)):
         for j in range(len(grid[i])):
-            print(look_up(grid, i, j))
             if grid[i][j] == 1:
                 perimeter += look_up(grid, i, j)
 
