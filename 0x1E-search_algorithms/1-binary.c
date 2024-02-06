@@ -1,18 +1,32 @@
 #include "search_algos.h"
 int binary_search_helper(int *array, size_t start, size_t end, int value);
 int print_arr(int *arr, size_t start, size_t size);
-int binary_search(int *array, size_t size, int value)
-{
-
-	return binary_search_helper(array, 0, size - 1, value);
-}
 /**
- * binary_search_helper - a function that searches for a value in
+ * binary_search - a function that searches for a value in
  * a sorted array of integers using the Binary search algorithm
  *
  * @params
  * @array: array to be searched
  * @size: size of the array
+ * @value: value to be found
+ *
+ * Return: If value is not present in array or if array is NULL, return -1
+ * else return the index of the value
+ */
+int binary_search(int *array, size_t size, int value)
+{
+
+	return (binary_search_helper(array, 0, size - 1, value));
+}
+/**
+ * binary_search_helper - a helper function that helps searches
+ * binary_search function for a value in a sorted array of integers
+ * using the Binary search algorithm
+ *
+ * @params
+ * @array: array to be searched
+ * @start: start index
+ * @end: end or size of the array
  * @value: value to be found
  *
  * Return: If value is not present in array or if array is NULL, return -1
@@ -40,9 +54,8 @@ int binary_search_helper(int *array, size_t start, size_t end, int value)
 }
 /**
  * print_arr - a function that print the array
-
- * * @params
- * @array: array to be printed
+ * @params
+ * @arr: array to be printed
  * @start: start of the array
  * @end:
  *
@@ -55,7 +68,7 @@ int print_arr(int *arr, size_t start, size_t end)
 
 	if (arr == NULL || end == 0 || start > end)
 	{
-		return -1;
+		return (-1);
 	}
 
 	printf("Searching in array:");
@@ -69,5 +82,5 @@ int print_arr(int *arr, size_t start, size_t end)
 			printf(",");
 	}
 	printf("\n");
-	return 0;
+	return (0);
 }
