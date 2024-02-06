@@ -32,7 +32,7 @@ int print_arr(int *arr, size_t start, size_t size)
 {
 	size_t i;
 
-	if (arr == NULL || size == 0)
+	if (arr == NULL || size == 0 || start > size)
 	{
 		return -1;
 	}
