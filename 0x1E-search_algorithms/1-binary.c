@@ -12,7 +12,7 @@ int binary_search_helper(int *array, size_t start, size_t end, int value)
 
 	print_arr(array, start, end);
 
-	if (start > end)
+	if (start > end || array == NULL)
 		return -1;
 
 	if (array[mid] == value)
